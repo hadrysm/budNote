@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledButton = styled.button`
+const Button = styled.button`
   display: inline-block;
   min-width: 15rem;
   padding: 1.5rem 1rem;
@@ -19,3 +19,5 @@ export const StyledButton = styled.button`
       border: 1px solid ${({ theme }) => theme.colors.text};
     `}
 `;
+
+export default Button;

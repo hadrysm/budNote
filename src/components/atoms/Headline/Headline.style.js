@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeadline = styled.h2`
+const Headline = styled.h2`
   margin: 0;
   padding: 0;
   color: ${({ theme }) => theme.colors.text};
@@ -13,3 +13,5 @@ export const StyledHeadline = styled.h2`
     font-size: ${({ customFontSize, theme }) => `${customFontSize}rem` || theme.font.size.l};
   }
 `;
+
+export default Headline;

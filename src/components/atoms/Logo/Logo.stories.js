@@ -6,4 +6,4 @@ export default {
   component: Logo,
 };
 
-export const Primary = () => <Logo>butNote</Logo>;
+export const Primary = () => <Logo />;
