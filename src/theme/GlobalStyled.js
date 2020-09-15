@@ -14,6 +14,7 @@ html{
 body{
   margin:0;
   padding:0;
+  font-family: 'Graphik';
   font-size: 1.6rem;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background};

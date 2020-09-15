@@ -1,9 +1,9 @@
 import React from 'react';
 import Logo from './Logo';
 
-export const Primary = () => <Logo>butNote</Logo>;
-
 export default {
-  title: 'Components/Logo',
+  title: 'Components/atoms/Logo',
   component: Logo,
 };
+
+export const Primary = () => <Logo>butNote</Logo>;
