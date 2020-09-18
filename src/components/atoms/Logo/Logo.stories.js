@@ -6,4 +6,7 @@ export default {
   component: Logo,
 };
 
-export const Primary = () => <Logo />;
+const Template = (args) => <Logo {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = { label: 'budNote' };

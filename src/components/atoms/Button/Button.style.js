@@ -1,6 +1,20 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
-const Button = styled.button`
+const variants = {
+  hover: {
+    scale: 1.05,
+  },
+  tap: {
+    scale: 0.9,
+  },
+};
+
+const StyledButton = styled(motion.button).attrs(() => ({
+  variants,
+  whileHover: 'hover',
+  whileTap: 'tap',
+}))`
   display: inline-block;
   min-width: 15rem;
   padding: 1.5rem 1rem;
@@ -11,6 +25,7 @@ const Button = styled.button`
   font-size: ${({ theme }) => theme.font.size.xs};
   font-family: inherit;
   cursor: pointer;
+  outline: none;
 
   ${({ secondary }) =>
     secondary &&
@@ -20,4 +35,4 @@ const Button = styled.button`
     `}
 `;
 
-export default Button;
+export default StyledButton;
