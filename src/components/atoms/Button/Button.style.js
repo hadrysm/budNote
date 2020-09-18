@@ -6,7 +6,7 @@ const variants = {
     scale: 1.05,
   },
   tap: {
-    scale: 0.9,
+    scale: 0.95,
   },
 };
 
@@ -24,8 +24,8 @@ const StyledButton = styled(motion.button).attrs(() => ({
   text-transform: capitalize;
   font-size: ${({ theme }) => theme.font.size.xs};
   font-family: inherit;
-  cursor: pointer;
   outline: none;
+  cursor: pointer;
 
   ${({ secondary }) =>
     secondary &&
