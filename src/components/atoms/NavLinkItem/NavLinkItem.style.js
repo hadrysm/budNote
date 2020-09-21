@@ -12,7 +12,7 @@ const buttonVariants = {
 
 const lineVariants = {
   hidden: {
-    x: '-100%',
+    x: '-110%',
   },
 
   hover: {
@@ -29,7 +29,7 @@ export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
 `;
 
-export const StyledButtonLink = styled(motion.button).attrs(() => ({
+export const ButtonLink = styled(motion.button).attrs(() => ({
   variants: buttonVariants,
 }))`
   position: relative;
@@ -47,7 +47,7 @@ export const StyledButtonLink = styled(motion.button).attrs(() => ({
   outline: none;
 `;
 
-export const StyledLine = styled(motion.div).attrs(() => ({
+export const Line = styled(motion.div).attrs(() => ({
   variants: lineVariants,
 }))`
   position: absolute;
