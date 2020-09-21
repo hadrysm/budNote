@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const BurgerButton = styled.button`
+export const BurgerButton = styled(motion.button)`
   position: relative;
-  width: 4rem;
+  width: 3rem;
   height: 4rem;
+  padding: 0;
+  margin: 0;
   z-index: ${({ theme }) => theme.zIndex.level9};
   background-color: transparent;
   border: none;
@@ -24,19 +26,23 @@ export const BurgerLine = styled(motion.span)`
 export const variantsLineOne = {
   open: {
     rotate: 135,
-    y: 7,
+    y: 4,
+    x: 0,
   },
   closed: {
     rotate: 0,
     y: 0,
   },
+  hover: {
+    x: 0,
+  },
 };
 
 export const variantsLineTwo = {
-  open: {
-    x: 100,
-  },
   closed: {
+    x: '+33%',
+  },
+  hover: {
     x: 0,
   },
 };
@@ -44,10 +50,15 @@ export const variantsLineTwo = {
 export const variantsLineThree = {
   open: {
     rotate: -135,
-    y: -7,
+    y: -4,
+    x: 0,
   },
   closed: {
     rotate: 0,
     y: 0,
+    x: '+66%',
+  },
+  hover: {
+    x: 0,
   },
 };

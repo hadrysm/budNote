@@ -9,11 +9,13 @@ const Navigation = () => {
 
   const handleBurgerClick = () => setMenuVisibility((prevState) => !prevState);
 
+  // nav - motion component
+
   return (
     <header>
-      <Nav initial={false} animate={isMenuVisible ? 'open' : 'closed'}>
+      <Nav>
         <Logo label="budNote" />
-        <Burger handleClick={handleBurgerClick} />
+        <Burger handleClick={handleBurgerClick} isMenuVisible={isMenuVisible} />
       </Nav>
     </header>
   );
