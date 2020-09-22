@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import routes from 'routes';
-import { StyledLink, StyledLogo } from './Logo.styled';
+import { StyledLink, StyledLogo } from './Logo.style';
 
 const Logo = ({ label, closeNavigation }) => (
   <StyledLink to={routes.home} onClick={closeNavigation}>

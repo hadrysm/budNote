@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
+import routes from 'routes';
+
 import Burger from 'components/atoms/Burger/Burger';
+import Button from 'components/atoms/Button/Button.style';
+import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 import Logo from 'components/atoms/Logo/Logo';
 import NavList from 'components/molecules/NavList/NavList';
 import { Nav } from './Navigation.style';
@@ -19,7 +23,10 @@ const Navigation = () => {
     <header>
       <Nav initial={false} animate={isMenuVisible ? 'open' : 'closed'}>
         <Logo label="budNote" closeNavigation={closeNavigation} />
-        <NavList />
+        <NavList closeNavigation={closeNavigation} />
+        <LinkItem to={routes.login}>
+          <Button secondary>login</Button>
+        </LinkItem>
         <Burger handleClick={handleBurgerClick} isMenuVisible={isMenuVisible} />
       </Nav>
     </header>

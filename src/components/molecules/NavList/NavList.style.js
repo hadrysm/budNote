@@ -30,6 +30,7 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const StyledList = styled(List)`

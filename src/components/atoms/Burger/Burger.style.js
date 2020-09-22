@@ -2,17 +2,17 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const BurgerButton = styled(motion.button)`
-  position: relative;
   width: 3rem;
   height: 4rem;
   padding: 0;
   margin: 0;
-  z-index: ${({ theme }) => theme.zIndex.level9};
   background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
   overflow: hidden;
+  position: relative;
+  z-index: ${({ theme }) => theme.zIndex.level9};
 `;
 
 export const BurgerLine = styled(motion.span)`

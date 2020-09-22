@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 const variants = {
   hover: {
-    scale: 1.05,
+    scale: 0.95,
   },
   tap: {
-    scale: 0.95,
+    scale: 0.9,
   },
 };
 
@@ -16,8 +16,8 @@ const StyledButton = styled(motion.button).attrs(() => ({
   whileTap: 'tap',
 }))`
   display: inline-block;
-  min-width: 15rem;
-  padding: 1.5rem 1rem;
+  min-width: 10rem;
+  padding: 1rem 0.5rem;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.text};
   border: 1px solid ${({ theme }) => theme.colors.primary};

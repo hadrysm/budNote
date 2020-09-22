@@ -40,7 +40,7 @@ export const ButtonLink = styled(motion.button).attrs(() => ({
   background-color: transparent;
   color: ${({ theme }) => theme.colors.text};
   text-transform: capitalize;
-  font-size: ${({ theme }) => theme.font.size.xxs};
+  font-size: ${({ theme }) => theme.font.size.s};
   border: none;
   cursor: pointer;
   overflow: hidden;

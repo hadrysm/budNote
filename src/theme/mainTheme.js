@@ -46,6 +46,7 @@ const theme = {
 
   layout: {
     maxContainerWidth: '1400px',
+    mainSpacing: '2rem',
   },
 };
 

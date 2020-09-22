@@ -1,13 +1,7 @@
 import React from 'react';
 
-import Navigation from 'components/Organisms/Navigation/Navigation';
-
 const HomePage = () => {
-  return (
-    <div>
-      <Navigation />
-    </div>
-  );
+  return <div style={{ color: 'white' }}>HomePage</div>;
 };
 
 export default HomePage;

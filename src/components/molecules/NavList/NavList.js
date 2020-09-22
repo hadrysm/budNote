@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import routes from 'routes';
 import { generateUnicId } from 'helpers';
@@ -18,9 +19,9 @@ const navItemsData = [
   },
 ];
 
-const NavList = () => {
+const NavList = ({ closeNavigation }) => {
   const listItems = navItemsData.map(({ key, linkPath, label }) => (
-    <StyledListItem key={key}>
+    <StyledListItem key={key} onClick={closeNavigation}>
       <NavLinkItem linkPath={linkPath} label={label} />
     </StyledListItem>
   ));
@@ -30,6 +31,10 @@ const NavList = () => {
       <StyledList>{listItems}</StyledList>
     </Wrapper>
   );
+};
+
+NavList.propTypes = {
+  closeNavigation: PropTypes.func.isRequired,
 };
 
 export default NavList;
