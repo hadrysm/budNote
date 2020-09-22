@@ -20,6 +20,11 @@ body{
   background-color: ${({ theme }) => theme.colors.background};
 }
 
+img{
+  display: block;
+  width: 100%;
+}
+
 ::-webkit-scrollbar {
       width: 4px; 
 

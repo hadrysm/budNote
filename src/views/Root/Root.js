@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import routes from 'routes';
 
@@ -11,11 +12,13 @@ import ContactPage from 'views/ContactPage/ContactPage';
 import LoginPage from 'views/LoginPage/LoginPage';
 
 const Root = () => {
+  const location = useLocation();
+
   return (
-    <Router>
-      <MainTemplate>
-        <PageTemplate>
-          <Switch>
+    <MainTemplate>
+      <PageTemplate>
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.key}>
             <Route path={routes.home} exact>
               <HomePage />
             </Route>
@@ -29,9 +32,9 @@ const Root = () => {
               <LoginPage />
             </Route>
           </Switch>
-        </PageTemplate>
-      </MainTemplate>
-    </Router>
+        </AnimatePresence>
+      </PageTemplate>
+    </MainTemplate>
   );
 };
 

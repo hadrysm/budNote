@@ -31,6 +31,7 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
+  z-index: ${({ theme }) => theme.zIndex.level6};
 `;
 
 export const StyledList = styled(List)`
