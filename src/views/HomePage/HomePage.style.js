@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 
 import Headline from 'components/atoms/Headline/Headline.style';
 import Button from 'components/atoms/Button/Button.style';
-import { mainContentVariants } from 'variants';
+import { pageVariants } from 'variants';
+
+const { mainContent } = pageVariants;
 
 export const Wrapper = styled(motion.div).attrs(() => ({
-  variants: mainContentVariants,
+  variants: mainContent,
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
 }))`
   display: flex;
   flex-direction: column;

@@ -1,24 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  BurgerButton,
-  BurgerLine,
-  variantsLineTwo,
-  variantsLineOne,
-  variantsLineThree,
-} from './Burger.style';
+import { BurgerButton, BurgerLine } from './Burger.style';
 
 const Burger = ({ handleClick, isMenuVisible }) => (
-  <BurgerButton
-    onClick={handleClick}
-    initial={false}
-    animate={isMenuVisible ? 'open' : 'closed'}
-    whileHover="hover"
-  >
-    <BurgerLine variants={variantsLineOne} />
-    {!isMenuVisible && <BurgerLine variants={variantsLineTwo} />}
-    <BurgerLine variants={variantsLineThree} />
+  <BurgerButton onClick={handleClick} isMenuVisible={isMenuVisible}>
+    <BurgerLine lineOne />
+    {!isMenuVisible && <BurgerLine lineTwo />}
+    <BurgerLine lineThree />
   </BurgerButton>
 );
 

@@ -1,26 +1,14 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+import { navigationVariants } from 'variants';
 import List from 'components/atoms/List/List.style';
 import ListItem from 'components/atoms/ListItem/ListItem.style';
 
-const variants = {
-  open: {
-    x: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 120,
-      mass: 0.4,
-      damping: 8,
-    },
-  },
-  closed: {
-    x: '+100%',
-  },
-};
+const { navList } = navigationVariants;
 
 export const Wrapper = styled(motion.div).attrs(() => ({
-  variants,
+  variants: navList,
 }))`
   position: fixed;
   top: 0;

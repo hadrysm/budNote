@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { childrenVariants } from 'variants';
+import routes from 'routes';
+
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Section from 'components/atoms/Section/Section.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 import undrawImage from 'assets/image/undraw.svg';
 import { Wrapper, StyledHeadline, StyledButton } from './HomePage.style';
 
 const HomePage = () => (
-  <Wrapper initial="hidden" animate="visible" exit="exit">
+  <Wrapper>
     <PageTitle screenRenderOnly>strona głowna</PageTitle>
     <Section maxWidth="60">
       <StyledHeadline>to wszystko razem</StyledHeadline>
@@ -17,11 +19,15 @@ const HomePage = () => (
         zarządzać Twoje finanse w jednym miejscu.
       </Paragraph>
     </Section>
-    <Section variants={childrenVariants}>
-      <StyledButton>spróbuj za darmo</StyledButton>
-      <StyledButton secondary>dowiec się więcej</StyledButton>
+    <Section witchVariants>
+      <LinkItem to={routes.login}>
+        <StyledButton>spróbuj za darmo</StyledButton>
+      </LinkItem>
+      <LinkItem to={routes.contact}>
+        <StyledButton secondary>dowiec się więcej</StyledButton>
+      </LinkItem>
     </Section>
-    <Section variants={childrenVariants} maxWidth="30" withMargin="3">
+    <Section witchVariants maxWidth="30" withMargin="3">
       <img src={undrawImage} alt="" />
     </Section>
   </Wrapper>

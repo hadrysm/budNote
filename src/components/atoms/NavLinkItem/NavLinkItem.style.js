@@ -2,27 +2,10 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 
+import { buttonVariants } from 'variants';
+
 const ACTIVE_CLASS_NAME = 'active';
-
-const buttonVariants = {
-  hover: {
-    scale: 1.1,
-  },
-};
-
-const lineVariants = {
-  hidden: {
-    x: '-110%',
-  },
-
-  hover: {
-    x: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 200,
-    },
-  },
-};
+const { button, line } = buttonVariants;
 
 export const StyledNavLink = styled(NavLink)`
   display: block;
@@ -30,7 +13,7 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const ButtonLink = styled(motion.button).attrs(() => ({
-  variants: buttonVariants,
+  variants: button,
 }))`
   position: relative;
   display: block;
@@ -48,7 +31,7 @@ export const ButtonLink = styled(motion.button).attrs(() => ({
 `;
 
 export const Line = styled(motion.div).attrs(() => ({
-  variants: lineVariants,
+  variants: line,
 }))`
   position: absolute;
   bottom: 0;

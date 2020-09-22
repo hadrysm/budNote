@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { mainContentVariants } from 'variants';
+import { pageVariants } from 'variants';
 
 // test - remove later motion
 
@@ -9,7 +9,7 @@ const LoginPage = () => {
   return (
     <motion.div
       style={{ color: 'white' }}
-      variants={mainContentVariants}
+      variants={pageVariants.mainContent}
       initial="hidden"
       animate="visible"
       exit="exit"
