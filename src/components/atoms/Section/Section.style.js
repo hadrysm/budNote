@@ -15,6 +15,10 @@ const Section = styled(motion.section).attrs(({ witchVariants }) => ({
   max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}rem` : 'none')};
   margin: ${({ withMargin }) => (withMargin ? `${withMargin}rem` : '0 auto 2rem')};
   padding: 2rem 0;
+
+  @media ${({ theme }) => theme.mq.bigTablet} {
+    max-width: 70rem;
+  }
 `;
 
 export default Section;

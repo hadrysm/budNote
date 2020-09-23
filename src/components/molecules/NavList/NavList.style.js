@@ -20,6 +20,12 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
   z-index: ${({ theme }) => theme.zIndex.level6};
+
+  @media ${({ theme }) => theme.mq.desktop} {
+    position: static;
+    width: auto;
+    height: auto;
+  }
 `;
 
 export const StyledList = styled(List)`
@@ -27,6 +33,10 @@ export const StyledList = styled(List)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media ${({ theme }) => theme.mq.desktop} {
+    flex-direction: row;
+  }
 `;
 
 export const StyledListItem = styled(ListItem)`

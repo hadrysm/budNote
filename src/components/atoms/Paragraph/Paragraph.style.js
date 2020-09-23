@@ -6,6 +6,10 @@ const Paragraph = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.font.size.xs};
   font-weight: ${({ theme }) => theme.font.weight.regular};
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.font.size.s};
+  }
 `;
 
 export default Paragraph;

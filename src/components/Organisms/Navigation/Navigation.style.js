@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { navigationVariants } from 'variants';
+import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 
 const { nav } = navigationVariants;
 
@@ -19,4 +20,8 @@ export const Nav = styled(motion.nav).attrs(({ isMenuVisible }) => ({
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+`;
+
+export const StyledLinkItem = styled(LinkItem)`
+  margin-right: 4rem;
 `;

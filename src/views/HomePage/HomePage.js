@@ -27,7 +27,7 @@ const HomePage = () => (
         <StyledButton secondary>dowiec się więcej</StyledButton>
       </LinkItem>
     </Section>
-    <Section witchVariants maxWidth="30" withMargin="3">
+    <Section witchVariants maxWidth="35" withMargin="3">
       <img src={undrawImage} alt="" />
     </Section>
   </Wrapper>

@@ -14,7 +14,13 @@ const Headline = styled.h2`
   }
 
   @media ${({ theme }) => theme.mq.tablet} {
-    font-size: ${({ customFontSize, theme }) => `${customFontSize}rem` || theme.font.size.l};
+    font-size: ${({ customFontSize, theme }) =>
+      customFontSize ? `${customFontSize}rem` : theme.font.size.l};
+  }
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ customFontSize, theme }) =>
+      customFontSize ? `${customFontSize}rem` : theme.font.size.m};
   }
 `;
 

@@ -22,6 +22,11 @@ export const Wrapper = styled(motion.div).attrs(() => ({
 
 export const StyledHeadline = styled(Headline)`
   margin-bottom: 2rem;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
 `;
 
 export const StyledButton = styled(Button)`

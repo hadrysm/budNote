@@ -21,6 +21,10 @@ export const BurgerButton = styled(motion.button).attrs(({ isMenuVisible }) => (
   overflow: hidden;
   position: relative;
   z-index: ${({ theme }) => theme.zIndex.level9};
+
+  @media ${({ theme }) => theme.mq.desktop} {
+    display: none;
+  }
 `;
 
 export const BurgerLine = styled(motion.span).attrs(({ lineOne, lineTwo, lineThree }) => ({
