@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import routes from 'routes';
 
@@ -17,6 +17,10 @@ const Navigation = () => {
     if (!isMenuVisible) return;
     setMenuVisibility(false);
   };
+
+  useEffect(() => {
+    if (isMenuVisible) window.scrollTo(0, 0);
+  }, [isMenuVisible]);
 
   return (
     <Header>

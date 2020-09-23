@@ -1,17 +1,12 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-const variants = {
-  hover: {
-    scale: 0.95,
-  },
-  tap: {
-    scale: 0.9,
-  },
-};
+import { buttonVariants } from 'variants';
+
+const { button } = buttonVariants;
 
 const StyledButton = styled(motion.button).attrs(() => ({
-  variants,
+  variants: button,
   whileHover: 'hover',
   whileTap: 'tap',
 }))`

@@ -114,10 +114,27 @@ export const navigationVariants = {
   },
 };
 
+export const footerVariants = {
+  hidden: {
+    y: +200,
+  },
+  visible: {
+    y: 0,
+    transition: {
+      delay: 0.2,
+      type: 'spring',
+      stiffness: 90,
+    },
+  },
+};
+
 export const buttonVariants = {
   button: {
     hover: {
-      scale: 1.1,
+      scale: 0.95,
+    },
+    tap: {
+      scale: 0.9,
     },
   },
 
