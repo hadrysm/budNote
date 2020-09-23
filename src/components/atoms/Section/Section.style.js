@@ -5,8 +5,8 @@ import { pageVariants } from 'variants';
 
 const { children } = pageVariants;
 
-const Section = styled(motion.section).attrs(({ witchVariants }) => ({
-  variants: witchVariants && children,
+const Section = styled(motion.section).attrs(({ withVariants }) => ({
+  variants: withVariants && children,
 }))`
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@ const Section = styled(motion.section).attrs(({ witchVariants }) => ({
   padding: 2rem 0;
 
   @media ${({ theme }) => theme.mq.bigTablet} {
-    max-width: 70rem;
+    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}rem` : '80rem')};
   }
 `;
 

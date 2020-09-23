@@ -26,7 +26,7 @@ export const pageVariants = {
         when: 'beforeChildren',
         mass: 0.4,
         damping: 8,
-        staggerChildren: 0.4,
+        staggerChildren: 0.3,
       },
     },
   },
@@ -37,6 +37,17 @@ export const pageVariants = {
     },
     visible: {
       opacity: 1,
+    },
+  },
+
+  childrenFadeIn: {
+    hidden: {
+      opacity: 0,
+      x: -20,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
     },
   },
 };

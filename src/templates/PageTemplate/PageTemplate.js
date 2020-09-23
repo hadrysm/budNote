@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Navigation from 'components/Organisms/Navigation/Navigation';
 import Footer from 'components/Organisms/Footer/Footer';
-import { Main } from './PageTemplate.style';
+import { Main, InnerWrapper } from './PageTemplate.style';
 
 const PageTemplate = ({ children }) => {
   return (
     <Wrapper>
-      <Navigation />
-      <Main>{children}</Main>
-      <Footer />
+      <InnerWrapper>
+        <Navigation />
+        <Main>{children}</Main>
+        <Footer />
+      </InnerWrapper>
     </Wrapper>
   );
 };

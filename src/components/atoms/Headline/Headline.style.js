@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Headline = styled.h2`
   margin: 0;
   padding: 0;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ primaryColor, theme }) => (primaryColor ? theme.colors.primary : theme.colors.text)};
   font-size: ${({ customFontSize, theme }) => `${customFontSize}rem` || theme.font.size.m};
   font-weight: ${({ theme }) => theme.font.weight.bold};
   letter-spacing: 0.08em;
@@ -15,12 +15,7 @@ const Headline = styled.h2`
 
   @media ${({ theme }) => theme.mq.tablet} {
     font-size: ${({ customFontSize, theme }) =>
-      customFontSize ? `${customFontSize}rem` : theme.font.size.l};
-  }
-
-  @media ${({ theme }) => theme.mq.tablet} {
-    font-size: ${({ customFontSize, theme }) =>
-      customFontSize ? `${customFontSize}rem` : theme.font.size.m};
+      customFontSize ? `${customFontSize}rem` : theme.font.size.s};
   }
 `;
 
