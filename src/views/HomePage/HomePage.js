@@ -20,7 +20,7 @@ const HomePage = () => (
         zarządzać Twoimi finansami w jednym miejscu.
       </Paragraph>
     </Section>
-    <Section withVariants>
+    <Section withVariants isFlex>
       <LinkItem to={routes.login}>
         <StyledButton>spróbuj za darmo</StyledButton>
       </LinkItem>

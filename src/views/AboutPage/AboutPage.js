@@ -6,6 +6,45 @@ import Section from 'components/atoms/Section/Section.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import AboutList from 'components/molecules/AboutList/AboutList';
+import { generateUnicId } from 'helpers';
+
+const aboutData = [
+  {
+    key: generateUnicId(),
+    title: 'szybkie dodawanie transakcji',
+    label: 'dodawnanie nowych transakcji w prosty spowów. Wystarczy wpisać kwotę',
+  },
+  {
+    key: generateUnicId(),
+    title: 'szybki wgląd w wydadki',
+    label: 'możliwość dodawania wydatków w ciągu dnia.',
+  },
+  {
+    key: generateUnicId(),
+    title: 'poglądowe wykresy',
+    label: 'przeglądaj dochody i wydatki w sposób graficzny',
+  },
+  {
+    key: generateUnicId(),
+    title: 'śledzenie długów i oszczędności',
+    label: 'wgląd w saldo portfela',
+  },
+  {
+    key: generateUnicId(),
+    title: 'kategorie',
+    label: 'dodawaj własne kategorie wydatków i wpływów',
+  },
+  {
+    key: generateUnicId(),
+    title: 'dark mode',
+    label: 'możliwość dostosowania wyglądu aplikacji do swoich preferencji',
+  },
+  {
+    key: generateUnicId(),
+    title: 'Notatki',
+    label: 'możliwość dostosowania własnych notatek',
+  },
+];
 
 const AboutPage = () => {
   return (
@@ -24,8 +63,8 @@ const AboutPage = () => {
       </Section>
 
       <Section>
-        <Headline customFontSize="2.5">Najważniejsze funkcje</Headline>
-        <AboutList />
+        <Headline customFontSize={2.5}>Najważniejsze funkcje</Headline>
+        <AboutList listItemsData={aboutData} />
       </Section>
     </Wrapper>
   );

@@ -1,23 +1,26 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+import List from 'components/atoms/List/List.style';
 import ListItem from 'components/atoms/ListItem/ListItem.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import Headline from 'components/atoms/Headline/Headline.style';
 
 import { pageVariants, buttonVariants } from 'variants';
 
 const { childrenFadeIn } = pageVariants;
 const { button } = buttonVariants;
 
+export const StyledList = styled(List)`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
 export const StyledListItem = styled(ListItem).attrs(() => ({
   variants: button,
   whileHover: 'hover',
 }))`
-  display: ${({ isFlex }) => (isFlex ? 'flex' : 'block')};
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   margin: 2rem 0;
   padding: 1rem 2rem;
 `;
@@ -25,28 +28,12 @@ export const StyledListItem = styled(ListItem).attrs(() => ({
 export const InnerWrapper = styled(motion.div).attrs((withVariants) => ({
   variants: withVariants && childrenFadeIn,
 }))`
-  display: ${({ isFlex }) => (isFlex ? 'flex' : 'block')};
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: ${({ isColumn }) => (isColumn ? 'column' : 'row')};
-`;
-
-export const StyledHeadline = styled(Headline)`
-  position: relative;
-
-  ::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -2rem;
-    width: 1rem;
-    height: 1rem;
-    transform: translateY(-50%);
-    background-color: ${({ theme }) => theme.colors.primary};
-    border-radius: 50%;
-  }
+  flex-direction: column;
 `;
 
 export const StyledParagraph = styled(Paragraph)`
-  margin-top: 1rem;
+  margin-top: 3rem;
 `;

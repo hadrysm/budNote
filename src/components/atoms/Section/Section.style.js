@@ -8,7 +8,7 @@ const { children } = pageVariants;
 const Section = styled(motion.section).attrs(({ withVariants }) => ({
   variants: withVariants && children,
 }))`
-  display: flex;
+  display: ${({ isFlex }) => (isFlex ? 'flex' : 'block')};
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
