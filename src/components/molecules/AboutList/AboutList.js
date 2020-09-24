@@ -22,7 +22,7 @@ const aboutData = [
   },
   {
     key: generateUnicId(),
-    title: 'śledzenie długów i oszczdności',
+    title: 'śledzenie długów i oszczędności',
     label: 'wgląd w saldo portfela',
   },
   {

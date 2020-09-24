@@ -5,9 +5,9 @@ import { StyledNavLink, ButtonLink, Line } from './NavLinkItem.style';
 
 const NavLinkItem = ({ linkPath, label }) => (
   <StyledNavLink to={linkPath} exact>
-    <ButtonLink whileHover="hover" type="button">
+    <ButtonLink>
       {label}
-      <Line initial="hidden" whileHover="hover" />
+      <Line />
     </ButtonLink>
   </StyledNavLink>
 );

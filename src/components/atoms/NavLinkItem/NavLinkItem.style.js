@@ -4,16 +4,32 @@ import { NavLink } from 'react-router-dom';
 
 import { buttonVariants } from 'variants';
 
-const ACTIVE_CLASS_NAME = 'active';
+const ACTIVE_CLASS_NAME = '.active';
 const { button, line } = buttonVariants;
 
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink = styled(NavLink).attrs(() => ({
+  variants: line,
+  initial: 'hidden',
+}))`
   display: block;
   text-decoration: none;
+  position: relative;
+
+  &${ACTIVE_CLASS_NAME} ::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2rem;
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const ButtonLink = styled(motion.button).attrs(() => ({
   variants: button,
+  initial: 'hidden',
+  whileHover: 'hover',
 }))`
   position: relative;
   display: block;
@@ -32,6 +48,8 @@ export const ButtonLink = styled(motion.button).attrs(() => ({
 
 export const Line = styled(motion.div).attrs(() => ({
   variants: line,
+  initial: 'hidden',
+  whileHover: 'hover',
 }))`
   position: absolute;
   bottom: 0;
@@ -39,9 +57,4 @@ export const Line = styled(motion.div).attrs(() => ({
   width: 100%;
   height: 0.2rem;
   background-color: ${({ theme }) => theme.colors.primary};
-  z-index: -1;
-
-  &.${ACTIVE_CLASS_NAME} {
-    transform: translate(100%);
-  }
 `;

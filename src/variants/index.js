@@ -14,7 +14,7 @@ export const pageVariants = {
         damping: 8,
         delay: 0.2,
         when: 'beforeChildren',
-        staggerChildren: 0.4,
+        staggerChildren: 0.3,
       },
     },
 
@@ -26,7 +26,6 @@ export const pageVariants = {
         when: 'beforeChildren',
         mass: 0.4,
         damping: 8,
-        staggerChildren: 0.3,
       },
     },
   },
