@@ -1,21 +1,16 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
-import { pageVariants } from 'variants';
+import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
+import Input from 'components/atoms/Input/Input';
 
 // test - remove later motion
 
 const LoginPage = () => {
   return (
-    <motion.div
-      style={{ color: 'white' }}
-      variants={pageVariants.mainContent}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
-      login page
-    </motion.div>
+    <Wrapper withVariants>
+      <Input name="email" label="email" />
+      <Input tag="textarea" name="email" label="email" />
+    </Wrapper>
   );
 };
 

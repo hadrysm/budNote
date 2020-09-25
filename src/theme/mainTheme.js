@@ -58,6 +58,7 @@ export const themeDark = {
     tertiary: '#112D57',
     text: '#FFFFFF',
     background: '#181818',
+    grey: '#7d7d7d',
   },
   ...theme,
 };
