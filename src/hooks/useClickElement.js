@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 
 export const useClickElement = () => {
-  const [isFocused, setFocus] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const ref = useRef(null);
 
   const handleClickOnElement = (e) => {
-    if (!ref.current.contains(e.target)) setFocus(false);
-    else if (ref.current.contains(e.target)) setFocus(true);
+    if (!ref.current.contains(e.target)) setIsClicked(false);
+    else if (ref.current.contains(e.target)) setIsClicked(true);
   };
 
   const handleClickCallback = useCallback(handleClickOnElement, [ref]);
@@ -17,5 +17,5 @@ export const useClickElement = () => {
     return () => document.removeEventListener('click', handleClickCallback);
   }, [handleClickCallback]);
 
-  return [isFocused, ref];
+  return [isClicked, ref];
 };

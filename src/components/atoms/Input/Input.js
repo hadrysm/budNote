@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import { useClickElement } from 'hooks/useClickElement';
-import { StyledWrapper, StyledInput, StyledLabel } from './Input.style';
+import { StyledWrapper, StyledInput, StyledLabel, StyledInputLineBar } from './Input.style';
 
 const Input = ({ tag, type, name, label, maxLength, required, ...props }) => {
-  // const [isFocused, ref] = useClickElement();
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <StyledWrapper>
       <StyledInput
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        isFocused={isFocused}
         as={tag}
         type={type}
         name={name}
@@ -18,7 +20,10 @@ const Input = ({ tag, type, name, label, maxLength, required, ...props }) => {
         maxLength={maxLength}
         {...props}
       />
-      <StyledLabel htmlFor={name}>{label}</StyledLabel>
+      <StyledLabel isFocused={isFocused} htmlFor={name}>
+        {label}
+      </StyledLabel>
+      <StyledInputLineBar isFocused={isFocused} />
     </StyledWrapper>
   );
 };

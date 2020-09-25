@@ -9,7 +9,7 @@ const LoginPage = () => {
   return (
     <Wrapper withVariants>
       <Input name="email" label="email" />
-      <Input tag="textarea" name="email" label="email" />
+      <Input tag="textarea" name="text" label="text" />
     </Wrapper>
   );
 };
