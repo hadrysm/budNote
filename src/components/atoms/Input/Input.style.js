@@ -1,32 +1,24 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-const labelVariants = {
-  initial: {
-    y: 0,
-    scale: 1,
-  },
+import { inputVariants } from 'variants';
 
-  isFocused: {
-    y: -22,
-    scale: 0.8,
-    transition: { type: 'spring', stiffness: 320, bounce: 0.25 },
-  },
-};
-
-export const lineVariants = {
-  initial: {
-    x: '-200%',
-  },
-  isFocused: {
-    x: 0,
-  },
-};
+const { labelVariants, lineVariants } = inputVariants;
 
 export const StyledWrapper = styled.div`
   width: 100%;
   margin: 3rem 0;
   position: relative;
+
+  ::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: ${({ theme }) => theme.colors.grey};
+  }
 `;
 
 export const StyledLabel = styled(motion.label).attrs(({ isFocused }) => ({
@@ -34,7 +26,7 @@ export const StyledLabel = styled(motion.label).attrs(({ isFocused }) => ({
   animate: isFocused ? 'isFocused' : 'initial',
 }))`
   position: absolute;
-  top: 3px;
+  top: 10px;
   left: 0;
   transition: 0.2s ease-out all;
   font-size: ${({ theme }) => theme.font.size.xxs};
@@ -44,9 +36,9 @@ export const StyledLabel = styled(motion.label).attrs(({ isFocused }) => ({
 `;
 
 export const StyledInput = styled(motion.input)`
-  color: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.text};
   font-size: ${({ theme }) => theme.font.size.xxs};
-  padding: 1.5rem 0.5rem 0.5rem;
+  padding: 2rem 0.5rem 1rem;
   border: none;
   line-height: 2rem;
   width: 100%;
@@ -55,8 +47,6 @@ export const StyledInput = styled(motion.input)`
   :focus {
     outline: none;
   }
-
-  ${({ as }) => as === 'input' && css``}
 
   ${({ as }) =>
     as === 'textarea' &&
@@ -71,7 +61,10 @@ export const StyledInputLineBar = styled(motion.div).attrs(({ isFocused }) => ({
   animate: isFocused ? 'isFocused' : 'initial',
 }))`
   position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 3px;
   background-color: ${({ theme }) => theme.colors.primary};
+  z-index: ${({ theme }) => theme.zIndex.level3};
 `;

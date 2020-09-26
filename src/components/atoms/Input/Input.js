@@ -20,10 +20,10 @@ const Input = ({ tag, type, name, label, maxLength, required, ...props }) => {
         maxLength={maxLength}
         {...props}
       />
+      <StyledInputLineBar isFocused={isFocused} />
       <StyledLabel isFocused={isFocused} htmlFor={name}>
         {label}
       </StyledLabel>
-      <StyledInputLineBar isFocused={isFocused} />
     </StyledWrapper>
   );
 };

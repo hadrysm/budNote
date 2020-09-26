@@ -162,3 +162,32 @@ export const buttonVariants = {
     },
   },
 };
+
+export const inputVariants = {
+  labelVariants: {
+    initial: {
+      y: 0,
+      scale: 1,
+    },
+
+    isFocused: {
+      y: -22,
+      scale: 0.8,
+      transition: { type: 'spring', stiffness: 320, bounce: 0.25 },
+    },
+  },
+
+  lineVariants: {
+    initial: {
+      x: '-150%',
+    },
+    isFocused: {
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 120,
+        damping: 10,
+      },
+    },
+  },
+};

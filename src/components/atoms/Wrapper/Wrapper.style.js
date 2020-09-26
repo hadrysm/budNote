@@ -21,7 +21,7 @@ const Wrapper = styled(motion.div).attrs(({ withVariants }) => ({
     css`
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       text-align: center;
     `}
 

@@ -12,7 +12,7 @@ const StyledButton = styled(motion.button).attrs(() => ({
 }))`
   display: inline-block;
   min-width: 10rem;
-  padding: 1.5rem 0.5rem;
+  padding: 1rem 2rem;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.text};
   border: 1px solid ${({ theme }) => theme.colors.primary};
