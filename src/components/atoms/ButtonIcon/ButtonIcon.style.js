@@ -10,7 +10,7 @@ const ButtonIcon = styled.button`
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 70%;
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export default ButtonIcon;

@@ -14,7 +14,7 @@ const StyledButton = styled(motion.button).attrs(() => ({
   min-width: 10rem;
   padding: 1rem 2rem;
   background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.primary};
   text-transform: capitalize;
   font-size: ${({ theme }) => theme.font.size.xs};
@@ -27,6 +27,7 @@ const StyledButton = styled(motion.button).attrs(() => ({
     css`
       background-color: transparent;
       border: 1px solid ${({ theme }) => theme.colors.text};
+      color: ${({ theme }) => theme.colors.text};
     `}
 
   @media ${({ theme }) => theme.mq.tablet} {

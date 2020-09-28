@@ -59,6 +59,7 @@ export const themeDark = {
     text: '#FFFFFF',
     background: '#181818',
     grey: '#7d7d7d',
+    white: '#ffffff',
   },
   ...theme,
 };
@@ -66,10 +67,12 @@ export const themeDark = {
 export const themeLight = {
   colors: {
     primary: '#6C63FF',
-    secondary: '#02E4C0',
-    tertiary: '#112D57',
+    secondary: '#EE4C7C',
+    tertiary: '#E3E2DF',
     text: '#000000',
-    background: '#FFFFFF',
+    background: '#f0efeb',
+    grey: '#7d7d7d',
+    white: '#ffffff',
   },
   ...theme,
 };

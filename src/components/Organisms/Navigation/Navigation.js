@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import routes from 'routes';
-
+import { themeColorType } from 'store/settings/types';
+import { useDarkMode } from 'hooks/useDarkMode';
 import Burger from 'components/atoms/Burger/Burger';
 import Button from 'components/atoms/Button/Button.style';
 import Logo from 'components/atoms/Logo/Logo';
@@ -11,9 +12,7 @@ import { Nav, Header, StyledLinkItem } from './Navigation.style';
 
 const Navigation = () => {
   const [isMenuVisible, setMenuVisibility] = useState(false);
-  const [isLight, setIsLight] = useState(false);
-
-  const handleSwitchButtonClick = () => setIsLight((prevState) => !prevState);
+  const [theme, toggleTheme] = useDarkMode();
 
   const handleBurgerClick = () => setMenuVisibility((prevState) => !prevState);
 
@@ -34,7 +33,7 @@ const Navigation = () => {
         <StyledLinkItem to={routes.login}>
           <Button secondary>login</Button>
         </StyledLinkItem>
-        <SwitchButton handleClick={handleSwitchButtonClick} isOn={isLight} />
+        <SwitchButton handleClick={toggleTheme} isOn={theme === themeColorType.LIGHT} />
         <Burger handleClick={handleBurgerClick} isMenuVisible={isMenuVisible} />
       </Nav>
     </Header>
