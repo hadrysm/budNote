@@ -17,7 +17,7 @@ const Root = () => {
   return (
     <MainTemplate>
       <PageTemplate>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence initial={false} exitBeforeEnter>
           <Switch location={location} key={location.key}>
             <Route path={routes.home} exact>
               <HomePage />

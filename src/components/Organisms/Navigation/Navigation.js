@@ -5,11 +5,15 @@ import routes from 'routes';
 import Burger from 'components/atoms/Burger/Burger';
 import Button from 'components/atoms/Button/Button.style';
 import Logo from 'components/atoms/Logo/Logo';
+import SwitchButton from 'components/atoms/SwitchButton/SwitchButton';
 import NavList from 'components/molecules/NavList/NavList';
 import { Nav, Header, StyledLinkItem } from './Navigation.style';
 
 const Navigation = () => {
   const [isMenuVisible, setMenuVisibility] = useState(false);
+  const [isLight, setIsLight] = useState(false);
+
+  const handleSwitchButtonClick = () => setIsLight((prevState) => !prevState);
 
   const handleBurgerClick = () => setMenuVisibility((prevState) => !prevState);
 
@@ -30,6 +34,7 @@ const Navigation = () => {
         <StyledLinkItem to={routes.login}>
           <Button secondary>login</Button>
         </StyledLinkItem>
+        <SwitchButton handleClick={handleSwitchButtonClick} isOn={isLight} />
         <Burger handleClick={handleBurgerClick} isMenuVisible={isMenuVisible} />
       </Nav>
     </Header>
