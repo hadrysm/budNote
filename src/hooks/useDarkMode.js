@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { themeColorType } from 'store/settings/types';
 import { setThemeColor } from 'store/settings/action';
@@ -8,15 +8,29 @@ export const useDarkMode = () => {
 
   const dispatch = useDispatch();
 
+  const setMode = (mode) => {
+    setTheme(mode);
+    dispatch(setThemeColor(mode));
+    window.localStorage.setItem('theme', mode);
+  };
+
   const toggleTheme = () => {
     if (theme === themeColorType.DARK) {
-      setTheme(themeColorType.LIGHT);
-      dispatch(setThemeColor(themeColorType.LIGHT));
+      setMode(themeColorType.LIGHT);
     } else {
-      setTheme(themeColorType.DARK);
-      dispatch(setThemeColor(themeColorType.DARK));
+      setMode(themeColorType.DARK);
     }
   };
+
+  const memoizedSetMode = useCallback(setMode, []);
+
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    if (localTheme) memoizedSetMode(localTheme);
+    else {
+      memoizedSetMode(themeColorType.DARK);
+    }
+  }, [memoizedSetMode]);
 
   return [theme, toggleTheme];
 };
