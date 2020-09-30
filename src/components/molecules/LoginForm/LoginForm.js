@@ -45,7 +45,7 @@ const LoginForm = () => {
             label="email"
             onChange={handleChange}
             value={values.email}
-            errors={errors.email && touched.email}
+            isError={errors.email && touched.email}
             errorMessage={errors.email}
           />
           <Input
@@ -54,7 +54,7 @@ const LoginForm = () => {
             label="hasło"
             onChange={handleChange}
             value={values.password}
-            errors={errors.password && touched.password}
+            isError={errors.password && touched.password}
             errorMessage={errors.password}
           />
         </div>

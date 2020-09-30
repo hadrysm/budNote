@@ -65,7 +65,8 @@ export const StyledInputLineBar = styled(motion.div).attrs(({ isFocused }) => ({
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme, isError }) =>
+    isError ? theme.colors.error : theme.colors.primary};
   z-index: ${({ theme }) => theme.zIndex.level3};
 `;
 

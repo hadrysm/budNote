@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import routes from 'routes';
 import { generateUnicId } from 'helpers';
 import NavLinkItem from 'components/atoms/NavLinkItem/NavLinkItem';
+import Button from 'components/atoms/Button/Button.style';
 import { Wrapper, StyledList, StyledListItem } from './NavList.style';
 
 const navItemsData = [
@@ -28,7 +29,12 @@ const NavList = ({ closeNavigation }) => {
 
   return (
     <Wrapper>
-      <StyledList>{listItems}</StyledList>
+      <StyledList>
+        {listItems}{' '}
+        <StyledListItem to={routes.login}>
+          <Button secondary>login</Button>
+        </StyledListItem>
+      </StyledList>
     </Wrapper>
   );
 };

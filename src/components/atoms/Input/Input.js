@@ -10,7 +10,7 @@ import {
   FeedbackInput,
 } from './Input.style';
 
-const Input = ({ tag, type, name, label, maxLength, value, errors, errorMessage, ...props }) => {
+const Input = ({ tag, type, name, label, maxLength, value, isError, errorMessage, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -26,11 +26,11 @@ const Input = ({ tag, type, name, label, maxLength, value, errors, errorMessage,
         maxLength={maxLength}
         {...props}
       />
-      <StyledInputLineBar isFocused={isFocused} />
+      <StyledInputLineBar isFocused={isFocused} isError={isError} />
       <StyledLabel isFocused={isFocused} htmlFor={name}>
         {label}
       </StyledLabel>
-      <AnimatePresence>{errors && <FeedbackInput>{errorMessage}</FeedbackInput>}</AnimatePresence>
+      <AnimatePresence>{isError && <FeedbackInput>{errorMessage}</FeedbackInput>}</AnimatePresence>
     </StyledWrapper>
   );
 };
@@ -42,7 +42,7 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   value: PropTypes.string,
-  errors: PropTypes.bool,
+  isError: PropTypes.bool,
   errorMessage: PropTypes.string,
 };
 
@@ -51,7 +51,7 @@ Input.defaultProps = {
   type: 'text',
   maxLength: 200,
   value: '',
-  errors: false,
+  isError: false,
   errorMessage: '',
 };
 export default Input;
