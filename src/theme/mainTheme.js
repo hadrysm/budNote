@@ -60,6 +60,7 @@ export const themeDark = {
     background: '#181818',
     grey: '#7d7d7d',
     white: '#ffffff',
+    error: '#ea5455',
   },
   ...theme,
 };
@@ -73,6 +74,7 @@ export const themeLight = {
     background: '#f0efeb',
     grey: '#7d7d7d',
     white: '#ffffff',
+    error: '#ea5455',
   },
   ...theme,
 };

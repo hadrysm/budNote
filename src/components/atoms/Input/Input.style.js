@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 import { inputVariants } from 'variants';
 
-const { labelVariants, lineVariants } = inputVariants;
+const { labelVariants, lineVariants, feedbackVariants } = inputVariants;
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  margin: 3rem 0;
+  margin: 5.5rem 0;
   position: relative;
 
   ::after {
@@ -67,4 +67,17 @@ export const StyledInputLineBar = styled(motion.div).attrs(({ isFocused }) => ({
   height: 3px;
   background-color: ${({ theme }) => theme.colors.primary};
   z-index: ${({ theme }) => theme.zIndex.level3};
+`;
+
+export const FeedbackInput = styled(motion.div).attrs(() => ({
+  variants: feedbackVariants,
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
+}))`
+  position: absolute;
+  bottom: -3rem;
+  left: 0;
+  color: ${({ theme }) => theme.colors.error};
+  text-align: left;
 `;

@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { AnimatePresence } from 'framer-motion';
 
-import { StyledWrapper, StyledInput, StyledLabel, StyledInputLineBar } from './Input.style';
+import {
+  StyledWrapper,
+  StyledInput,
+  StyledLabel,
+  StyledInputLineBar,
+  FeedbackInput,
+} from './Input.style';
 
-const Input = ({ tag, type, name, label, maxLength, required, ...props }) => {
+const Input = ({ tag, type, name, label, maxLength, value, errors, errorMessage, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
     <StyledWrapper>
       <StyledInput
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={() => !value && setIsFocused(false)}
         isFocused={isFocused}
         as={tag}
         type={type}
         name={name}
         id={name}
-        required={required}
         maxLength={maxLength}
         {...props}
       />
@@ -24,6 +30,7 @@ const Input = ({ tag, type, name, label, maxLength, required, ...props }) => {
       <StyledLabel isFocused={isFocused} htmlFor={name}>
         {label}
       </StyledLabel>
+      <AnimatePresence>{errors && <FeedbackInput>{errorMessage}</FeedbackInput>}</AnimatePresence>
     </StyledWrapper>
   );
 };
@@ -31,16 +38,20 @@ const Input = ({ tag, type, name, label, maxLength, required, ...props }) => {
 Input.propTypes = {
   tag: PropTypes.string,
   type: PropTypes.string,
-  required: PropTypes.bool,
   maxLength: PropTypes.number,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  errors: PropTypes.bool,
+  errorMessage: PropTypes.string,
 };
 
 Input.defaultProps = {
   tag: 'input',
   type: 'text',
-  required: true,
   maxLength: 200,
+  value: '',
+  errors: false,
+  errorMessage: '',
 };
 export default Input;

@@ -171,7 +171,7 @@ export const inputVariants = {
     },
 
     isFocused: {
-      y: -22,
+      y: -20,
       scale: 0.8,
       transition: { type: 'spring', stiffness: 320, bounce: 0.25 },
     },
@@ -188,6 +188,21 @@ export const inputVariants = {
         stiffness: 120,
         damping: 10,
       },
+    },
+  },
+
+  feedbackVariants: {
+    hidden: {
+      x: -20,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: {
+      x: 20,
+      opacity: 0,
     },
   },
 };
