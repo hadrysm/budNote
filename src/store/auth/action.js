@@ -1,12 +1,11 @@
-import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT } from './types';
+import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT, SET_USER } from './types';
 
 export const authStart = () => ({ type: AUTH_START });
 
-export const authSuccess = (token, userId) => ({
+export const authSuccess = (uid) => ({
   type: AUTH_SUCCESS,
   payload: {
-    token,
-    userId,
+    uid,
   },
 });
 
@@ -18,3 +17,10 @@ export const authFail = (error) => ({
 });
 
 export const authLogout = () => ({ type: AUTH_LOGOUT });
+
+export const setUser = (uid) => ({
+  type: SET_USER,
+  payload: {
+    uid,
+  },
+});

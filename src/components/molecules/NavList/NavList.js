@@ -5,6 +5,7 @@ import routes from 'routes';
 import { generateUnicId } from 'helpers';
 import NavLinkItem from 'components/atoms/NavLinkItem/NavLinkItem';
 import Button from 'components/atoms/Button/Button.style';
+import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 import { Wrapper, StyledList, StyledListItem } from './NavList.style';
 
 const navItemsData = [
@@ -31,9 +32,9 @@ const NavList = ({ closeNavigation }) => {
     <Wrapper>
       <StyledList>
         {listItems}{' '}
-        <StyledListItem to={routes.login}>
+        <LinkItem to={routes.login}>
           <Button secondary>login</Button>
-        </StyledListItem>
+        </LinkItem>
       </StyledList>
     </Wrapper>
   );

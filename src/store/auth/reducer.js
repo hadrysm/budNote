@@ -1,8 +1,7 @@
-import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT } from './types';
+import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT, SET_USER } from './types';
 
 const INITIAL_STATE = {
-  token: null,
-  userId: null,
+  uid: null,
   error: null,
   loading: false,
 };
@@ -20,8 +19,7 @@ const authReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        token: payload.token,
-        userId: payload.userId,
+        uid: payload.uid,
         error: null,
       };
 
@@ -37,6 +35,12 @@ const authReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         token: null,
         userId: null,
+      };
+
+    case SET_USER:
+      return {
+        ...state,
+        uid: payload.uid,
       };
 
     default:

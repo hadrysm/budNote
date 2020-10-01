@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 
+import { useAuthUser } from 'hooks/useAuthUser';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Input from 'components/atoms/Input/Input';
 import { FormWrapper, StyledButton, StyledForm } from './LoginForm.style';
@@ -27,11 +28,17 @@ const LoginForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const handleSwitchAuthMood = () => setIsLogin((prevState) => !prevState);
 
+  const { handleSignUp, handleLogin } = useAuthUser();
+
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues,
     validate,
-    onSubmit: (value) => {
-      console.log(value);
+    onSubmit: ({ email, password }) => {
+      if (isLogin) {
+        handleLogin(email, password);
+      } else {
+        handleSignUp(email, password);
+      }
     },
   });
   return (
