@@ -3,6 +3,7 @@ const routes = {
   about: '/about',
   contact: '/contact',
   login: '/login',
+  notes: '/notes',
 };
 
 export default routes;

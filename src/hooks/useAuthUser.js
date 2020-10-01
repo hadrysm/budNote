@@ -53,9 +53,9 @@ export const useAuthUser = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = app.auth().onAuthStateChanged(({ uid }) => {
-      if (uid) {
-        dispatch(setUser(uid));
+    const unsubscribe = app.auth().onAuthStateChanged((data) => {
+      if (data) {
+        dispatch(setUser(data.uid));
       } else {
         dispatch(authLogout());
       }

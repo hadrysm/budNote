@@ -11,7 +11,7 @@ const Wrapper = styled(motion.div).attrs(({ withVariants }) => ({
   animate: 'visible',
   exit: 'exit',
 }))`
-  max-width: ${({ theme }) => theme.layout.maxContainerWidth};
+  max-width: ${({ theme, maxWidth }) => maxWidth && theme.layout.maxContainerWidth};
   margin: 0 auto;
   padding: ${({ theme }) => theme.layout.mainSpacing};
   overflow: hidden;

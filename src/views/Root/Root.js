@@ -10,6 +10,7 @@ import HomePage from 'views/HomePage/HomePage';
 import AboutPage from 'views/AboutPage/AboutPage';
 import ContactPage from 'views/ContactPage/ContactPage';
 import LoginPage from 'views/LoginPage/LoginPage';
+import NotesPage from 'views/NotesPage/NotesPage';
 
 const Root = () => {
   const location = useLocation();
@@ -30,6 +31,9 @@ const Root = () => {
             </Route>
             <Route path={routes.login} exact>
               <LoginPage />
+            </Route>
+            <Route path={routes.notes} exact>
+              <NotesPage />
             </Route>
           </Switch>
         </AnimatePresence>

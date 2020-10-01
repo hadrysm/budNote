@@ -8,7 +8,7 @@ import { Main, InnerWrapper } from './PageTemplate.style';
 
 const PageTemplate = ({ children }) => {
   return (
-    <Wrapper>
+    <Wrapper maxWidth>
       <InnerWrapper>
         <Navigation />
         <Main>{children}</Main>

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import routes from 'routes';
 import { generateUnicId } from 'helpers';
@@ -22,6 +23,8 @@ const navItemsData = [
 ];
 
 const NavList = ({ closeNavigation }) => {
+  const isAuth = useSelector(({ auth }) => auth.uid) !== null;
+
   const listItems = navItemsData.map(({ key, linkPath, label }) => (
     <StyledListItem key={key} onClick={closeNavigation}>
       <NavLinkItem linkPath={linkPath} label={label} />
@@ -31,9 +34,11 @@ const NavList = ({ closeNavigation }) => {
   return (
     <Wrapper>
       <StyledList>
-        {listItems}{' '}
+        {listItems}
         <LinkItem to={routes.login}>
-          <Button secondary>login</Button>
+          <Button secondary onClick={closeNavigation}>
+            {isAuth ? 'panel' : 'login'}
+          </Button>
         </LinkItem>
       </StyledList>
     </Wrapper>
