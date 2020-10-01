@@ -61,6 +61,7 @@ export const themeDark = {
     grey: '#7d7d7d',
     white: '#ffffff',
     error: '#ea5455',
+    success: '#158467',
   },
   ...theme,
 };
@@ -75,6 +76,7 @@ export const themeLight = {
     grey: '#7d7d7d',
     white: '#ffffff',
     error: '#ea5455',
+    success: '#158467',
   },
   ...theme,
 };
