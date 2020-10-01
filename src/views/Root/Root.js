@@ -2,8 +2,6 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-import routes from 'routes';
-
 import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import PageTemplate from 'templates/PageTemplate/PageTemplate';
 import HomePage from 'views/HomePage/HomePage';
@@ -12,8 +10,13 @@ import ContactPage from 'views/ContactPage/ContactPage';
 import LoginPage from 'views/LoginPage/LoginPage';
 import NotesPage from 'views/NotesPage/NotesPage';
 
+import routes from 'routes';
+import { useAuthUser } from 'hooks/useAuthUser';
+
 const Root = () => {
   const location = useLocation();
+
+  useAuthUser();
 
   return (
     <MainTemplate>
