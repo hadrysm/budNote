@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
+import MotionRedirect from 'components/hoc/MotionRedirect/MotionRedirect';
 import routes from 'routes';
 
 const PrivateRoute = ({ children, ...rest }) => {
@@ -15,7 +16,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         isAuth ? (
           children
         ) : (
-          <Redirect
+          <MotionRedirect
             to={{
               pathname: routes.login,
               state: { from: location },

@@ -33,8 +33,7 @@ const authReducer = (state = INITIAL_STATE, { type, payload }) => {
     case AUTH_LOGOUT:
       return {
         ...state,
-        token: null,
-        userId: null,
+        uid: null,
       };
 
     case SET_USER:

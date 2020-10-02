@@ -48,7 +48,7 @@ export const useAuthUser = () => {
           dispatch(authLogout);
         });
     } catch (err) {
-      // console.log(err);
+      dispatch(authFail(err));
     }
   };
 
