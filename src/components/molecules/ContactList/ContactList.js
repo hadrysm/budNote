@@ -9,7 +9,7 @@ const ContactList = ({ listItemsData }) => {
   const listItems = listItemsData.map(({ key, icon, label }) => (
     <StyledListItem key={key}>
       <InnerWrapper>
-        <ButtonIcon icon={icon} />
+        <ButtonIcon isBig icon={icon} />
         <StyledParagraph>{label}</StyledParagraph>
       </InnerWrapper>
     </StyledListItem>

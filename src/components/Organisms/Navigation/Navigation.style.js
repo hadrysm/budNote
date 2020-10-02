@@ -9,6 +9,7 @@ export const Header = styled(motion.header).attrs(() => ({
   variants: nav,
   initial: 'hidden',
   animate: 'visible',
+  exit: 'exit',
 }))``;
 
 export const Nav = styled(motion.nav).attrs(({ isMenuVisible }) => ({

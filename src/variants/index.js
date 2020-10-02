@@ -64,6 +64,14 @@ export const navigationVariants = {
         stiffness: 90,
       },
     },
+    exit: {
+      y: -200,
+      transition: {
+        delay: 0.2,
+        type: 'spring',
+        stiffness: 90,
+      },
+    },
   },
 
   navList: {

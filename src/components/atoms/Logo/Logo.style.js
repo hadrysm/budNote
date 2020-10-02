@@ -7,11 +7,6 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   position: relative;
   z-index: ${({ theme }) => theme.zIndex.level9};
-  flex: 1;
-
-  @media ${({ theme }) => theme.mq.desktop} {
-    flex: initial;
-  }
 `;
 
 export const StyledLogo = styled.h1`

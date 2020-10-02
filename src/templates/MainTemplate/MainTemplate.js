@@ -9,10 +9,11 @@ import GlobalStyled from 'theme/GlobalStyled';
 
 const MainTemplate = ({ children }) => {
   const theme = useSelector(({ settings }) => settings.colorTheme);
+  const isAuth = useSelector(({ auth }) => auth.uid) !== null;
 
   return (
     <ThemeProvider theme={theme === themeColorType.DARK ? themeDark : themeLight}>
-      <GlobalStyled />
+      <GlobalStyled isAuth={isAuth} />
       {children}
     </ThemeProvider>
   );
