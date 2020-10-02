@@ -6,30 +6,21 @@ import { Route } from 'react-router-dom';
 import MotionRedirect from 'components/hoc/MotionRedirect/MotionRedirect';
 import routes from 'routes';
 
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateRoute = ({ component: RouterComponent, ...rest }) => {
   const isAuth = useSelector(({ auth }) => auth.uid) !== null;
 
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        isAuth ? (
-          children
-        ) : (
-          <MotionRedirect
-            to={{
-              pathname: routes.login,
-              state: { from: location },
-            }}
-          />
-        )
+      render={(routesProps) =>
+        isAuth ? <RouterComponent {...routesProps} /> : <MotionRedirect to={routes.login} />
       }
     />
   );
 };
 
 PrivateRoute.propTypes = {
-  children: PropTypes.element.isRequired,
+  component: PropTypes.func.isRequired,
 };
 
 export default PrivateRoute;

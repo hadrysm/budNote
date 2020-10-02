@@ -214,3 +214,27 @@ export const inputVariants = {
     },
   },
 };
+
+export const sidebarVariants = {
+  sidebar: {
+    hidden: {
+      x: '-100%',
+    },
+    visible: {
+      x: 0,
+      transition: {
+        delay: 0.2,
+        type: 'spring',
+        stiffness: 90,
+      },
+    },
+    exit: {
+      x: '-100%',
+      transition: {
+        delay: 0.2,
+        type: 'spring',
+        stiffness: 90,
+      },
+    },
+  },
+};

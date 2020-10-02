@@ -5,6 +5,10 @@ import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
 import List from 'components/atoms/List/List.style';
 import ListItem from 'components/atoms/ListItem/ListItem.style';
 
+import { sidebarVariants } from 'variants';
+
+const { sidebar } = sidebarVariants;
+
 export const Wrapper = styled(motion.div)`
   position: fixed;
   top: 0;
@@ -32,7 +36,7 @@ export const StyledListItem = styled(ListItem)`
 `;
 
 export const Header = styled(motion.header).attrs(() => ({
-  variants: {},
+  variants: sidebar,
   initial: 'hidden',
   animate: 'visible',
   exit: 'exit',

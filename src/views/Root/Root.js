@@ -2,8 +2,12 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
+// template
 import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import PageTemplate from 'templates/PageTemplate/PageTemplate';
+import PanelTemplate from 'templates/PanelTemplate/PanelTemplate';
+
+// pages
 import HomePage from 'views/HomePage/HomePage';
 import AboutPage from 'views/AboutPage/AboutPage';
 import ContactPage from 'views/ContactPage/ContactPage';
@@ -21,29 +25,41 @@ const Root = () => {
 
   return (
     <MainTemplate>
-      <PageTemplate>
-        <AnimatePresence initial={false} exitBeforeEnter>
-          <Switch location={location} key={location.key}>
-            <Route path={routes.home} exact>
-              <HomePage />
-            </Route>
-            <Route path={routes.about} exact>
-              <AboutPage />
-            </Route>
-            <Route path={routes.contact} exact>
-              <ContactPage />
-            </Route>
-            <Route path={routes.login} exact>
-              <LoginPage />
-            </Route>
-            <PrivateRoute path={routes.notes} exact>
-              <NotesPage />
-            </PrivateRoute>
-          </Switch>
-        </AnimatePresence>
-      </PageTemplate>
+      <Switch>
+        <Route path={routes.user} exact>
+          <PanelTemplate>
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <Switch location={location} key={location.key}>
+                <PrivateRoute path={routes.notes} exact component={NotesPage} />
+              </Switch>
+            </AnimatePresence>
+          </PanelTemplate>
+        </Route>
+
+        <Route>
+          <PageTemplate>
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <Switch location={location} key={location.key}>
+                <Route path={routes.home} exact component={HomePage} />
+                <Route path={routes.about} exact component={AboutPage} />
+                <Route path={routes.contact} exact component={ContactPage} />
+                <Route path={routes.login} exact component={LoginPage} />
+              </Switch>
+            </AnimatePresence>
+          </PageTemplate>
+        </Route>
+      </Switch>
     </MainTemplate>
   );
 };
 
 export default Root;
+
+// <Route path="/admin/:path?" exact>
+//   <MainAdmin>
+//     <Switch>
+//       <Route path="/admin" exact component={Dashboard} />
+//       <Route path="/admin/setting" component={Setting} />
+//     </Switch>
+//   </MainAdmin>
+// </Route>;
