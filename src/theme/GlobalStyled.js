@@ -18,8 +18,6 @@ body{
   font-size: 1.6rem;
   overflow-y: scroll;
   background-color: ${({ theme }) => theme.colors.background};
-  padding-left: ${({ isAuth }) => (isAuth ? '15rem' : 0)}
- 
 }
 
 img{

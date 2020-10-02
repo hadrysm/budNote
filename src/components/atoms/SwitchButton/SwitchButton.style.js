@@ -16,8 +16,13 @@ export const Wrapper = styled.div`
   justify-content: ${({ isOn }) => (isOn ? 'flex-end' : 'flex-start')};
   border-radius: 5rem;
   padding: 0.5rem;
+  margin-left: auto;
   margin-right: 2rem;
   cursor: pointer;
+
+  @media ${({ theme }) => theme.mq.desktop} {
+    margin-left: 0;
+  }
 `;
 
 export const Ball = styled(motion.div).attrs(() => ({

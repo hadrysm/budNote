@@ -30,3 +30,12 @@ export const StyledList = styled(List)`
 export const StyledListItem = styled(ListItem)`
   margin-bottom: 1rem;
 `;
+
+export const Header = styled(motion.header).attrs(() => ({
+  variants: {},
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
+}))`
+  padding-right: 15rem;
+`;

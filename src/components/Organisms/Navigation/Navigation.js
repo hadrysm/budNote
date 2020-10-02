@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { themeColorType } from 'store/settings/types';
 import { useDarkMode } from 'hooks/useDarkMode';
 import Burger from 'components/atoms/Burger/Burger';
-
-import Logo from 'components/atoms/Logo/Logo';
 import SwitchButton from 'components/atoms/SwitchButton/SwitchButton';
+import Logo from 'components/atoms/Logo/Logo';
 import NavList from 'components/molecules/NavList/NavList';
 import { Nav, Header } from './Navigation.style';
 

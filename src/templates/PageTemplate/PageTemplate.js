@@ -15,7 +15,7 @@ const PageTemplate = ({ children }) => {
   return (
     <Wrapper maxWidth>
       <InnerWrapper>
-        <AnimatePresence>{isAuth ? <Sidebar /> : <Navigation />}</AnimatePresence>
+        <AnimatePresence exitBeforeEnter>{isAuth ? <Sidebar /> : <Navigation />}</AnimatePresence>
         <Main>{children}</Main>
       </InnerWrapper>
     </Wrapper>

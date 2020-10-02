@@ -9,33 +9,35 @@ import paymentIcon from 'assets/icons/payment.svg';
 import chartIcon from 'assets/icons/chart.svg';
 import routes from 'routes';
 import { useAuthUser } from 'hooks/useAuthUser';
-import { Wrapper, StyledButtonIcon, StyledList, StyledListItem } from './Sidebar.style';
+import { Wrapper, StyledButtonIcon, StyledList, StyledListItem, Header } from './Sidebar.style';
 
 const Sidebar = () => {
   const { signout } = useAuthUser();
 
   return (
-    <Wrapper>
-      <Logo label="budNote" path={routes.notes} />
-      <StyledList>
-        <StyledListItem>
-          <LinkItem to={routes.budget}>
-            <ButtonIcon icon={paymentIcon} />
-          </LinkItem>
-        </StyledListItem>
-        <StyledListItem>
-          <LinkItem to={routes.chart}>
-            <ButtonIcon icon={chartIcon} />
-          </LinkItem>
-        </StyledListItem>
-        <StyledListItem>
-          <LinkItem to={routes.notes}>
-            <ButtonIcon icon={penIcon} />
-          </LinkItem>
-        </StyledListItem>
-      </StyledList>
-      <StyledButtonIcon icon={logoutIcon} onClick={signout} />
-    </Wrapper>
+    <Header>
+      <Wrapper>
+        <Logo label="budNote" path={routes.notes} />
+        <StyledList>
+          <StyledListItem>
+            <LinkItem to={routes.budget}>
+              <ButtonIcon icon={paymentIcon} />
+            </LinkItem>
+          </StyledListItem>
+          <StyledListItem>
+            <LinkItem to={routes.chart}>
+              <ButtonIcon icon={chartIcon} />
+            </LinkItem>
+          </StyledListItem>
+          <StyledListItem>
+            <LinkItem to={routes.notes}>
+              <ButtonIcon icon={penIcon} />
+            </LinkItem>
+          </StyledListItem>
+        </StyledList>
+        <StyledButtonIcon icon={logoutIcon} onClick={signout} />
+      </Wrapper>
+    </Header>
   );
 };
 
