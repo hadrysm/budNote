@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Popup from 'components/molecules/Popup/Popup';
 import LoginForm from 'components/molecules/LoginForm/LoginForm';
 import image from 'assets/image/image2.svg';
 import Section from 'components/atoms/Section/Section.style';
@@ -21,7 +20,6 @@ const LoginPage = () => {
       <Section>
         <LoginForm />
       </Section>
-      <Popup message="Udało się zalogować" />
     </Wrapper>
   );
 };

@@ -35,7 +35,7 @@ const NavList = ({ closeNavigation }) => {
     <Wrapper>
       <StyledList>
         {listItems}
-        <LinkItem to={routes.login}>
+        <LinkItem to={isAuth ? routes.notes : routes.login}>
           <Button secondary onClick={closeNavigation}>
             {isAuth ? 'panel' : 'login'}
           </Button>

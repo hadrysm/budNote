@@ -9,6 +9,7 @@ import AboutPage from 'views/AboutPage/AboutPage';
 import ContactPage from 'views/ContactPage/ContactPage';
 import LoginPage from 'views/LoginPage/LoginPage';
 import NotesPage from 'views/NotesPage/NotesPage';
+import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
 
 import routes from 'routes';
 import { useAuthUser } from 'hooks/useAuthUser';
@@ -35,9 +36,9 @@ const Root = () => {
             <Route path={routes.login} exact>
               <LoginPage />
             </Route>
-            <Route path={routes.notes} exact>
+            <PrivateRoute path={routes.notes} exact>
               <NotesPage />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </AnimatePresence>
       </PageTemplate>
