@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Logo from 'components/atoms/Logo/Logo';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
@@ -8,11 +8,11 @@ import penIcon from 'assets/icons/pen.svg';
 import paymentIcon from 'assets/icons/payment.svg';
 import chartIcon from 'assets/icons/chart.svg';
 import routes from 'routes';
-import { useAuthUser } from 'hooks/useAuthUser';
+import { AuthContext } from 'context/AuthContext';
 import { Wrapper, StyledButtonIcon, StyledList, StyledListItem, Header } from './Sidebar.style';
 
 const Sidebar = () => {
-  const { signout } = useAuthUser();
+  const { handleSignout } = useContext(AuthContext);
 
   return (
     <Header>
@@ -35,7 +35,7 @@ const Sidebar = () => {
             </LinkItem>
           </StyledListItem>
         </StyledList>
-        <StyledButtonIcon icon={logoutIcon} onClick={signout} />
+        <StyledButtonIcon icon={logoutIcon} onClick={handleSignout} />
       </Wrapper>
     </Header>
   );

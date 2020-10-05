@@ -37,7 +37,7 @@ export const useAuthUser = () => {
     }
   };
 
-  const signout = async () => {
+  const handleSignout = async () => {
     dispatch(authStart());
 
     try {
@@ -67,6 +67,6 @@ export const useAuthUser = () => {
   return {
     handleSignUp,
     handleLogin,
-    signout,
+    handleSignout,
   };
 };

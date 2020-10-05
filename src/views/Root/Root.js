@@ -18,13 +18,8 @@ import NotesPage from 'views/NotesPage/NotesPage';
 import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
 import routes from 'routes';
 
-// hooks
-import { useAuthUser } from 'hooks/useAuthUser';
-
 const Root = () => {
   const location = useLocation();
-
-  useAuthUser();
 
   return (
     <MainTemplate>
