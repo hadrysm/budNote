@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import routes from 'routes';
@@ -22,11 +21,11 @@ const navItemsData = [
   },
 ];
 
-const NavList = ({ closeNavigation }) => {
+const NavList = () => {
   const isAuth = useSelector(({ auth }) => auth.uid) !== null;
 
   const listItems = navItemsData.map(({ key, linkPath, label }) => (
-    <StyledListItem key={key} onClick={closeNavigation}>
+    <StyledListItem key={key}>
       <NavLinkItem linkPath={linkPath} label={label} />
     </StyledListItem>
   ));
@@ -36,17 +35,11 @@ const NavList = ({ closeNavigation }) => {
       <StyledList>
         {listItems}
         <LinkItem to={isAuth ? routes.notes : routes.login}>
-          <Button secondary onClick={closeNavigation}>
-            {isAuth ? 'panel' : 'login'}
-          </Button>
+          <Button secondary>{isAuth ? 'panel' : 'login'}</Button>
         </LinkItem>
       </StyledList>
     </Wrapper>
   );
-};
-
-NavList.propTypes = {
-  closeNavigation: PropTypes.func.isRequired,
 };
 
 export default NavList;
