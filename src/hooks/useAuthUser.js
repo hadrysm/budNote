@@ -11,12 +11,8 @@ export const useAuthUser = () => {
     dispatch(authStart());
 
     try {
-      await app
-        .auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(({ user }) => {
-          dispatch(authSuccess(user.uid));
-        });
+      const { user } = await app.auth().createUserWithEmailAndPassword(email, password);
+      dispatch(authSuccess(user.uid));
     } catch (err) {
       dispatch(authFail(err));
     }
@@ -26,12 +22,8 @@ export const useAuthUser = () => {
     dispatch(authStart());
 
     try {
-      await app
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(({ user }) => {
-          dispatch(authSuccess(user.uid));
-        });
+      const { user } = await app.auth().signInWithEmailAndPassword(email, password);
+      dispatch(authSuccess(user.uid));
     } catch (err) {
       dispatch(authFail(err));
     }

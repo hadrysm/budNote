@@ -21,11 +21,7 @@ export const pageVariants = {
     exit: {
       x: '-100vw',
       transition: {
-        type: 'spring',
-        stiffness: 120,
-        when: 'beforeChildren',
-        mass: 0.4,
-        damping: 8,
+        delay: 0.2,
       },
     },
   },
@@ -86,6 +82,9 @@ export const navigationVariants = {
     },
     closed: {
       x: '+100%',
+      transition: {
+        duration: 0.15,
+      },
     },
   },
 

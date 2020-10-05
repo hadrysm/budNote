@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { themeColorType } from 'store/settings/types';
-import { useDarkMode } from 'hooks/useDarkMode';
 import Burger from 'components/atoms/Burger/Burger';
 import SwitchButton from 'components/atoms/SwitchButton/SwitchButton';
 import Logo from 'components/atoms/Logo/Logo';
 import NavList from 'components/molecules/NavList/NavList';
 import { useToggleNav } from 'hooks/useToggleNav';
+import { useDarkMode } from 'hooks/useDarkMode';
 import { Nav, Header } from './Navigation.style';
 
 const Navigation = () => {
