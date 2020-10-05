@@ -6,8 +6,12 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin-left: 15rem;
+  margin-left: 10rem;
   overflow: hidden;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    margin-left: 15rem;
+  }
 `;
 
 export const InnerWrapper = styled.div`

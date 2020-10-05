@@ -14,6 +14,7 @@ const theme = {
       bold: 700,
     },
     size: {
+      xxxs: '1.4rem',
       xxs: '1.6rem',
       xs: '1.7rem',
       s: '2rem',
@@ -62,6 +63,7 @@ export const themeDark = {
     white: '#ffffff',
     error: '#ea5455',
     success: '#158467',
+    boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)',
   },
   ...theme,
 };
@@ -77,6 +79,7 @@ export const themeLight = {
     white: '#ffffff',
     error: '#ea5455',
     success: '#158467',
+    boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)',
   },
   ...theme,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
+import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import LoginForm from 'components/molecules/LoginForm/LoginForm';
 import image from 'assets/image/image2.svg';
 import Section from 'components/atoms/Section/Section.style';
@@ -16,6 +17,7 @@ const LoginPage = () => {
 
   return (
     <Wrapper withVariants isFlex>
+      <PageTitle screenRenderOnly>login</PageTitle>
       <StyledSection maxWidth="45" withVariants>
         <img src={image} alt="" />
       </StyledSection>
