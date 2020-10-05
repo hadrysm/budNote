@@ -41,4 +41,8 @@ export const StyledList = styled(List)`
 
 export const StyledListItem = styled(ListItem)`
   margin-bottom: 1rem;
+
+  @media ${({ theme }) => theme.mq.desktop} {
+    margin: 0 0.5rem;
+  }
 `;

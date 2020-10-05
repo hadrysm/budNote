@@ -13,7 +13,7 @@ export const Wrapper = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
-  width: 15rem;
+  width: 10rem;
   height: 100vh;
   padding: 2rem 0;
   background-color: ${({ theme }) => theme.colors.tertiary};
@@ -21,14 +21,25 @@ export const Wrapper = styled(motion.div)`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    width: 15rem;
+  }
 `;
 
 export const StyledButtonIcon = styled(ButtonIcon)`
-  margin-top: auto;
+  width: 5rem;
+  height: 5rem;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    width: 6rem;
+    height: 6rem;
+  }
 `;
 
 export const StyledList = styled(List)`
   margin-top: 10vh;
+  margin-bottom: auto;
 `;
 
 export const StyledListItem = styled(ListItem)`
@@ -41,5 +52,9 @@ export const Header = styled(motion.header).attrs(() => ({
   animate: 'visible',
   exit: 'exit',
 }))`
-  padding-right: 15rem;
+  padding-right: 10rem;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    padding-right: 15rem;
+  }
 `;

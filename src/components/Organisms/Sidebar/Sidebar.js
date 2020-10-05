@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 
 import Logo from 'components/atoms/Logo/Logo';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
 import logoutIcon from 'assets/icons/logout.svg';
 import penIcon from 'assets/icons/pen.svg';
 import paymentIcon from 'assets/icons/payment.svg';
@@ -21,21 +20,25 @@ const Sidebar = () => {
         <StyledList>
           <StyledListItem>
             <LinkItem to={routes.budget}>
-              <ButtonIcon icon={paymentIcon} />
+              <StyledButtonIcon icon={paymentIcon} />
             </LinkItem>
           </StyledListItem>
           <StyledListItem>
             <LinkItem to={routes.chart}>
-              <ButtonIcon icon={chartIcon} />
+              <StyledButtonIcon icon={chartIcon} />
             </LinkItem>
           </StyledListItem>
           <StyledListItem>
             <LinkItem to={routes.notes}>
-              <ButtonIcon icon={penIcon} />
+              <StyledButtonIcon icon={penIcon} />
+            </LinkItem>
+          </StyledListItem>
+          <StyledListItem>
+            <LinkItem to={routes.notes}>
+              <StyledButtonIcon icon={logoutIcon} onClick={handleSignout} />
             </LinkItem>
           </StyledListItem>
         </StyledList>
-        <StyledButtonIcon icon={logoutIcon} onClick={handleSignout} />
       </Wrapper>
     </Header>
   );

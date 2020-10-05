@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   margin-left: 15rem;
+  overflow: hidden;
 `;
 
 export const InnerWrapper = styled.div`

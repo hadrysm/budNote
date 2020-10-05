@@ -13,6 +13,8 @@ import AboutPage from 'views/AboutPage/AboutPage';
 import ContactPage from 'views/ContactPage/ContactPage';
 import LoginPage from 'views/LoginPage/LoginPage';
 import NotesPage from 'views/NotesPage/NotesPage';
+import BudgetPages from 'views/BudgetPages/BudgetPages';
+import ChartPages from 'views/ChartPages/ChartPages';
 
 // routes
 import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
@@ -28,6 +30,8 @@ const Root = () => {
           <PanelTemplate>
             <AnimatePresence initial={false} exitBeforeEnter>
               <Switch location={location} key={location.key}>
+                <PrivateRoute path={routes.budget} exact component={BudgetPages} />
+                <PrivateRoute path={routes.chart} exact component={ChartPages} />
                 <PrivateRoute path={routes.notes} exact component={NotesPage} />
               </Switch>
             </AnimatePresence>
@@ -52,12 +56,3 @@ const Root = () => {
 };
 
 export default Root;
-
-// <Route path="/admin/:path?" exact>
-//   <MainAdmin>
-//     <Switch>
-//       <Route path="/admin" exact component={Dashboard} />
-//       <Route path="/admin/setting" component={Setting} />
-//     </Switch>
-//   </MainAdmin>
-// </Route>;

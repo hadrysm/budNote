@@ -20,9 +20,6 @@ export const pageVariants = {
 
     exit: {
       x: '-100vw',
-      transition: {
-        delay: 0.2,
-      },
     },
   },
 
@@ -82,9 +79,6 @@ export const navigationVariants = {
     },
     closed: {
       x: '+100%',
-      transition: {
-        duration: 0.15,
-      },
     },
   },
 

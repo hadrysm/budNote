@@ -21,6 +21,7 @@ export const Wrapper = styled.div`
   cursor: pointer;
 
   @media ${({ theme }) => theme.mq.desktop} {
+    margin-right: 0;
     margin-left: 0;
   }
 `;
