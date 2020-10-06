@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import Section from 'components/atoms/Section/Section.style';
-
 import { taskVariants } from 'variants';
 
 const { parent } = taskVariants;
