@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import app from 'firebase/base';
+import { auth } from 'firebase/base';
 import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/action';
 
 export const useAuthUser = () => {
@@ -11,7 +11,7 @@ export const useAuthUser = () => {
     dispatch(authStart());
 
     try {
-      const { user } = await app.auth().createUserWithEmailAndPassword(email, password);
+      const { user } = await auth().createUserWithEmailAndPassword(email, password);
       dispatch(authSuccess(user.uid));
     } catch (err) {
       dispatch(authFail(err));
@@ -22,7 +22,7 @@ export const useAuthUser = () => {
     dispatch(authStart());
 
     try {
-      const { user } = await app.auth().signInWithEmailAndPassword(email, password);
+      const { user } = await auth().signInWithEmailAndPassword(email, password);
       dispatch(authSuccess(user.uid));
     } catch (err) {
       dispatch(authFail(err));
@@ -33,8 +33,7 @@ export const useAuthUser = () => {
     dispatch(authStart());
 
     try {
-      await app
-        .auth()
+      await auth()
         .signOut()
         .then(() => {
           dispatch(authLogout);
@@ -45,7 +44,7 @@ export const useAuthUser = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = app.auth().onAuthStateChanged((data) => {
+    const unsubscribe = auth().onAuthStateChanged((data) => {
       if (data) {
         dispatch(setUser(data.uid));
       } else {
