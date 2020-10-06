@@ -125,20 +125,6 @@ export const navigationVariants = {
   },
 };
 
-export const footerVariants = {
-  hidden: {
-    y: +200,
-  },
-  visible: {
-    y: 0,
-    transition: {
-      delay: 0.2,
-      type: 'spring',
-      stiffness: 90,
-    },
-  },
-};
-
 export const buttonVariants = {
   button: {
     hover: {
@@ -211,10 +197,10 @@ export const inputVariants = {
 export const sidebarVariants = {
   sidebar: {
     hidden: {
-      x: '-100%',
+      x: 0,
     },
     visible: {
-      x: 0,
+      x: '100%',
       transition: {
         delay: 0.2,
         type: 'spring',
@@ -222,7 +208,7 @@ export const sidebarVariants = {
       },
     },
     exit: {
-      x: '-100%',
+      x: 0,
       transition: {
         delay: 0.2,
         type: 'spring',

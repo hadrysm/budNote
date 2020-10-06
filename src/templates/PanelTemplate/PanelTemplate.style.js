@@ -6,11 +6,11 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin-left: 10rem;
+  margin-left: 7rem;
   overflow: hidden;
 
   @media ${({ theme }) => theme.mq.tablet} {
-    margin-left: 15rem;
+    margin-left: 10rem;
   }
 `;
 

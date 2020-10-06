@@ -6,8 +6,6 @@ import Section from 'components/atoms/Section/Section.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 
-import Task from 'components/molecules/Task/Task';
-
 const NotesPage = () => {
   return (
     <Wrapper withVariants>
@@ -17,8 +15,6 @@ const NotesPage = () => {
         <Headline customFontSize="3.5">Notatki</Headline>
         <Paragraph>Liczba notatek: 4</Paragraph>
       </Section>
-
-      <Task />
     </Wrapper>
   );
 };

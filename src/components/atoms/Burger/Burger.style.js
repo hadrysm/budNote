@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { navigationVariants } from 'variants';
@@ -25,6 +25,18 @@ export const BurgerButton = styled(motion.button).attrs(({ isMenuVisible }) => (
   @media ${({ theme }) => theme.mq.desktop} {
     display: none;
   }
+
+  ${({ isFixed }) =>
+    isFixed &&
+    css`
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+
+      @media ${({ theme }) => theme.mq.desktop} {
+        display: block;
+      }
+    `}
 `;
 
 export const BurgerLine = styled(motion.span).attrs(({ lineOne, lineTwo, lineThree }) => ({

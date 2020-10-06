@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 
-import Logo from 'components/atoms/Logo/Logo';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 import logoutIcon from 'assets/icons/logout.svg';
 import penIcon from 'assets/icons/pen.svg';
@@ -16,7 +15,6 @@ const Sidebar = () => {
   return (
     <Header>
       <Wrapper>
-        <Logo label="budNote" path={routes.notes} />
         <StyledList>
           <StyledListItem>
             <LinkItem to={routes.budget}>

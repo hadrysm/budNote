@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Sidebar from 'components/Organisms/Sidebar/Sidebar';
+
 import { Wrapper, InnerWrapper, Main, Container } from './PanelTemplate.style';
 
 const PanelTemplate = ({ children }) => {

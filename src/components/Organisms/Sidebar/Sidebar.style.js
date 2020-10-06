@@ -12,8 +12,8 @@ const { sidebar } = sidebarVariants;
 export const Wrapper = styled(motion.div)`
   position: fixed;
   top: 0;
-  left: 0;
-  width: 10rem;
+  left: -100%;
+  width: 7rem;
   height: 100vh;
   padding: 2rem 0;
   background-color: ${({ theme }) => theme.colors.tertiary};
@@ -23,7 +23,7 @@ export const Wrapper = styled(motion.div)`
   align-items: center;
 
   @media ${({ theme }) => theme.mq.tablet} {
-    width: 15rem;
+    width: 10rem;
   }
 `;
 
@@ -38,7 +38,7 @@ export const StyledButtonIcon = styled(ButtonIcon)`
 `;
 
 export const StyledList = styled(List)`
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-bottom: auto;
 `;
 
@@ -51,10 +51,4 @@ export const Header = styled(motion.header).attrs(() => ({
   initial: 'hidden',
   animate: 'visible',
   exit: 'exit',
-}))`
-  padding-right: 10rem;
-
-  @media ${({ theme }) => theme.mq.tablet} {
-    padding-right: 15rem;
-  }
-`;
+}))``;

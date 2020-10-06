@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-// template
+// templates
 import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import PageTemplate from 'templates/PageTemplate/PageTemplate';
 import PanelTemplate from 'templates/PanelTemplate/PanelTemplate';
@@ -13,8 +13,8 @@ import AboutPage from 'views/AboutPage/AboutPage';
 import ContactPage from 'views/ContactPage/ContactPage';
 import LoginPage from 'views/LoginPage/LoginPage';
 import NotesPage from 'views/NotesPage/NotesPage';
-import BudgetPages from 'views/BudgetPages/BudgetPages';
-import ChartPages from 'views/ChartPages/ChartPages';
+import BudgetPage from 'views/BudgetPage/BudgetPage';
+import ChartPage from 'views/ChartPage/ChartPage';
 
 // routes
 import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
@@ -30,8 +30,8 @@ const Root = () => {
           <PanelTemplate>
             <AnimatePresence initial={false} exitBeforeEnter>
               <Switch location={location} key={location.key}>
-                <PrivateRoute path={routes.budget} exact component={BudgetPages} />
-                <PrivateRoute path={routes.chart} exact component={ChartPages} />
+                <PrivateRoute path={routes.budget} exact component={BudgetPage} />
+                <PrivateRoute path={routes.chart} exact component={ChartPage} />
                 <PrivateRoute path={routes.notes} exact component={NotesPage} />
               </Switch>
             </AnimatePresence>
