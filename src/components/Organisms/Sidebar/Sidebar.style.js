@@ -9,12 +9,17 @@ import { sidebarVariants } from 'variants';
 
 const { sidebar } = sidebarVariants;
 
-export const Wrapper = styled(motion.div)`
+export const Wrapper = styled(motion.div).attrs(() => ({
+  variants: sidebar,
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
+}))`
   position: fixed;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 7rem;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem 0;
   background-color: ${({ theme }) => theme.colors.tertiary};
   display: flex;
@@ -46,9 +51,4 @@ export const StyledListItem = styled(ListItem)`
   margin-bottom: 1rem;
 `;
 
-export const Header = styled(motion.header).attrs(() => ({
-  variants: sidebar,
-  initial: 'hidden',
-  animate: 'visible',
-  exit: 'exit',
-}))``;
+export const Header = styled.header``;

@@ -197,10 +197,10 @@ export const inputVariants = {
 export const sidebarVariants = {
   sidebar: {
     hidden: {
-      x: 0,
+      x: '-100%',
     },
     visible: {
-      x: '100%',
+      x: 0,
       transition: {
         delay: 0.2,
         type: 'spring',
@@ -208,11 +208,45 @@ export const sidebarVariants = {
       },
     },
     exit: {
-      x: 0,
+      x: '-100%',
       transition: {
         delay: 0.2,
         type: 'spring',
         stiffness: 90,
+      },
+    },
+  },
+};
+
+export const taskVariants = {
+  parent: {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 1,
+      },
+    },
+  },
+
+  task: {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+    hover: {
+      scale: 0.95,
+      transition: {
+        type: 'spring',
+        stiffness: 120,
+        damping: 4,
       },
     },
   },

@@ -2,8 +2,14 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import { taskVariants } from 'variants';
 
-export const Wrapper = styled(motion.div)`
+const { task } = taskVariants;
+
+export const Wrapper = styled(motion.div).attrs(() => ({
+  variants: task,
+  whileHover: 'hover',
+}))`
   min-width: 15rem;
   max-width: 30rem;
   min-height: 35rem;
@@ -12,6 +18,7 @@ export const Wrapper = styled(motion.div)`
   overflow: hidden;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
+  cursor: pointer;
 `;
 
 export const InnerWrapper = styled.div`
