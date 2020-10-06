@@ -251,3 +251,22 @@ export const taskVariants = {
     },
   },
 };
+
+export const newNoteBarVariants = {
+  hidden: {
+    x: '100%',
+  },
+
+  visible: {
+    x: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 90,
+      damping: 10,
+    },
+  },
+
+  exit: {
+    x: '100%',
+  },
+};

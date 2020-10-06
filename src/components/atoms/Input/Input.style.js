@@ -51,7 +51,7 @@ export const StyledInput = styled(motion.input)`
   ${({ as }) =>
     as === 'textarea' &&
     css`
-      min-height: 15rem;
+      min-height: 20rem;
       resize: none;
     `}
 `;
