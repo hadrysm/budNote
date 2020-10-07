@@ -1,9 +1,11 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { useSelector } from 'react-redux';
 
 import Headline from 'components/atoms/Headline/Headline.style';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button.style';
+import { db } from 'firebase/base';
 import { Wrapper, StyledForm } from './NewNoteBar.style';
 
 const initialValues = { title: '', content: '' };
@@ -21,11 +23,17 @@ const validate = (values) => {
 };
 
 const NewNoteBar = () => {
+  const uId = useSelector(({ auth }) => auth.uid);
+
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues,
     validate,
-    onSubmit: ({ title, content }) => {
-      console.log(title, content);
+    onSubmit: async ({ title, content }) => {
+      await db.collection('notes').add({
+        title,
+        content,
+        authorId: uId,
+      });
     },
   });
 

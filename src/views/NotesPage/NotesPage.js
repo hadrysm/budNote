@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Section from 'components/atoms/Section/Section.style';
@@ -10,10 +11,28 @@ import NewNoteBar from 'components/Organisms/NewNoteBar/NewNoteBar';
 import plusIcon from 'assets/icons/plus.svg';
 
 import { AnimatePresence } from 'framer-motion';
+import { db } from 'firebase/base';
+import { fetchNotesSuccess } from 'store/notes/actions';
 import { GridWrapper, InnerWrapper, StyledButtonIcon } from './NotesPage.style';
 
 const NotesPage = () => {
   const [isNewNoteBarVisible, setNewNoteBarVisible] = useState(false);
+
+  const dispatch = useDispatch();
+  const notesData = useSelector(({ notes }) => notes.notes);
+
+  useEffect(() => {
+    const fetchNotes = async () => {
+      const res = await db.collection('notes').get();
+      const notes = [];
+
+      res.docs.map((doc) => notes.push({ id: doc.id, ...doc.data() }));
+
+      dispatch(fetchNotesSuccess(notes));
+    };
+
+    fetchNotes();
+  }, []);
 
   return (
     <>
@@ -21,20 +40,17 @@ const NotesPage = () => {
         <InnerWrapper>
           <PageTitle screenRenderOnly>notatki</PageTitle>
 
-          <Section>
+          <Section maxWidth="100">
             <Headline customFontSize="3.5">Notatki</Headline>
-            <Paragraph>Liczba notatek: 4</Paragraph>
+            <Paragraph>Liczba notatek: {notesData.length}</Paragraph>
           </Section>
 
-          <Section>
+          <Section maxWidth="100">
             <GridWrapper>
-              <Task />
-              <Task />
-              <Task />
-              <Task />
-              <Task />
-              <Task />
-              <Task />
+              {!notesData.length && <Paragraph>Dodaj pierwszą notatkę</Paragraph>}
+              {notesData.map(({ id, title, content }) => (
+                <Task key={id} title={title} content={content} />
+              ))}
             </GridWrapper>
           </Section>
         </InnerWrapper>

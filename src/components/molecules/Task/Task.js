@@ -1,26 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Button from 'components/atoms/Button/Button.style';
 import { Wrapper, InnerWrapper, DateInfo } from './Task.style';
 
-const Task = () => {
+const Task = ({ title, content }) => {
   return (
     <Wrapper>
       <InnerWrapper withColor>
-        <Headline>notatka</Headline>
+        <Headline>{title}</Headline>
         <DateInfo>05.10.2020</DateInfo>
       </InnerWrapper>
       <InnerWrapper>
-        <Paragraph>
-          jedzie pociaga sdsakjhas sdkjashd lkjjsadhasd jkhdasjkdkasdasd asdsadasd asd as a afdsfg
-          sd
-        </Paragraph>
+        <Paragraph>{content}</Paragraph>
         <Button secondary>Usuń</Button>
       </InnerWrapper>
     </Wrapper>
   );
+};
+
+Task.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default Task;
