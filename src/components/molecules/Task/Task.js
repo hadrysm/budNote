@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Button from 'components/atoms/Button/Button.style';
+import { getFormatDate } from 'helpers';
 import { Wrapper, InnerWrapper, DateInfo } from './Task.style';
 
-const Task = ({ title, content, id, handleDelete }) => {
+const Task = ({ title, content, id, handleDelete, createNoteData }) => {
   return (
     <Wrapper>
       <InnerWrapper withColor>
         <Headline>{title}</Headline>
-        <DateInfo>05.10.2020</DateInfo>
+        <DateInfo>{getFormatDate(createNoteData)}</DateInfo>
       </InnerWrapper>
       <InnerWrapper>
         <Paragraph>{content}</Paragraph>
@@ -28,6 +29,7 @@ Task.propTypes = {
   content: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   handleDelete: PropTypes.func.isRequired,
+  createNoteData: PropTypes.number.isRequired,
 };
 
 export default Task;

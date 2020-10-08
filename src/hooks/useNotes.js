@@ -13,7 +13,7 @@ export const useNotes = () => {
       title: data.title,
       content: data.content,
       authorId: uId,
-      createNoteData: null,
+      createNoteData: Date.now(),
     };
 
     dispatch(fetchNotestStart());

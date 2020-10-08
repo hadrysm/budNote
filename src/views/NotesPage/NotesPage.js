@@ -41,12 +41,13 @@ const NotesPage = () => {
               <GridWrapper>
                 {!notesData.length && <Paragraph>Dodaj pierwszą notatkę</Paragraph>}
 
-                {notesData.map(({ id, title, content }) => (
+                {notesData.map(({ id, title, content, createNoteData }) => (
                   <Task
                     key={id}
                     id={id}
                     title={title}
                     content={content}
+                    createNoteData={createNoteData}
                     handleDelete={handleDelete}
                   />
                 ))}
