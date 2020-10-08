@@ -8,6 +8,9 @@ const { task } = taskVariants;
 
 export const Wrapper = styled(motion.div).attrs(() => ({
   variants: task,
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
   whileHover: 'hover',
 }))`
   min-width: 15rem;

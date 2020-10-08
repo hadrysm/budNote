@@ -6,7 +6,7 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Button from 'components/atoms/Button/Button.style';
 import { Wrapper, InnerWrapper, DateInfo } from './Task.style';
 
-const Task = ({ title, content }) => {
+const Task = ({ title, content, id, handleDelete }) => {
   return (
     <Wrapper>
       <InnerWrapper withColor>
@@ -15,7 +15,9 @@ const Task = ({ title, content }) => {
       </InnerWrapper>
       <InnerWrapper>
         <Paragraph>{content}</Paragraph>
-        <Button secondary>Usuń</Button>
+        <Button secondary onClick={() => handleDelete(id)}>
+          Usuń
+        </Button>
       </InnerWrapper>
     </Wrapper>
   );
@@ -24,6 +26,8 @@ const Task = ({ title, content }) => {
 Task.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default Task;

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Section from 'components/atoms/Section/Section.style';
@@ -10,29 +11,19 @@ import Task from 'components/molecules/Task/Task';
 import NewNoteBar from 'components/Organisms/NewNoteBar/NewNoteBar';
 import plusIcon from 'assets/icons/plus.svg';
 
-import { AnimatePresence } from 'framer-motion';
-import { db } from 'firebase/base';
-import { fetchNotesSuccess } from 'store/notes/actions';
+import { useNotes } from 'hooks/useNotes';
 import { GridWrapper, InnerWrapper, StyledButtonIcon } from './NotesPage.style';
 
 const NotesPage = () => {
   const [isNewNoteBarVisible, setNewNoteBarVisible] = useState(false);
+  const { handleAddNote, handleDelete } = useNotes();
 
-  const dispatch = useDispatch();
   const notesData = useSelector(({ notes }) => notes.notes);
 
-  useEffect(() => {
-    const fetchNotes = async () => {
-      const res = await db.collection('notes').get();
-      const notes = [];
-
-      res.docs.map((doc) => notes.push({ id: doc.id, ...doc.data() }));
-
-      dispatch(fetchNotesSuccess(notes));
-    };
-
-    fetchNotes();
-  }, []);
+  const handleAddNewNote = (value) => {
+    setNewNoteBarVisible(false);
+    handleAddNote(value);
+  };
 
   return (
     <>
@@ -46,16 +37,27 @@ const NotesPage = () => {
           </Section>
 
           <Section maxWidth="100">
-            <GridWrapper>
-              {!notesData.length && <Paragraph>Dodaj pierwszą notatkę</Paragraph>}
-              {notesData.map(({ id, title, content }) => (
-                <Task key={id} title={title} content={content} />
-              ))}
-            </GridWrapper>
+            <AnimatePresence exitBeforeEnter>
+              <GridWrapper>
+                {!notesData.length && <Paragraph>Dodaj pierwszą notatkę</Paragraph>}
+
+                {notesData.map(({ id, title, content }) => (
+                  <Task
+                    key={id}
+                    id={id}
+                    title={title}
+                    content={content}
+                    handleDelete={handleDelete}
+                  />
+                ))}
+              </GridWrapper>
+            </AnimatePresence>
           </Section>
         </InnerWrapper>
       </Wrapper>
-      <AnimatePresence exitBeforeEnter>{isNewNoteBarVisible && <NewNoteBar />}</AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+        {isNewNoteBarVisible && <NewNoteBar handleAddNote={handleAddNewNote} />}
+      </AnimatePresence>
       <StyledButtonIcon
         icon={plusIcon}
         onClick={() => setNewNoteBarVisible((prevState) => !prevState)}
