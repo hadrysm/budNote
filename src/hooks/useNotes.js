@@ -25,7 +25,7 @@ export const useNotes = () => {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDeleteNote = async (id) => {
     dispatch(fetchNotestStart());
 
     try {
@@ -47,5 +47,5 @@ export const useNotes = () => {
     return () => unsubscribe();
   }, [dispatch]);
 
-  return { handleAddNote, handleDelete };
+  return { handleAddNote, handleDeleteNote };
 };

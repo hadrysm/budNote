@@ -8,6 +8,7 @@ const routes = {
   budget: '/user/budget',
   chart: '/user/chart',
   notes: '/user/notes',
+  note: '/user/:id',
 };
 
 export default routes;

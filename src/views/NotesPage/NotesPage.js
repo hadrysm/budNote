@@ -16,7 +16,7 @@ import { GridWrapper, InnerWrapper, StyledButtonIcon } from './NotesPage.style';
 
 const NotesPage = () => {
   const [isNewNoteBarVisible, setNewNoteBarVisible] = useState(false);
-  const { handleAddNote, handleDelete } = useNotes();
+  const { handleAddNote, handleDeleteNote } = useNotes();
 
   const notesData = useSelector(({ notes }) => notes.notes);
 
@@ -48,7 +48,7 @@ const NotesPage = () => {
                     title={title}
                     content={content}
                     createNoteData={createNoteData}
-                    handleDelete={handleDelete}
+                    handleDeleteNotes={handleDeleteNote}
                   />
                 ))}
               </GridWrapper>

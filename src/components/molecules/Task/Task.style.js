@@ -21,7 +21,6 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   overflow: hidden;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
-  cursor: pointer;
 `;
 
 export const InnerWrapper = styled.div`

@@ -15,6 +15,7 @@ import LoginPage from 'views/LoginPage/LoginPage';
 import NotesPage from 'views/NotesPage/NotesPage';
 import BudgetPage from 'views/BudgetPage/BudgetPage';
 import ChartPage from 'views/ChartPage/ChartPage';
+import NotePage from 'views/NotePage/NotePage';
 
 // routes
 import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
@@ -33,6 +34,7 @@ const Root = () => {
                 <PrivateRoute path={routes.budget} exact component={BudgetPage} />
                 <PrivateRoute path={routes.chart} exact component={ChartPage} />
                 <PrivateRoute path={routes.notes} exact component={NotesPage} />
+                <PrivateRoute path={routes.note} exact component={NotePage} />
               </Switch>
             </AnimatePresence>
           </PanelTemplate>
