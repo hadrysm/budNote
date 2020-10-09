@@ -66,6 +66,6 @@ Input.defaultProps = {
   value: '',
   isError: false,
   errorMessage: '',
-  defaultFocus: true,
+  defaultFocus: false,
 };
 export default Input;

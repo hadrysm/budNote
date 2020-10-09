@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { auth } from 'firebase/base';
+import { auth, db } from 'firebase/base';
 import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/action';
 
 export const useAuthUser = () => {
@@ -12,6 +12,12 @@ export const useAuthUser = () => {
 
     try {
       const { user } = await auth().createUserWithEmailAndPassword(email, password);
+
+      await db.collection('users').doc(user.uid).set({
+        email,
+        uid: user.uid,
+      });
+
       dispatch(authSuccess(user.uid));
     } catch (err) {
       dispatch(authFail(err));
