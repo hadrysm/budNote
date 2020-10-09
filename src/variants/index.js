@@ -270,3 +270,17 @@ export const newNoteBarVariants = {
     x: '100%',
   },
 };
+
+export const popupVariants = {
+  hidden: {
+    x: '-100%',
+  },
+
+  visible: {
+    x: 0,
+  },
+
+  exit: {
+    x: '-100%',
+  },
+};

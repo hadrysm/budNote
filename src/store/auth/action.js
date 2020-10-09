@@ -1,4 +1,11 @@
-import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT, SET_USER } from './types';
+import {
+  AUTH_START,
+  AUTH_SUCCESS,
+  AUTH_FAIL,
+  AUTH_LOGOUT,
+  SET_USER,
+  CLEAR_AUTH_ERROR,
+} from './types';
 
 export const authStart = () => ({ type: AUTH_START });
 
@@ -23,4 +30,8 @@ export const setUser = (uid) => ({
   payload: {
     uid,
   },
+});
+
+export const clearAuthError = () => ({
+  type: CLEAR_AUTH_ERROR,
 });

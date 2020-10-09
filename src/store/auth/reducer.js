@@ -1,4 +1,11 @@
-import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT, SET_USER } from './types';
+import {
+  AUTH_START,
+  AUTH_SUCCESS,
+  AUTH_FAIL,
+  AUTH_LOGOUT,
+  SET_USER,
+  CLEAR_AUTH_ERROR,
+} from './types';
 
 const INITIAL_STATE = {
   uid: null,
@@ -40,6 +47,12 @@ const authReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         uid: payload.uid,
+      };
+
+    case CLEAR_AUTH_ERROR:
+      return {
+        ...state,
+        error: null,
       };
 
     default:

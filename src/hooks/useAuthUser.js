@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { auth, db } from 'firebase/base';
 import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/action';
-import { getFirebaseErrorMessage } from 'firebase/helpers';
+import { getFirebaseErrorMessage } from 'helpers';
 
 export const useAuthUser = () => {
   const dispatch = useDispatch();
