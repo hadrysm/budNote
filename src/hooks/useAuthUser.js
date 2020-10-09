@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { auth, db } from 'firebase/base';
 import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/action';
+import { getFirebaseErrorMessage } from 'firebase/helpers';
 
 export const useAuthUser = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const useAuthUser = () => {
 
       dispatch(authSuccess(user.uid));
     } catch (err) {
-      dispatch(authFail(err));
+      dispatch(authFail(getFirebaseErrorMessage(err.code)));
     }
   };
 
@@ -31,7 +32,7 @@ export const useAuthUser = () => {
       const { user } = await auth().signInWithEmailAndPassword(email, password);
       dispatch(authSuccess(user.uid));
     } catch (err) {
-      dispatch(authFail(err));
+      dispatch(authFail(getFirebaseErrorMessage(err.code)));
     }
   };
 
@@ -45,7 +46,7 @@ export const useAuthUser = () => {
           dispatch(authLogout);
         });
     } catch (err) {
-      dispatch(authFail(err));
+      dispatch(authFail(getFirebaseErrorMessage(err.code)));
     }
   };
 
