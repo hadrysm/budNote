@@ -10,13 +10,14 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Task from 'components/molecules/Task/Task';
 import NewNoteBar from 'components/Organisms/NewNoteBar/NewNoteBar';
 import plusIcon from 'assets/icons/plus.svg';
+import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 
 import { useNotes } from 'hooks/useNotes';
 import { GridWrapper, InnerWrapper, StyledButtonIcon } from './NotesPage.style';
 
 const NotesPage = () => {
   const [isNewNoteBarVisible, setNewNoteBarVisible] = useState(false);
-  const { handleAddNote, handleDeleteNote } = useNotes();
+  const { handleAddNote } = useNotes();
 
   const notesData = useSelector(({ notes }) => notes.notes);
 
@@ -42,14 +43,9 @@ const NotesPage = () => {
                 {!notesData.length && <Paragraph>Dodaj pierwszą notatkę</Paragraph>}
 
                 {notesData.map(({ id, title, content, createNoteData }) => (
-                  <Task
-                    key={id}
-                    id={id}
-                    title={title}
-                    content={content}
-                    createNoteData={createNoteData}
-                    handleDeleteNotes={handleDeleteNote}
-                  />
+                  <LinkItem to={id} key={id}>
+                    <Task title={title} content={content} createNoteData={createNoteData} />
+                  </LinkItem>
                 ))}
               </GridWrapper>
             </AnimatePresence>

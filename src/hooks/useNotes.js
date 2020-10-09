@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { db } from 'firebase/base';
 import { fetchNotestStart, fetchNotesSuccess, fetchNotesFail } from 'store/notes/actions';
+import routes from 'routes';
 
 export const useNotes = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const uId = useSelector(({ auth }) => auth.uid);
 
   const handleAddNote = async (data) => {
@@ -30,6 +33,21 @@ export const useNotes = () => {
 
     try {
       await db.collection('notes').doc(id).delete();
+      history.push(routes.notes);
+    } catch (error) {
+      dispatch(fetchNotesFail(error));
+    }
+  };
+
+  const handleUpdateNote = async (id, updateData) => {
+    dispatch(fetchNotestStart());
+
+    try {
+      await db
+        .collection('notes')
+        .doc(id)
+        .set({ ...updateData });
+      history.push(routes.notes);
     } catch (error) {
       dispatch(fetchNotesFail(error));
     }
@@ -47,5 +65,5 @@ export const useNotes = () => {
     return () => unsubscribe();
   }, [dispatch]);
 
-  return { handleAddNote, handleDeleteNote };
+  return { handleAddNote, handleDeleteNote, handleUpdateNote };
 };

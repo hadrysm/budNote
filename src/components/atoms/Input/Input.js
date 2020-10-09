@@ -10,8 +10,19 @@ import {
   FeedbackInput,
 } from './Input.style';
 
-const Input = ({ tag, type, name, label, maxLength, value, isError, errorMessage, ...props }) => {
-  const [isFocused, setIsFocused] = useState(false);
+const Input = ({
+  tag,
+  type,
+  name,
+  label,
+  maxLength,
+  value,
+  isError,
+  errorMessage,
+  defaultFocus,
+  ...props
+}) => {
+  const [isFocused, setIsFocused] = useState(defaultFocus);
 
   return (
     <StyledWrapper>
@@ -19,6 +30,7 @@ const Input = ({ tag, type, name, label, maxLength, value, isError, errorMessage
         onFocus={() => setIsFocused(true)}
         onBlur={() => !value && setIsFocused(false)}
         isFocused={isFocused}
+        value={value}
         as={tag}
         type={type}
         name={name}
@@ -44,6 +56,7 @@ Input.propTypes = {
   value: PropTypes.string,
   isError: PropTypes.bool,
   errorMessage: PropTypes.string,
+  defaultFocus: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -53,5 +66,6 @@ Input.defaultProps = {
   value: '',
   isError: false,
   errorMessage: '',
+  defaultFocus: true,
 };
 export default Input;
