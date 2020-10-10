@@ -284,3 +284,24 @@ export const popupVariants = {
     x: '-100%',
   },
 };
+
+export const spinnerVariants = {
+  container: {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  },
+
+  circle: {
+    animate: {
+      y: [0, 20],
+      transition: {
+        yoyo: Infinity,
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
+  },
+};

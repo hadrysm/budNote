@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 
 import Headline from 'components/atoms/Headline/Headline.style';
+
 import Input from 'components/atoms/Input/Input';
 import { AuthContext } from 'context/AuthContext';
 import { FormWrapper, StyledButton, StyledForm } from './LoginForm.style';

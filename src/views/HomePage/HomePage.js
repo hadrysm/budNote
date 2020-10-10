@@ -8,6 +8,7 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 import undrawImage from 'assets/image/undraw.svg';
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
+import Spinner from 'components/atoms/Spinner/Spinner';
 import { StyledHeadline, StyledButton } from './HomePage.style';
 
 const HomePage = () => (
@@ -15,6 +16,7 @@ const HomePage = () => (
     <PageTitle screenRenderOnly>strona głowna</PageTitle>
     <Section>
       <StyledHeadline>wszystko razem</StyledHeadline>
+      <Spinner />
       <Paragraph>
         Kiedy jesteś na szczycie swoich zarobków, życie jest dobre. Pomagamy Ci bez wysiłku
         zarządzać Twoimi finansami w jednym miejscu.
