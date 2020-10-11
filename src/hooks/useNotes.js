@@ -16,7 +16,7 @@ export const useNotes = () => {
       title: data.title,
       content: data.content,
       authorId: uId,
-      createNoteData: Date.now(),
+      createAt: Date.now(),
     };
 
     dispatch(fetchNotestStart());
@@ -57,13 +57,17 @@ export const useNotes = () => {
     const unsubscribe = db.collection('notes').onSnapshot((snapshot) => {
       if (snapshot) {
         const notes = [];
-        snapshot.forEach((doc) => notes.push({ id: doc.id, ...doc.data() }));
+        snapshot.forEach((doc) => {
+          if (doc.data().authorId === uId) {
+            notes.push({ id: doc.id, ...doc.data() });
+          }
+        });
         dispatch(fetchNotesSuccess(notes));
       }
     });
 
     return () => unsubscribe();
-  }, [dispatch]);
+  }, [dispatch, uId]);
 
   return { handleAddNote, handleDeleteNote, handleUpdateNote };
 };

@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Section from 'components/atoms/Section/Section.style';
+import Spinner from 'components/atoms/Spinner/Spinner';
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
@@ -20,6 +21,7 @@ const NotesPage = () => {
   const { handleAddNote } = useNotes();
 
   const notesData = useSelector(({ notes }) => notes.notes);
+  const isLoading = useSelector(({ notes }) => notes.loading);
 
   const handleAddNewNote = (value) => {
     setNewNoteBarVisible(false);
@@ -35,6 +37,7 @@ const NotesPage = () => {
           <Section maxWidth="100">
             <Headline customFontSize="3.5">Notatki</Headline>
             <Paragraph>Liczba notatek: {notesData.length}</Paragraph>
+            <AnimatePresence>{isLoading && <Spinner />}</AnimatePresence>
           </Section>
 
           <Section maxWidth="100">
@@ -42,9 +45,9 @@ const NotesPage = () => {
               <GridWrapper>
                 {!notesData.length && <Paragraph>Dodaj pierwszą notatkę</Paragraph>}
 
-                {notesData.map(({ id, title, content, createNoteData }) => (
+                {notesData.map(({ id, title, content, createAt }) => (
                   <LinkItem to={id} key={id}>
-                    <Task title={title} content={content} createNoteData={createNoteData} />
+                    <Task title={title} content={content} createAt={createAt} />
                   </LinkItem>
                 ))}
               </GridWrapper>

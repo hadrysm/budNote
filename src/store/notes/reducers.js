@@ -1,4 +1,10 @@
-import { FETCH_NOTES_START, FETCH_NOTES_FAIL, FETCH_NOTES_SUCCESS, ADD_NOTE } from './types';
+import {
+  FETCH_NOTES_START,
+  FETCH_NOTES_FAIL,
+  FETCH_NOTES_SUCCESS,
+  ADD_NOTE,
+  CLEAR_NOTES,
+} from './types';
 
 const INITIAL_STATE = {
   notes: [],
@@ -32,6 +38,14 @@ const notesReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         notes: [...state.notes, payload.note],
+      };
+
+    case CLEAR_NOTES:
+      return {
+        ...state,
+        notes: [],
+        loading: false,
+        error: null,
       };
 
     default:

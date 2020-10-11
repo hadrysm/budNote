@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { auth, db } from 'firebase/base';
 import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/action';
+import { clearNotes } from 'store/notes/actions';
 import { getFirebaseErrorMessage } from 'helpers';
 
 export const useAuthUser = () => {
@@ -44,6 +45,7 @@ export const useAuthUser = () => {
         .signOut()
         .then(() => {
           dispatch(authLogout());
+          dispatch(clearNotes());
         });
     } catch (err) {
       dispatch(authFail(getFirebaseErrorMessage(err.code)));

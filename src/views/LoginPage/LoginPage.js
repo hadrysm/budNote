@@ -27,7 +27,7 @@ const LoginPage = () => {
     }
 
     return () => clearTimeout(idSetTimeout.current);
-  }, [error]);
+  }, [error, dispatch]);
 
   if (isAuth) return <MotionRedirect to={routes.notes} />;
 

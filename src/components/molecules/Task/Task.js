@@ -6,12 +6,12 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import { getFormatDate } from 'helpers';
 import { Wrapper, InnerWrapper, DateInfo } from './Task.style';
 
-const Task = ({ title, content, createNoteData }) => {
+const Task = ({ title, content, createAt }) => {
   return (
     <Wrapper>
       <InnerWrapper withColor>
         <Headline>{title}</Headline>
-        <DateInfo>{getFormatDate(createNoteData)}</DateInfo>
+        <DateInfo>{getFormatDate(createAt)}</DateInfo>
       </InnerWrapper>
 
       <InnerWrapper>
@@ -24,7 +24,7 @@ const Task = ({ title, content, createNoteData }) => {
 Task.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  createNoteData: PropTypes.number.isRequired,
+  createAt: PropTypes.number.isRequired,
 };
 
 export default Task;

@@ -2,3 +2,4 @@ export const FETCH_NOTES_START = 'FETCH_NOTES_START';
 export const FETCH_NOTES_FAIL = 'FETCH_NOTES_FAIL';
 export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
 export const ADD_NOTE = 'ADD_NOTE';
+export const CLEAR_NOTES = 'CLEAR_NOTES';

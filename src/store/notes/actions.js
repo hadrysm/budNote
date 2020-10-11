@@ -1,4 +1,10 @@
-import { FETCH_NOTES_START, FETCH_NOTES_FAIL, FETCH_NOTES_SUCCESS, ADD_NOTE } from './types';
+import {
+  FETCH_NOTES_START,
+  FETCH_NOTES_FAIL,
+  FETCH_NOTES_SUCCESS,
+  ADD_NOTE,
+  CLEAR_NOTES,
+} from './types';
 
 export const fetchNotestStart = () => ({
   type: FETCH_NOTES_START,
@@ -24,3 +30,5 @@ export const addNote = (note) => ({
     note,
   },
 });
+
+export const clearNotes = () => ({ type: CLEAR_NOTES });
