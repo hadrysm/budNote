@@ -282,15 +282,28 @@ export const popupVariants = {
 
   exit: {
     x: '-100%',
+    transition: {
+      ease: 'easeOut',
+    },
   },
 };
 
 export const spinnerVariants = {
   container: {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
     animate: {
+      opacity: 1,
+      y: 0,
       transition: {
         staggerChildren: 0.1,
       },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
     },
   },
 

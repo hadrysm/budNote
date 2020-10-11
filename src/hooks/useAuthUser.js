@@ -43,7 +43,7 @@ export const useAuthUser = () => {
       await auth()
         .signOut()
         .then(() => {
-          dispatch(authLogout);
+          dispatch(authLogout());
         });
     } catch (err) {
       dispatch(authFail(getFirebaseErrorMessage(err.code)));

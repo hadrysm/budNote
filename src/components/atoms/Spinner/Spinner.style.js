@@ -7,14 +7,16 @@ const { container, circle } = spinnerVariants;
 
 export const Wrapper = styled(motion.div).attrs(() => ({
   variants: container,
+  initial: 'hidden',
   animate: 'animate',
+  exit: 'exit',
 }))`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 4rem;
   height: 2rem;
-  margin: 0;
+  margin: 0 auto;
 `;
 
 export const Circle = styled(motion.span).attrs(() => ({

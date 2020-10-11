@@ -41,6 +41,7 @@ const authReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         uid: null,
+        loading: false,
       };
 
     case SET_USER:

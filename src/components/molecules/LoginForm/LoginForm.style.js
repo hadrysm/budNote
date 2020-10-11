@@ -11,11 +11,20 @@ export const FormWrapper = styled.div`
   padding: 4rem 4rem 2rem;
   background-color: ${({ theme }) => theme.colors.tertiary};
   overflow: hidden;
+  position: relative;
 `;
 
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+`;
+
+export const AbsWrapper = styled.div`
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 `;
 
 export const StyledButton = styled(Button)`

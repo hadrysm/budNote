@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
 import Headline from 'components/atoms/Headline/Headline.style';
-
+import Spinner from 'components/atoms/Spinner/Spinner';
 import Input from 'components/atoms/Input/Input';
 import { AuthContext } from 'context/AuthContext';
-import { FormWrapper, StyledButton, StyledForm } from './LoginForm.style';
+import { FormWrapper, StyledButton, StyledForm, AbsWrapper } from './LoginForm.style';
 
 const initialValues = { email: '', password: '' };
 
@@ -27,9 +29,9 @@ const validate = (values) => {
 
 const LoginForm = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const handleSwitchAuthMood = () => setIsLogin((prevState) => !prevState);
 
   const { handleSignUp, handleLogin } = useContext(AuthContext);
+  const isLoading = useSelector(({ auth }) => auth.loading);
 
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues,
@@ -45,6 +47,13 @@ const LoginForm = () => {
   return (
     <FormWrapper>
       <Headline>{isLogin ? 'zaloguj się' : 'swtórz konto'}</Headline>
+      <AnimatePresence>
+        {isLoading && (
+          <AbsWrapper>
+            <Spinner />
+          </AbsWrapper>
+        )}
+      </AnimatePresence>
       <StyledForm autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <Input
@@ -68,7 +77,7 @@ const LoginForm = () => {
         </div>
         <StyledButton type="submit">{isLogin ? 'zaloguj się' : 'swtórz konto'}</StyledButton>
       </StyledForm>
-      <StyledButton createAccount secondary onClick={handleSwitchAuthMood}>
+      <StyledButton createAccount secondary onClick={() => setIsLogin((prevState) => !prevState)}>
         {isLogin ? 'stwórz konto' : 'zaloguj sie'}
       </StyledButton>
     </FormWrapper>
