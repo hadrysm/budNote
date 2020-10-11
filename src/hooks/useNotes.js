@@ -9,7 +9,9 @@ import routes from 'routes';
 export const useNotes = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const uId = useSelector(({ auth }) => auth.uid);
+  const uId = useSelector((state) => state.auth.uid);
+
+  const notesCollectionRef = db.collection('notes');
 
   const handleAddNote = async (data) => {
     const noteData = {
@@ -18,11 +20,10 @@ export const useNotes = () => {
       authorId: uId,
       createAt: Date.now(),
     };
-
     dispatch(fetchNotestStart());
 
     try {
-      await db.collection('notes').add(noteData);
+      await notesCollectionRef.add(noteData);
     } catch (error) {
       dispatch(fetchNotesFail(error));
     }
@@ -32,7 +33,7 @@ export const useNotes = () => {
     dispatch(fetchNotestStart());
 
     try {
-      await db.collection('notes').doc(id).delete();
+      await notesCollectionRef.doc(id).delete();
       history.push(routes.notes);
     } catch (error) {
       dispatch(fetchNotesFail(error));
@@ -53,21 +54,21 @@ export const useNotes = () => {
     }
   };
 
+  // live snapshot
+
   useEffect(() => {
-    const unsubscribe = db.collection('notes').onSnapshot((snapshot) => {
+    const unsubscribe = notesCollectionRef.where('authorId', '==', uId).onSnapshot((snapshot) => {
       if (snapshot) {
         const notes = [];
         snapshot.forEach((doc) => {
-          if (doc.data().authorId === uId) {
-            notes.push({ id: doc.id, ...doc.data() });
-          }
+          notes.push({ id: doc.id, ...doc.data() });
         });
         dispatch(fetchNotesSuccess(notes));
       }
     });
 
     return () => unsubscribe();
-  }, [dispatch, uId]);
+  }, [dispatch, uId, notesCollectionRef]);
 
   return { handleAddNote, handleDeleteNote, handleUpdateNote };
 };
