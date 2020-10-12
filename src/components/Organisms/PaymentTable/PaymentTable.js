@@ -1,5 +1,7 @@
 import React from 'react';
 
+import List from 'components/atoms/List/List.style';
+
 import TableExpenditureItem from 'components/molecules/TableExpenditureItem/TableExpenditureItem';
 import { Table, CardRow, TableList, Item } from './PaymentTable.style';
 
@@ -19,14 +21,64 @@ const PaymentTable = () => {
 
       <CardRow>
         {/* elements ... */}
-        <TableExpenditureItem
-          id="1"
-          name="czynsz"
-          category="mieszkanie"
-          price="500"
-          typePayment="auto"
-          deadline="23-12-2020"
-        />
+        <List>
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+          <TableExpenditureItem
+            id="1"
+            name="czynsz"
+            category="mieszkanie"
+            price="500"
+            typePayment="auto"
+            deadline="23-12-2020"
+          />
+        </List>
       </CardRow>
     </Table>
   );

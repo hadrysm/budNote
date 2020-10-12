@@ -11,6 +11,12 @@ export const Table = styled.div`
   border-radius: 0.5rem;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    display: block;
+  }
 `;
 
 export const CardRow = styled.div`
@@ -20,18 +26,21 @@ export const CardRow = styled.div`
     isHeading &&
     css`
       background-color: ${({ theme }) => theme.colors.primary};
-
-      li {
-        font-weight: ${({ theme }) => theme.font.weight.bold};
-        color: ${({ theme }) => theme.colors.white};
-      }
     `}
 `;
 
 export const TableList = styled(List)`
-  display: grid;
-  grid-template-columns: 1fr repeat(5, 13rem);
+  display: none;
   padding: 1rem;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+  }
 `;
 
-export const Item = styled(ListItem)``;
+export const Item = styled(ListItem)`
+  font-weight: ${({ theme }) => theme.font.weight.bold};
+  color: ${({ theme }) => theme.colors.white};
+`;
