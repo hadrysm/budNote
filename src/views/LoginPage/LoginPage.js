@@ -29,7 +29,7 @@ const LoginPage = () => {
     return () => clearTimeout(idSetTimeout.current);
   }, [error, dispatch]);
 
-  if (isAuth) return <MotionRedirect to={routes.notes} />;
+  if (isAuth) return <MotionRedirect to={routes.budget} />;
 
   return (
     <>

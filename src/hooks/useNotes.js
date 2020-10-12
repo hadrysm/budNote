@@ -44,10 +44,7 @@ export const useNotes = () => {
     dispatch(fetchNotestStart());
 
     try {
-      await db
-        .collection('notes')
-        .doc(id)
-        .set({ ...updateData });
+      await notesCollectionRef.doc(id).set({ ...updateData });
       history.push(routes.notes);
     } catch (error) {
       dispatch(fetchNotesFail(error));
