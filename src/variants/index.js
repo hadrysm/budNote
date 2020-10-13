@@ -252,22 +252,42 @@ export const taskVariants = {
   },
 };
 
-export const newNoteBarVariants = {
-  hidden: {
-    x: '100%',
-  },
+export const barVariants = {
+  background: {
+    hidden: {
+      opacity: 0,
+    },
 
-  visible: {
-    x: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 90,
-      damping: 10,
+    visible: {
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 90,
+        damping: 10,
+      },
+    },
+
+    exit: {
+      opacity: 0,
     },
   },
+  box: {
+    hidden: {
+      x: '100%',
+    },
 
-  exit: {
-    x: '100%',
+    visible: {
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 90,
+        damping: 10,
+      },
+    },
+
+    exit: {
+      x: '100%',
+    },
   },
 };
 

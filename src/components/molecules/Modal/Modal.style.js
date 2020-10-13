@@ -1,15 +1,31 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import { newNoteBarVariants } from 'variants';
+import { barVariants } from 'variants';
+
+const { background, box } = barVariants;
 
 export const Wrapper = styled(motion.div).attrs(() => ({
-  variants: newNoteBarVariants,
+  variants: background,
   initial: 'hidden',
   animate: 'visible',
   exit: 'exit',
 }))`
   position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.7);
+`;
+
+export const BoxWrapper = styled(motion.div).attrs(() => ({
+  variants: box,
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'exit',
+}))`
+  position: absolute;
   top: 0;
   right: 0;
   height: 100vh;
@@ -24,9 +40,4 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   @media ${({ theme }) => theme.mq.tablet} {
     padding: 6rem 3rem;
   }
-`;
-
-export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
 `;

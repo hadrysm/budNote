@@ -7,7 +7,7 @@ const { labelVariants, lineVariants, feedbackVariants } = inputVariants;
 
 export const StyledWrapper = styled.div`
   width: 100%;
-  margin: 5.5rem 0;
+  margin: 4rem 0;
   position: relative;
 
   ::after {

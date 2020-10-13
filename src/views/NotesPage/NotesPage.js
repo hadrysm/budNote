@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
+import Modal from 'components/molecules/Modal/Modal';
 import Section from 'components/atoms/Section/Section.style';
 import Spinner from 'components/atoms/Spinner/Spinner';
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Task from 'components/molecules/Task/Task';
-import NewNoteBar from 'components/Organisms/NewNoteBar/NewNoteBar';
+import NewNoteBar from 'components/Organisms/NoteForm/NoteForm';
 import plusIcon from 'assets/icons/plus.svg';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 
@@ -25,7 +26,7 @@ const NotesPage = () => {
 
   const handleAddNewNote = (value) => {
     handleAddNote(value);
-    // setNewNoteBarVisible(false);
+    setNewNoteBarVisible(false);
   };
 
   return (
@@ -55,8 +56,13 @@ const NotesPage = () => {
           </Section>
         </InnerWrapper>
       </Wrapper>
-      <AnimatePresence exitBeforeEnter>
-        {isNewNoteBarVisible && <NewNoteBar handleAddNote={handleAddNewNote} />}
+
+      <AnimatePresence>
+        {isNewNoteBarVisible && (
+          <Modal title="twoja notatka">
+            <NewNoteBar handleAddNote={handleAddNewNote} />
+          </Modal>
+        )}
       </AnimatePresence>
       <StyledButtonIcon
         icon={plusIcon}
