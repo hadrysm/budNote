@@ -21,7 +21,7 @@ const validate = ({ title, content }) => {
   return errors;
 };
 
-const NewNoteBar = ({ handleAddNote }) => {
+const NoteForm = ({ handleAddNote }) => {
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues,
     validate,
@@ -29,7 +29,6 @@ const NewNoteBar = ({ handleAddNote }) => {
       handleAddNote(value);
     },
   });
-
   return (
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
       <div>
@@ -58,8 +57,8 @@ const NewNoteBar = ({ handleAddNote }) => {
   );
 };
 
-NewNoteBar.propTypes = {
+NoteForm.propTypes = {
   handleAddNote: PropTypes.func.isRequired,
 };
 
-export default NewNoteBar;
+export default NoteForm;

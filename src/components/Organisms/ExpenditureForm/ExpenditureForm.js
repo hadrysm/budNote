@@ -2,63 +2,90 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 import Input from 'components/atoms/Input/Input';
+import Select from 'components/atoms/Select/Select';
 import { StyledForm, StyledButton } from './ExpenditureForm.style';
 
-const initialValues = { title: '', content: '' };
+const ExpenditureForm = () => {
+  const categoryOptions = [
+    {
+      displayValue: 'wybierz kategorię',
+      value: '',
+    },
+    {
+      displayValue: 'mieszkanie',
+      value: 'mieszkanie',
+    },
+    {
+      displayValue: 'jedzenie',
+      value: 'jedzenie',
+    },
+    {
+      displayValue: 'nauka',
+      value: 'nauka',
+    },
+  ];
 
-const validate = ({ title, content }) => {
-  const errors = {};
-  if (!title) {
-    errors.title = 'Pole jest wymagane';
-  }
+  const { values, errors: err, touched, handleChange, handleSubmit } = useFormik({
+    initialValues: {
+      title: '',
+      amount: '',
+      category: '',
+    },
+    validate: ({ title, amount, category }) => {
+      const errors = {};
+      if (!title) {
+        errors.title = 'Pole jest wymagane';
+      }
 
-  if (!content) {
-    errors.content = 'Pole jest wymagane';
-  }
-  return errors;
-};
+      if (!amount) {
+        errors.amount = 'Pole jest wymagane';
+      }
 
-const ExpenditureBar = () => {
-  const { values, errors, touched, handleChange, handleSubmit } = useFormik({
-    initialValues,
-    validate,
+      if (!category) {
+        errors.amount = 'Pole jest wymagane';
+      }
+      return errors;
+    },
     onSubmit: (value) => {
       console.log(value);
     },
   });
-
   return (
     <StyledForm autoComplete="off" onSubmit={handleSubmit}>
-      <Input
-        name="title"
-        label="nazwa"
-        onChange={handleChange}
-        value={values.title}
-        isError={errors.title && touched.title}
-        errorMessage={errors.title}
-      />
-      <Input
-        name="price"
-        label="kwota"
-        onChange={handleChange}
-        value={values.price}
-        isError={errors.price && touched.price}
-        errorMessage={errors.price}
-      />
-      <Input
-        name="category"
-        label="select - kategoria"
-        onChange={handleChange}
-        value={values.category}
-        isError={errors.category && touched.category}
-        errorMessage={errors.category}
-      />
+      <div>
+        <Input
+          name="title"
+          label="tytuł"
+          onChange={handleChange}
+          value={values.title}
+          isError={err.title && touched.title}
+          errorMessage={err.title}
+        />
 
+        <Input
+          type="number"
+          name="amount"
+          label="kwota"
+          onChange={handleChange}
+          value={values.amount}
+          isError={err.amount && touched.amount}
+          errorMessage={err.amount}
+        />
+
+        <Select
+          name="category"
+          label="wybierz kategorię"
+          onChange={handleChange}
+          value={values.category}
+          // isError={errors.category && touched.category}
+          options={categoryOptions}
+        />
+      </div>
       <StyledButton type="submit" secondary>
-        Dodaj
+        Dodaj notatkę
       </StyledButton>
     </StyledForm>
   );
 };
 
-export default ExpenditureBar;
+export default ExpenditureForm;

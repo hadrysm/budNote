@@ -49,11 +49,11 @@ const Input = ({
 
 Input.propTypes = {
   tag: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxLength: PropTypes.number,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   isError: PropTypes.bool,
   errorMessage: PropTypes.string,
   defaultFocus: PropTypes.bool,
