@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -10,8 +10,16 @@ export const useNotes = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const uId = useSelector((state) => state.auth.uid);
-
   const notesCollectionRef = db.collection('notes');
+
+  const fetchNotesData = async () => {
+    const results = await notesCollectionRef.where('authorId', '==', uId).get();
+    const notes = [];
+    results.docs.map((doc) => notes.push({ id: doc.id, ...doc.data() }));
+    dispatch(fetchNotesSuccess(notes));
+  };
+
+  const memoizedFetchNotesData = useCallback(fetchNotesData, []);
 
   const handleAddNote = async (data) => {
     const noteData = {
@@ -24,6 +32,7 @@ export const useNotes = () => {
 
     try {
       await notesCollectionRef.add(noteData);
+      memoizedFetchNotesData();
     } catch (error) {
       dispatch(fetchNotesFail(error));
     }
@@ -51,21 +60,9 @@ export const useNotes = () => {
     }
   };
 
-  // live snapshot
-
   useEffect(() => {
-    const unsubscribe = notesCollectionRef.where('authorId', '==', uId).onSnapshot((snapshot) => {
-      if (snapshot) {
-        const notes = [];
-        snapshot.forEach((doc) => {
-          notes.push({ id: doc.id, ...doc.data() });
-        });
-        dispatch(fetchNotesSuccess(notes));
-      }
-    });
-
-    return () => unsubscribe();
-  }, [dispatch, uId, notesCollectionRef]);
+    memoizedFetchNotesData();
+  }, [memoizedFetchNotesData]);
 
   return { handleAddNote, handleDeleteNote, handleUpdateNote };
 };

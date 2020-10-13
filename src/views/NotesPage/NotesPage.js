@@ -24,8 +24,8 @@ const NotesPage = () => {
   const isLoading = useSelector(({ notes }) => notes.loading);
 
   const handleAddNewNote = (value) => {
-    setNewNoteBarVisible(false);
     handleAddNote(value);
+    // setNewNoteBarVisible(false);
   };
 
   return (
