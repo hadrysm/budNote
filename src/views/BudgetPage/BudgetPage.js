@@ -12,11 +12,13 @@ import Modal from 'components/molecules/Modal/Modal';
 
 import plusIcon from 'assets/icons/plus.svg';
 
+import { useBudget } from 'hooks/useBudget';
+
 import { Header, StyledButtonIcon } from './BudgetPage.style';
 
 const BudgesPages = () => {
   const [isModalOpen, setModalOpen] = useState(true);
-
+  const { handleAddNewExpense } = useBudget();
   return (
     <>
       <Wrapper withVariants>
@@ -35,7 +37,7 @@ const BudgesPages = () => {
       <AnimatePresence>
         {isModalOpen && (
           <Modal title="nowy wydatek">
-            <ExpenditureForm />
+            <ExpenditureForm handleAddNewExpense={handleAddNewExpense} />
           </Modal>
         )}
       </AnimatePresence>
