@@ -38,9 +38,19 @@ export const useBudget = () => {
     }
   };
 
+  const handleDeleteBudget = async (id) => {
+    dispatch(fetchBudgetStart());
+
+    try {
+      await budgetCollectionRef.doc(id).delete();
+    } catch (error) {
+      dispatch(fetchBudgetFail(error));
+    }
+  };
+
   useEffect(() => {
     memoizedFetchBudgetData();
   }, [memoizedFetchBudgetData]);
 
-  return { handleAddNewExpense };
+  return { handleAddNewExpense, handleDeleteBudget };
 };

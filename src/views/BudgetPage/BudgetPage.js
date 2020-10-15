@@ -31,7 +31,7 @@ const BudgesPages = () => {
         </Header>
 
         <Section>
-          <PaymentTable />
+          <PaymentTable handleOpenModal={setModalOpen} />
         </Section>
       </Wrapper>
       <AnimatePresence>

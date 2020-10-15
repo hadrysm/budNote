@@ -44,3 +44,12 @@ export const Item = styled(ListItem)`
   font-weight: ${({ theme }) => theme.font.weight.bold};
   color: ${({ theme }) => theme.colors.white};
 `;
+
+export const NoDataWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  min-height: 20vh;
+`;

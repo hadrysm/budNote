@@ -1,4 +1,4 @@
-import { FETCH_BUDGET_START, FETCH_BUDGET_SUCCESS, FETCH_BUDGET_FAIL } from './types';
+import { FETCH_BUDGET_START, FETCH_BUDGET_SUCCESS, FETCH_BUDGET_FAIL, CLEAR_BUDGET } from './types';
 
 export const fetchBudgetStart = () => ({
   type: FETCH_BUDGET_START,
@@ -17,3 +17,5 @@ export const fetchBudgetSuccess = (budgetData) => ({
     budgetData,
   },
 });
+
+export const clearBudget = () => ({ type: CLEAR_BUDGET });

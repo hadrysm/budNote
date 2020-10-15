@@ -6,6 +6,8 @@ import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Input from 'components/atoms/Input/Input';
 
 import { db } from 'firebase/base';
+import { useSelector } from 'react-redux';
+
 import { useNotes } from 'hooks/useNotes';
 import { InnerWrapper, StyledForm, StyledButton } from './NotePage.style';
 
@@ -23,12 +25,13 @@ const validate = ({ title, content }) => {
 
 const NotePage = () => {
   const [note, setNote] = useState(null);
+  const uId = useSelector(({ auth }) => auth.uid);
   const { id } = useParams();
   const { handleUpdateNote, handleDeleteNote } = useNotes();
 
   useEffect(() => {
     const fetchNote = async () => {
-      const res = await db.collection('notes').doc(id).get();
+      const res = await db.collection('users').doc(uId).collection('notes').doc(id).get();
       setNote(res.data());
     };
 

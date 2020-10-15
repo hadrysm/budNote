@@ -1,4 +1,4 @@
-import { FETCH_BUDGET_START, FETCH_BUDGET_SUCCESS, FETCH_BUDGET_FAIL } from './types';
+import { FETCH_BUDGET_START, FETCH_BUDGET_SUCCESS, FETCH_BUDGET_FAIL, CLEAR_BUDGET } from './types';
 
 const INITIAL_STATE = {
   budget: [],
@@ -26,6 +26,14 @@ const budgetReducer = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         loading: false,
         budget: payload.budgetData,
+      };
+
+    case CLEAR_BUDGET:
+      return {
+        ...state,
+        budget: [],
+        loading: false,
+        error: null,
       };
 
     default:
