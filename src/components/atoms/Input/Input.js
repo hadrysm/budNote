@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { AnimatePresence } from 'framer-motion';
 
-import {
-  StyledWrapper,
-  StyledInput,
-  StyledLabel,
-  StyledInputLineBar,
-  FeedbackInput,
-} from './Input.style';
+import { Wrapper, StyledInput, Label, InputLineBar, FeedbackInput } from './Input.style';
 
 const Input = ({
   tag,
@@ -25,7 +19,7 @@ const Input = ({
   const [isFocused, setIsFocused] = useState(defaultFocus);
 
   return (
-    <StyledWrapper>
+    <Wrapper>
       <StyledInput
         onFocus={() => setIsFocused(true)}
         onBlur={() => !value && setIsFocused(false)}
@@ -38,12 +32,12 @@ const Input = ({
         maxLength={maxLength}
         {...props}
       />
-      <StyledInputLineBar isFocused={isFocused} isError={isError} />
-      <StyledLabel isFocused={isFocused} htmlFor={name}>
+      <InputLineBar isFocused={isFocused} isError={isError} />
+      <Label isFocused={isFocused} htmlFor={name}>
         {label}
-      </StyledLabel>
+      </Label>
       <AnimatePresence>{isError && <FeedbackInput>{errorMessage}</FeedbackInput>}</AnimatePresence>
-    </StyledWrapper>
+    </Wrapper>
   );
 };
 

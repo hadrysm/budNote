@@ -12,6 +12,7 @@ const ButtonIcon = styled.button`
   background-size: 50%;
   background-color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
+  outline: none;
 `;
 
 export default ButtonIcon;

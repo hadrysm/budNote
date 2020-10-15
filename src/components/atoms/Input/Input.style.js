@@ -5,7 +5,7 @@ import { inputVariants } from 'variants';
 
 const { labelVariants, lineVariants, feedbackVariants } = inputVariants;
 
-export const StyledWrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   margin: 4rem 0;
   position: relative;
@@ -21,14 +21,13 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledLabel = styled(motion.label).attrs(({ isFocused }) => ({
+export const Label = styled(motion.label).attrs(({ isFocused }) => ({
   variants: labelVariants,
   animate: isFocused ? 'isFocused' : 'initial',
 }))`
   position: absolute;
   top: 10px;
   left: 0;
-  transition: 0.2s ease-out all;
   font-size: ${({ theme }) => theme.font.size.xxs};
   line-height: 2.2rem;
   color: ${({ theme }) => theme.colors.text};
@@ -56,7 +55,7 @@ export const StyledInput = styled(motion.input)`
     `}
 `;
 
-export const StyledInputLineBar = styled(motion.div).attrs(({ isFocused }) => ({
+export const InputLineBar = styled(motion.div).attrs(({ isFocused }) => ({
   variants: lineVariants,
   animate: isFocused ? 'isFocused' : 'initial',
 }))`

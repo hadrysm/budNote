@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AnimatePresence } from 'framer-motion';
 
-const Select = ({ name, label, options, ...props }) => {
+import { Wrapper, Label, StyledSelect, Option, FeedbackSelect } from './Select.style';
+
+const Select = ({ name, label, options, isError, errorMessage, ...props }) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <select id={name} name={name} {...props}>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.displayValue}
-          </option>
+    <Wrapper>
+      <Label htmlFor={name}>{label}</Label>
+      <StyledSelect id={name} name={name} {...props}>
+        {options.map(({ value, displayValue }) => (
+          <Option key={value} value={value}>
+            {displayValue}
+          </Option>
         ))}
-      </select>
-      {/* <div>error</div> */}
-    </div>
+      </StyledSelect>
+      <AnimatePresence>
+        {isError && <FeedbackSelect>{errorMessage}</FeedbackSelect>}
+      </AnimatePresence>
+    </Wrapper>
   );
 };
 
@@ -21,6 +26,13 @@ Select.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isError: PropTypes.bool,
+  errorMessage: PropTypes.string,
+};
+
+Select.defaultProps = {
+  isError: false,
+  errorMessage: '',
 };
 
 export default Select;

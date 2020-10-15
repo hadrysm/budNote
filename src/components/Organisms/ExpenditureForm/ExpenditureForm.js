@@ -42,7 +42,7 @@ const ExpenditureForm = () => {
       }
 
       if (!category) {
-        errors.amount = 'Pole jest wymagane';
+        errors.category = 'Pole jest wymagane';
       }
       return errors;
     },
@@ -74,10 +74,10 @@ const ExpenditureForm = () => {
 
         <Select
           name="category"
-          label="wybierz kategorię"
+          label="twoje kategorie"
           onChange={handleChange}
-          value={values.category}
-          // isError={errors.category && touched.category}
+          isError={err.category && touched.category}
+          errorMessage={err.category}
           options={categoryOptions}
         />
       </div>
