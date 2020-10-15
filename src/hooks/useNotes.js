@@ -10,10 +10,10 @@ export const useNotes = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const uId = useSelector((state) => state.auth.uid);
-  const notesCollectionRef = db.collection('notes');
+  const notesCollectionRef = db.collection('users').doc(uId).collection('notes');
 
   const fetchNotesData = async () => {
-    const results = await notesCollectionRef.where('authorId', '==', uId).get();
+    const results = await notesCollectionRef.get();
     const notes = [];
     results.docs.map((doc) => notes.push({ id: doc.id, ...doc.data() }));
     dispatch(fetchNotesSuccess(notes));
@@ -25,7 +25,6 @@ export const useNotes = () => {
     const noteData = {
       title: data.title,
       content: data.content,
-      authorId: uId,
       createAt: Date.now(),
     };
     dispatch(fetchNotestStart());

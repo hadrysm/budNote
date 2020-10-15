@@ -80,7 +80,7 @@ export const themeLight = {
     white: '#ffffff',
     black: '#000000',
     error: '#ea5455',
-    success: '#158467',
+    success: '#28df99',
     boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)',
   },
   ...theme,

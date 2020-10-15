@@ -18,12 +18,13 @@ const PaymentTable = () => {
           <Item>Kwota</Item>
           <Item>Data</Item>
           <Item>Akcja</Item>
+          <Item>Status</Item>
         </TableList>
       </CardRow>
 
       <CardRow>
         <List>
-          {budgetItemsData.map(({ id, title, category, amount, createAt }) => (
+          {budgetItemsData.map(({ id, title, category, amount, createAt, isCompleted }) => (
             <TableExpenditureItem
               key={id}
               id={id}
@@ -31,6 +32,7 @@ const PaymentTable = () => {
               category={category}
               price={amount}
               createAt={createAt}
+              isCompleted={isCompleted}
             />
           ))}
         </List>

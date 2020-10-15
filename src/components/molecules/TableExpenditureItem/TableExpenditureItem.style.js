@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import ListItem from 'components/atoms/ListItem/ListItem.style';
 import List from 'components/atoms/List/List.style';
+import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
 
 export const StyledListItem = styled(ListItem)`
   margin-top: 2rem;
@@ -19,11 +20,14 @@ export const TableList = styled(List)`
   position: relative;
 
   @media ${({ theme }) => theme.mq.tablet} {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 `;
 
 export const DataItem = styled.li`
+  display: flex;
+  align-items: center;
+
   ::before {
     position: absolute;
     left: -60%;
@@ -40,17 +44,30 @@ export const DataItem = styled.li`
 
   :nth-of-type(1):before {
     content: 'Nazwa';
+    top: 1rem;
   }
   :nth-of-type(2):before {
     content: 'Kategoria';
+    top: 3rem;
   }
   :nth-of-type(3):before {
     content: 'Kwota';
+    top: 5rem;
   }
   :nth-of-type(4):before {
     content: 'Data';
+    top: 7rem;
   }
   :nth-of-type(5):before {
     content: 'Akcja';
+    top: 9rem;
   }
+  :nth-of-type(6):before {
+    content: 'Status';
+    top: 11rem;
+  }
+`;
+
+export const StyledButtonIcon = styled(ButtonIcon)`
+  margin-right: 1rem;
 `;

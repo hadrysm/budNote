@@ -25,6 +25,7 @@ export const useBudget = () => {
       title,
       amount,
       category,
+      isCompleted: false,
       createAt: Date.now(),
     };
     dispatch(fetchBudgetStart());
