@@ -17,7 +17,7 @@ import { useBudget } from 'hooks/useBudget';
 import { Header, StyledButtonIcon } from './BudgetPage.style';
 
 const BudgesPages = () => {
-  const [isModalOpen, setModalOpen] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(false);
   const { handleAddNewExpense } = useBudget();
   return (
     <>

@@ -83,7 +83,7 @@ const ExpenditureForm = ({ handleAddNewExpense }) => {
         />
       </div>
       <StyledButton type="submit" secondary>
-        Dodaj notatkę
+        Dodaj
       </StyledButton>
     </StyledForm>
   );

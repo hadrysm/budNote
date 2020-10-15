@@ -25,7 +25,7 @@ const budgetReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        notes: payload.budgetData,
+        budget: payload.budgetData,
       };
 
     default:

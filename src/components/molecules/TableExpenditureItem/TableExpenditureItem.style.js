@@ -19,7 +19,7 @@ export const TableList = styled(List)`
   position: relative;
 
   @media ${({ theme }) => theme.mq.tablet} {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 `;
 
@@ -48,12 +48,9 @@ export const DataItem = styled.li`
     content: 'Kwota';
   }
   :nth-of-type(4):before {
-    content: 'Typ';
-  }
-  :nth-of-type(5):before {
     content: 'Data';
   }
-  :nth-of-type(6):before {
+  :nth-of-type(5):before {
     content: 'Akcja';
   }
 `;
