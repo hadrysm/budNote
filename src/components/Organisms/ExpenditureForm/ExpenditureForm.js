@@ -1,12 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 
 import Input from 'components/atoms/Input/Input';
 import Select from 'components/atoms/Select/Select';
+import { CollectionContext } from 'context/CollectionContext';
 import { StyledForm, StyledButton } from './ExpenditureForm.style';
 
-const ExpenditureForm = ({ handleAddNewExpense }) => {
+const ExpenditureForm = () => {
+  const { handleAddNewExpense } = useContext(CollectionContext);
+
   const categoryOptions = [
     {
       displayValue: 'wybierz kategorię',
@@ -87,10 +89,6 @@ const ExpenditureForm = ({ handleAddNewExpense }) => {
       </StyledButton>
     </StyledForm>
   );
-};
-
-ExpenditureForm.propTypes = {
-  handleAddNewExpense: PropTypes.func.isRequired,
 };
 
 export default ExpenditureForm;

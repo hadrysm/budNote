@@ -28,6 +28,7 @@ export const useBudget = () => {
       isCompleted: false,
       createAt: Date.now(),
     };
+
     dispatch(fetchBudgetStart());
 
     try {
@@ -43,6 +44,7 @@ export const useBudget = () => {
 
     try {
       await budgetCollectionRef.doc(id).delete();
+      memoizedFetchBudgetData();
     } catch (error) {
       dispatch(fetchBudgetFail(error));
     }

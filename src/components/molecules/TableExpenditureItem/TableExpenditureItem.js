@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
@@ -6,6 +6,7 @@ import editIcon from 'assets/icons/edit.svg';
 import removeIcon from 'assets/icons/remove.svg';
 import waitIcon from 'assets/icons/wait.svg';
 import doneIcon from 'assets/icons/done.svg';
+import { CollectionContext } from 'context/CollectionContext';
 
 import { getFormatDate } from 'helpers';
 import {
@@ -16,6 +17,8 @@ import {
 } from './TableExpenditureItem.style';
 
 const TableExpenditureItem = ({ id, name, category, price, createAt, isCompleted }) => {
+  const { handleDeleteBudget } = useContext(CollectionContext);
+
   return (
     <StyledListItem id={id}>
       <TableList>
@@ -25,7 +28,12 @@ const TableExpenditureItem = ({ id, name, category, price, createAt, isCompleted
         <DataItem>{getFormatDate(createAt)}</DataItem>
         <DataItem>
           <StyledButtonIcon icon={editIcon} isSmall />
-          <StyledButtonIcon icon={removeIcon} isSmall remove />
+          <StyledButtonIcon
+            onClick={() => handleDeleteBudget(id)}
+            icon={removeIcon}
+            isSmall
+            remove
+          />
         </DataItem>
         <DataItem>
           <ButtonIcon

@@ -27,6 +27,7 @@ export const useNotes = () => {
       content: data.content,
       createAt: Date.now(),
     };
+
     dispatch(fetchNotestStart());
 
     try {

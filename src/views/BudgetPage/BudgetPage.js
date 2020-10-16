@@ -9,18 +9,16 @@ import Section from 'components/atoms/Section/Section.style';
 import PaymentTable from 'components/Organisms/PaymentTable/PaymentTable';
 import ExpenditureForm from 'components/Organisms/ExpenditureForm/ExpenditureForm';
 import Modal from 'components/molecules/Modal/Modal';
+import CollectionProvider from 'context/CollectionContext';
 
 import plusIcon from 'assets/icons/plus.svg';
-
-import { useBudget } from 'hooks/useBudget';
 
 import { Header, StyledButtonIcon } from './BudgetPage.style';
 
 const BudgesPages = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const { handleAddNewExpense } = useBudget();
   return (
-    <>
+    <CollectionProvider>
       <Wrapper withVariants>
         <PageTitle screenRenderOnly>notatki</PageTitle>
         <Header>
@@ -37,12 +35,12 @@ const BudgesPages = () => {
       <AnimatePresence>
         {isModalOpen && (
           <Modal title="nowy wydatek">
-            <ExpenditureForm handleAddNewExpense={handleAddNewExpense} />
+            <ExpenditureForm />
           </Modal>
         )}
       </AnimatePresence>
       <StyledButtonIcon icon={plusIcon} onClick={() => setModalOpen((prevState) => !prevState)} />
-    </>
+    </CollectionProvider>
   );
 };
 
