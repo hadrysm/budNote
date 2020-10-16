@@ -8,8 +8,9 @@ import Select from 'components/atoms/Select/Select';
 import { CollectionContext } from 'context/CollectionContext';
 import { StyledForm, StyledButton } from './ExpenditureForm.style';
 
-const ExpenditureForm = ({ isUpdate, setIsExpenditureFormOpen, itemId }) => {
+const ExpenditureForm = ({ isUpdate, itemId }) => {
   const { handleAddNewExpense, handleUpdateBudget } = useContext(CollectionContext);
+
   const budgetItems = useSelector(({ budget }) => budget.budget);
   const currentItem = budgetItems.find(({ id }) => id === itemId);
 
@@ -61,10 +62,8 @@ const ExpenditureForm = ({ isUpdate, setIsExpenditureFormOpen, itemId }) => {
         };
 
         handleUpdateBudget(itemId, updateData);
-        setIsExpenditureFormOpen(false);
       } else {
         handleAddNewExpense(value);
-        setIsExpenditureFormOpen(false);
       }
     },
   });
@@ -110,7 +109,6 @@ const ExpenditureForm = ({ isUpdate, setIsExpenditureFormOpen, itemId }) => {
 
 ExpenditureForm.propTypes = {
   isUpdate: PropTypes.bool,
-  setIsExpenditureFormOpen: PropTypes.func.isRequired,
   itemId: PropTypes.string,
 };
 

@@ -65,8 +65,8 @@ const BudgesPages = () => {
 
       <AnimatePresence>
         {isExpenditureFormOpen && (
-          <Modal title="nowy wydatek">
-            <ExpenditureForm setIsExpenditureFormOpen={setIsExpenditureFormOpen} />
+          <Modal title="nowy wydatek" closeModalFn={() => setIsExpenditureFormOpen(false)}>
+            <ExpenditureForm />
           </Modal>
         )}
       </AnimatePresence>
@@ -74,11 +74,7 @@ const BudgesPages = () => {
       <AnimatePresence>
         {isUpdateModalOpen && (
           <Modal title="aktualizacja" secondary closeModalFn={() => setIsUpdateModalOpen(false)}>
-            <ExpenditureForm
-              isUpdate
-              setIsExpenditureFormOpen={setIsUpdateModalOpen}
-              itemId={itemId}
-            />
+            <ExpenditureForm isUpdate itemId={itemId} />
           </Modal>
         )}
       </AnimatePresence>
