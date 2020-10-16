@@ -27,18 +27,25 @@ export const TableList = styled(List)`
 export const DataItem = styled.li`
   display: flex;
   align-items: center;
+  margin-bottom: 0.5rem;
+
+  @media ${({ theme }) => theme.mq.tablet} {
+    margin-bottom: 0;
+  }
 
   ::before {
     position: absolute;
     left: -60%;
-    width: 100%;
+    width: 50%;
     height: 100%;
     white-space: nowrap;
     font-weight: ${({ theme }) => theme.font.weight.bold};
     color: ${({ theme }) => theme.colors.white};
+    margin-bottom: 0.5rem;
 
     @media ${({ theme }) => theme.mq.tablet} {
       display: none;
+      margin-bottom: 0;
     }
   }
 
@@ -60,11 +67,11 @@ export const DataItem = styled.li`
   }
   :nth-of-type(5):before {
     content: 'Akcja';
-    top: 9rem;
+    top: 10rem;
   }
   :nth-of-type(6):before {
     content: 'Status';
-    top: 11rem;
+    top: 14rem;
   }
 `;
 

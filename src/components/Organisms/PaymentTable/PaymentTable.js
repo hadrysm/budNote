@@ -8,7 +8,11 @@ import Button from 'components/atoms/Button/Button.style';
 import TableExpenditureItem from 'components/molecules/TableExpenditureItem/TableExpenditureItem';
 import { Table, CardRow, TableList, Item, NoDataWrapper } from './PaymentTable.style';
 
-const PaymentTable = ({ setIsExpenditureFormOpen }) => {
+const PaymentTable = ({
+  setIsExpenditureFormOpen,
+  handleOpenRemoveBudgetModal,
+  handleOpenUpdateBudgetModal,
+}) => {
   const budgetItemsData = useSelector(({ budget }) => budget.budget);
 
   return (
@@ -42,7 +46,8 @@ const PaymentTable = ({ setIsExpenditureFormOpen }) => {
               amount={amount}
               createAt={createAt}
               isCompleted={isCompleted}
-              setIsExpenditureFormOpen={setIsExpenditureFormOpen}
+              handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
+              handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
             />
           ))}
         </List>
@@ -53,6 +58,8 @@ const PaymentTable = ({ setIsExpenditureFormOpen }) => {
 
 PaymentTable.propTypes = {
   setIsExpenditureFormOpen: PropTypes.func.isRequired,
+  handleOpenUpdateBudgetModal: PropTypes.func.isRequired,
+  handleOpenRemoveBudgetModal: PropTypes.func.isRequired,
 };
 
 export default PaymentTable;

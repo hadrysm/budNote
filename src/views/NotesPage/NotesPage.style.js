@@ -12,7 +12,7 @@ export const GridWrapper = styled(motion.div).attrs(() => ({
   animate: 'visible',
 }))`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 30rem));
   grid-gap: 4rem;
 `;
 

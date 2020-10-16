@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
 import Input from 'components/atoms/Input/Input';
@@ -7,8 +8,10 @@ import Select from 'components/atoms/Select/Select';
 import { CollectionContext } from 'context/CollectionContext';
 import { StyledForm, StyledButton } from './ExpenditureForm.style';
 
-const ExpenditureForm = ({ setIsExpenditureFormOpen }) => {
-  const { handleAddNewExpense } = useContext(CollectionContext);
+const ExpenditureForm = ({ isUpdate, setIsExpenditureFormOpen, itemId }) => {
+  const { handleAddNewExpense, handleUpdateBudget } = useContext(CollectionContext);
+  const budgetItems = useSelector(({ budget }) => budget.budget);
+  const currentItem = budgetItems.find(({ id }) => id === itemId);
 
   const categoryOptions = [
     {
@@ -31,9 +34,9 @@ const ExpenditureForm = ({ setIsExpenditureFormOpen }) => {
 
   const { values, errors: err, touched, handleChange, handleSubmit } = useFormik({
     initialValues: {
-      title: '',
-      amount: '',
-      category: '',
+      title: isUpdate ? currentItem.title : '',
+      amount: isUpdate ? currentItem.amount : '',
+      category: isUpdate ? currentItem.category : '',
     },
     validate: ({ title, amount, category }) => {
       const errors = {};
@@ -51,8 +54,18 @@ const ExpenditureForm = ({ setIsExpenditureFormOpen }) => {
       return errors;
     },
     onSubmit: (value) => {
-      handleAddNewExpense(value);
-      setIsExpenditureFormOpen(false);
+      if (isUpdate) {
+        const updateData = {
+          ...currentItem,
+          ...value,
+        };
+
+        handleUpdateBudget(itemId, updateData);
+        setIsExpenditureFormOpen(false);
+      } else {
+        handleAddNewExpense(value);
+        setIsExpenditureFormOpen(false);
+      }
     },
   });
   return (
@@ -65,6 +78,7 @@ const ExpenditureForm = ({ setIsExpenditureFormOpen }) => {
           value={values.title}
           isError={err.title && touched.title}
           errorMessage={err.title}
+          defaultFocus={isUpdate}
         />
 
         <Input
@@ -75,6 +89,7 @@ const ExpenditureForm = ({ setIsExpenditureFormOpen }) => {
           value={values.amount}
           isError={err.amount && touched.amount}
           errorMessage={err.amount}
+          defaultFocus={isUpdate}
         />
 
         <Select
@@ -87,14 +102,21 @@ const ExpenditureForm = ({ setIsExpenditureFormOpen }) => {
         />
       </div>
       <StyledButton type="submit" secondary>
-        Dodaj
+        {isUpdate ? 'zaktualizuj' : 'dodaj'}
       </StyledButton>
     </StyledForm>
   );
 };
 
 ExpenditureForm.propTypes = {
+  isUpdate: PropTypes.bool,
   setIsExpenditureFormOpen: PropTypes.func.isRequired,
+  itemId: PropTypes.string,
+};
+
+ExpenditureForm.defaultProps = {
+  isUpdate: false,
+  itemId: '',
 };
 
 export default ExpenditureForm;

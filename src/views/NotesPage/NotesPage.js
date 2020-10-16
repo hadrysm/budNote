@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
@@ -10,7 +10,7 @@ import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Task from 'components/molecules/Task/Task';
-import NewNoteBar from 'components/Organisms/NoteForm/NoteForm';
+import NoteForm from 'components/Organisms/NoteForm/NoteForm';
 import plusIcon from 'assets/icons/plus.svg';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
 
@@ -18,7 +18,7 @@ import { useNotes } from 'hooks/useNotes';
 import { GridWrapper, InnerWrapper, StyledButtonIcon } from './NotesPage.style';
 
 const NotesPage = () => {
-  const [isNewNoteBarVisible, setNewNoteBarVisible] = useState(false);
+  const [isNoteFormVisible, setNoteFormVisible] = useState(false);
   const { handleAddNote } = useNotes();
 
   const notesData = useSelector(({ notes }) => notes.notes);
@@ -26,8 +26,11 @@ const NotesPage = () => {
 
   const handleAddNewNote = (value) => {
     handleAddNote(value);
-    setNewNoteBarVisible(false);
   };
+
+  useEffect(() => {
+    setNoteFormVisible(false);
+  }, [notesData]);
 
   return (
     <>
@@ -58,15 +61,15 @@ const NotesPage = () => {
       </Wrapper>
 
       <AnimatePresence>
-        {isNewNoteBarVisible && (
+        {isNoteFormVisible && (
           <Modal title="twoja notatka">
-            <NewNoteBar handleAddNote={handleAddNewNote} />
+            <NoteForm handleAddNote={handleAddNewNote} />
           </Modal>
         )}
       </AnimatePresence>
       <StyledButtonIcon
         icon={plusIcon}
-        onClick={() => setNewNoteBarVisible((prevState) => !prevState)}
+        onClick={() => setNoteFormVisible((prevState) => !prevState)}
       />
     </>
   );

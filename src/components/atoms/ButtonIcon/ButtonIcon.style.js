@@ -29,19 +29,14 @@ const ButtonIcon = styled.button`
       border-radius: 10%;
       background-size: 60%;
       border: none;
-    `}
-
- ${({ remove }) =>
-    remove &&
-    css`
-      background-color: ${({ theme }) => theme.colors.error};
+      background-color: ${({ theme }) => theme.colors.tertiary};
     `}
 
   ${({ status }) =>
     status &&
     css`
       background-color: ${({ isCompleted, theme }) =>
-        isCompleted ? theme.colors.success : theme.colors.background};
+        isCompleted ? theme.colors.success : theme.colors.tertiary};
     `}
 `;
 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
-import editIcon from 'assets/icons/edit.svg';
+import penIcon from 'assets/icons/pen.svg';
 import removeIcon from 'assets/icons/remove.svg';
 import waitIcon from 'assets/icons/wait.svg';
 import doneIcon from 'assets/icons/done.svg';
@@ -16,8 +16,17 @@ import {
   StyledButtonIcon,
 } from './TableExpenditureItem.style';
 
-const TableExpenditureItem = ({ id, title, category, amount, createAt, isCompleted }) => {
-  const { handleDeleteBudget, handleUpdateBudget } = useContext(CollectionContext);
+const TableExpenditureItem = ({
+  id,
+  title,
+  category,
+  amount,
+  createAt,
+  isCompleted,
+  handleOpenUpdateBudgetModal,
+  handleOpenRemoveBudgetModal,
+}) => {
+  const { handleUpdateBudget } = useContext(CollectionContext);
 
   const handleChangeStatus = () => {
     if (isCompleted) return;
@@ -41,12 +50,17 @@ const TableExpenditureItem = ({ id, title, category, amount, createAt, isComplet
         <DataItem>{amount} zł</DataItem>
         <DataItem>{getFormatDate(createAt)}</DataItem>
         <DataItem>
-          <StyledButtonIcon icon={editIcon} isSmall />
           <StyledButtonIcon
-            onClick={() => handleDeleteBudget(id)}
+            onClick={() => {
+              handleOpenUpdateBudgetModal(id);
+            }}
+            icon={penIcon}
+            isSmall
+          />
+          <StyledButtonIcon
+            onClick={() => handleOpenRemoveBudgetModal(id)}
             icon={removeIcon}
             isSmall
-            remove
           />
         </DataItem>
         <DataItem>
@@ -70,6 +84,8 @@ TableExpenditureItem.propTypes = {
   amount: PropTypes.number.isRequired,
   createAt: PropTypes.number.isRequired,
   isCompleted: PropTypes.bool,
+  handleOpenUpdateBudgetModal: PropTypes.func.isRequired,
+  handleOpenRemoveBudgetModal: PropTypes.func.isRequired,
 };
 
 TableExpenditureItem.defaultProps = {
