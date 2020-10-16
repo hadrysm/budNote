@@ -16,15 +16,29 @@ import {
   StyledButtonIcon,
 } from './TableExpenditureItem.style';
 
-const TableExpenditureItem = ({ id, name, category, price, createAt, isCompleted }) => {
-  const { handleDeleteBudget } = useContext(CollectionContext);
+const TableExpenditureItem = ({ id, title, category, amount, createAt, isCompleted }) => {
+  const { handleDeleteBudget, handleUpdateBudget } = useContext(CollectionContext);
+
+  const handleChangeStatus = () => {
+    if (isCompleted) return;
+    const updateData = {
+      id,
+      title,
+      category,
+      amount,
+      createAt,
+      isCompleted: true,
+    };
+
+    handleUpdateBudget(id, updateData);
+  };
 
   return (
     <StyledListItem id={id}>
       <TableList>
-        <DataItem>{name}</DataItem>
+        <DataItem>{title}</DataItem>
         <DataItem>{category}</DataItem>
-        <DataItem>{price} zł</DataItem>
+        <DataItem>{amount} zł</DataItem>
         <DataItem>{getFormatDate(createAt)}</DataItem>
         <DataItem>
           <StyledButtonIcon icon={editIcon} isSmall />
@@ -37,6 +51,7 @@ const TableExpenditureItem = ({ id, name, category, price, createAt, isCompleted
         </DataItem>
         <DataItem>
           <ButtonIcon
+            onClick={handleChangeStatus}
             icon={isCompleted ? doneIcon : waitIcon}
             isSmall
             status
@@ -50,9 +65,9 @@ const TableExpenditureItem = ({ id, name, category, price, createAt, isCompleted
 
 TableExpenditureItem.propTypes = {
   id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  amount: PropTypes.number.isRequired,
   createAt: PropTypes.number.isRequired,
   isCompleted: PropTypes.bool,
 };

@@ -50,9 +50,20 @@ export const useBudget = () => {
     }
   };
 
+  const handleUpdateBudget = async (id, updateData) => {
+    dispatch(fetchBudgetStart());
+
+    try {
+      await budgetCollectionRef.doc(id).set({ ...updateData });
+      memoizedFetchBudgetData();
+    } catch (error) {
+      dispatch(fetchBudgetFail(error));
+    }
+  };
+
   useEffect(() => {
     memoizedFetchBudgetData();
   }, [memoizedFetchBudgetData]);
 
-  return { handleAddNewExpense, handleDeleteBudget };
+  return { handleAddNewExpense, handleDeleteBudget, handleUpdateBudget };
 };

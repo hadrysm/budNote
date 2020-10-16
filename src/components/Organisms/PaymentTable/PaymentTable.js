@@ -8,7 +8,7 @@ import Button from 'components/atoms/Button/Button.style';
 import TableExpenditureItem from 'components/molecules/TableExpenditureItem/TableExpenditureItem';
 import { Table, CardRow, TableList, Item, NoDataWrapper } from './PaymentTable.style';
 
-const PaymentTable = ({ handleOpenModal }) => {
+const PaymentTable = ({ setIsExpenditureFormOpen }) => {
   const budgetItemsData = useSelector(({ budget }) => budget.budget);
 
   return (
@@ -29,7 +29,7 @@ const PaymentTable = ({ handleOpenModal }) => {
           {!budgetItemsData.length && (
             <NoDataWrapper>
               <Paragraph>Dodaj pierwszy koszt</Paragraph>
-              <Button onClick={() => handleOpenModal(true)}>Dodaj</Button>
+              <Button onClick={() => setIsExpenditureFormOpen(true)}>Dodaj</Button>
             </NoDataWrapper>
           )}
 
@@ -37,11 +37,12 @@ const PaymentTable = ({ handleOpenModal }) => {
             <TableExpenditureItem
               key={id}
               id={id}
-              name={title}
+              title={title}
               category={category}
-              price={amount}
+              amount={amount}
               createAt={createAt}
               isCompleted={isCompleted}
+              setIsExpenditureFormOpen={setIsExpenditureFormOpen}
             />
           ))}
         </List>
@@ -51,7 +52,7 @@ const PaymentTable = ({ handleOpenModal }) => {
 };
 
 PaymentTable.propTypes = {
-  handleOpenModal: PropTypes.func.isRequired,
+  setIsExpenditureFormOpen: PropTypes.func.isRequired,
 };
 
 export default PaymentTable;

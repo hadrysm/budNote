@@ -36,7 +36,7 @@ const NotePage = () => {
     };
 
     fetchNote();
-  }, [id]);
+  }, [id, uId]);
 
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     enableReinitialize: true,

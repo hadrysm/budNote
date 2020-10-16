@@ -16,7 +16,7 @@ import plusIcon from 'assets/icons/plus.svg';
 import { Header, StyledButtonIcon } from './BudgetPage.style';
 
 const BudgesPages = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isExpenditureFormOpen, setIsExpenditureFormOpen] = useState(false);
   return (
     <CollectionProvider>
       <Wrapper withVariants>
@@ -29,17 +29,20 @@ const BudgesPages = () => {
         </Header>
 
         <Section>
-          <PaymentTable handleOpenModal={setModalOpen} />
+          <PaymentTable setIsExpenditureFormOpen={setIsExpenditureFormOpen} />
         </Section>
       </Wrapper>
       <AnimatePresence>
-        {isModalOpen && (
+        {isExpenditureFormOpen && (
           <Modal title="nowy wydatek">
-            <ExpenditureForm />
+            <ExpenditureForm setIsExpenditureFormOpen={setIsExpenditureFormOpen} />
           </Modal>
         )}
       </AnimatePresence>
-      <StyledButtonIcon icon={plusIcon} onClick={() => setModalOpen((prevState) => !prevState)} />
+      <StyledButtonIcon
+        icon={plusIcon}
+        onClick={() => setIsExpenditureFormOpen((prevState) => !prevState)}
+      />
     </CollectionProvider>
   );
 };

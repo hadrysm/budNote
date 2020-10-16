@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 import { useBudget } from 'hooks/useBudget';
 
 export const CollectionContext = createContext({
-  handleSignUp: () => {},
-  handleLogin: () => {},
-  handleSignout: () => {},
+  handleAddNewExpense: () => {},
+  handleDeleteBudget: () => {},
+  handleUpdateBudget: () => {},
 });
 
 const CollectionProvider = ({ children }) => {
-  const { handleAddNewExpense, handleDeleteBudget } = useBudget();
+  const { handleAddNewExpense, handleDeleteBudget, handleUpdateBudget } = useBudget();
 
   return (
-    <CollectionContext.Provider value={{ handleAddNewExpense, handleDeleteBudget }}>
+    <CollectionContext.Provider
+      value={{ handleAddNewExpense, handleDeleteBudget, handleUpdateBudget }}
+    >
       {children}
     </CollectionContext.Provider>
   );
