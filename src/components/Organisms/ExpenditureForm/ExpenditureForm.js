@@ -9,7 +9,7 @@ import { CollectionContext } from 'context/CollectionContext';
 import { StyledForm, StyledButton } from './ExpenditureForm.style';
 
 const ExpenditureForm = ({ isUpdate, itemId }) => {
-  const { handleAddNewExpense, handleUpdateBudget } = useContext(CollectionContext);
+  const { handleAddItem, handleUpdateItem } = useContext(CollectionContext);
 
   const budgetItems = useSelector(({ budget }) => budget.budget);
   const currentItem = budgetItems.find(({ id }) => id === itemId);
@@ -61,9 +61,14 @@ const ExpenditureForm = ({ isUpdate, itemId }) => {
           ...value,
         };
 
-        handleUpdateBudget(itemId, updateData);
+        handleUpdateItem(itemId, updateData);
       } else {
-        handleAddNewExpense(value);
+        const expData = {
+          ...value,
+          isCompleted: false,
+          createAt: Date.now(),
+        };
+        handleAddItem(expData);
       }
     },
   });
@@ -95,6 +100,7 @@ const ExpenditureForm = ({ isUpdate, itemId }) => {
           name="category"
           label="twoje kategorie"
           onChange={handleChange}
+          value={values.category}
           isError={err.category && touched.category}
           errorMessage={err.category}
           options={categoryOptions}

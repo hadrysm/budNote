@@ -13,19 +13,26 @@ import Task from 'components/molecules/Task/Task';
 import NoteForm from 'components/Organisms/NoteForm/NoteForm';
 import plusIcon from 'assets/icons/plus.svg';
 import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
+import CollectionProvider from 'context/CollectionContext';
 
-import { useNotes } from 'hooks/useNotes';
+import { fetchNotestStart, fetchNotesSuccess, fetchNotesFail } from 'store/notes/actions';
+import { db } from 'firebase/base';
 import { GridWrapper, InnerWrapper, StyledButtonIcon } from './NotesPage.style';
 
 const NotesPage = () => {
   const [isNoteFormVisible, setNoteFormVisible] = useState(false);
-  const { handleAddNote } = useNotes();
 
   const notesData = useSelector(({ notes }) => notes.notes);
   const isLoading = useSelector(({ notes }) => notes.loading);
+  const uId = useSelector(({ auth }) => auth.uid);
 
-  const handleAddNewNote = (value) => {
-    handleAddNote(value);
+  const collectionConfig = {
+    collection: db.collection('users').doc(uId).collection('notes'),
+    reduxActions: {
+      fetchDataSuccess: fetchNotesSuccess,
+      fetchStart: fetchNotestStart,
+      fetchDataFail: fetchNotesFail,
+    },
   };
 
   useEffect(() => {
@@ -33,7 +40,7 @@ const NotesPage = () => {
   }, [notesData]);
 
   return (
-    <>
+    <CollectionProvider collectionConfig={collectionConfig}>
       <Wrapper withVariants maxWidth>
         <InnerWrapper>
           <PageTitle screenRenderOnly>notatki</PageTitle>
@@ -62,8 +69,8 @@ const NotesPage = () => {
 
       <AnimatePresence>
         {isNoteFormVisible && (
-          <Modal title="twoja notatka">
-            <NoteForm handleAddNote={handleAddNewNote} />
+          <Modal title="twoja notatka" closeModalFn={() => setNoteFormVisible(false)}>
+            <NoteForm />
           </Modal>
         )}
       </AnimatePresence>
@@ -71,7 +78,7 @@ const NotesPage = () => {
         icon={plusIcon}
         onClick={() => setNoteFormVisible((prevState) => !prevState)}
       />
-    </>
+    </CollectionProvider>
   );
 };
 

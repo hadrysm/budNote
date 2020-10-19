@@ -23,9 +23,9 @@ const Modal = ({ title, children, secondary, closeModalFn, small }) => {
 Modal.propTypes = {
   title: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  closeModalFn: PropTypes.func.isRequired,
   secondary: PropTypes.bool,
   small: PropTypes.bool,
-  closeModalFn: PropTypes.func.isRequired,
 };
 
 Modal.defaultProps = {

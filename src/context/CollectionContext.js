@@ -1,20 +1,23 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { useBudget } from 'hooks/useBudget';
+import { useCollection } from 'hooks/useCollection';
 
 export const CollectionContext = createContext({
-  handleAddNewExpense: () => {},
-  handleDeleteBudget: () => {},
-  handleUpdateBudget: () => {},
+  handleAddItem: () => {},
+  handleDeleteItem: () => {},
+  handleUpdateItem: () => {},
+  handleGetCurrentItem: () => {},
 });
 
-const CollectionProvider = ({ children }) => {
-  const { handleAddNewExpense, handleDeleteBudget, handleUpdateBudget } = useBudget();
+const CollectionProvider = ({ children, collectionConfig }) => {
+  const { handleAddItem, handleDeleteItem, handleUpdateItem, handleGetCurrentItem } = useCollection(
+    collectionConfig,
+  );
 
   return (
     <CollectionContext.Provider
-      value={{ handleAddNewExpense, handleDeleteBudget, handleUpdateBudget }}
+      value={{ handleAddItem, handleDeleteItem, handleUpdateItem, handleGetCurrentItem }}
     >
       {children}
     </CollectionContext.Provider>
@@ -23,6 +26,7 @@ const CollectionProvider = ({ children }) => {
 
 CollectionProvider.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  collectionConfig: PropTypes.objectOf(PropTypes.object, PropTypes.object).isRequired,
 };
 
 export default CollectionProvider;

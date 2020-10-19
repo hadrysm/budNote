@@ -37,6 +37,7 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   background-color: ${({ theme }) => theme.colors.tertiary};
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   border-left: 0.5rem solid ${({ theme }) => theme.colors.secondary};
+  border-right: 0.5rem solid ${({ theme }) => theme.colors.secondary};
   overflow: hidden;
 
   @media ${({ theme }) => theme.mq.tablet} {

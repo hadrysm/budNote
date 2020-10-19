@@ -26,7 +26,8 @@ const TableExpenditureItem = ({
   handleOpenUpdateBudgetModal,
   handleOpenRemoveBudgetModal,
 }) => {
-  const { handleUpdateBudget } = useContext(CollectionContext);
+  // const { handleUpdateBudget } = useContext(CollectionContext);
+  const { handleUpdateItem } = useContext(CollectionContext);
 
   const handleChangeStatus = () => {
     if (isCompleted) return;
@@ -39,7 +40,8 @@ const TableExpenditureItem = ({
       isCompleted: true,
     };
 
-    handleUpdateBudget(id, updateData);
+    // handleUpdateBudget(id, updateData);1
+    handleUpdateItem(id, updateData);
   };
 
   return (

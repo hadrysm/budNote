@@ -64,7 +64,7 @@ export const themeDark = {
     black: '#000000',
     error: '#ea5455',
     success: '#158467',
-    boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)',
+    boxShadow: '0 10px 20px -10px rgba(0,0,0,0.5)',
   },
   ...theme,
 };

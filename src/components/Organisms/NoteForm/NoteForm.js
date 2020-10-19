@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useFormik } from 'formik';
-import PropTypes from 'prop-types';
 
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button.style';
+
+import { CollectionContext } from 'context/CollectionContext';
 
 import { StyledForm } from './NoteForm.style';
 
@@ -21,12 +22,19 @@ const validate = ({ title, content }) => {
   return errors;
 };
 
-const NoteForm = ({ handleAddNote }) => {
+const NoteForm = () => {
+  const { handleAddItem } = useContext(CollectionContext);
+
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     initialValues,
     validate,
     onSubmit: (value) => {
-      handleAddNote(value);
+      const noteData = {
+        ...value,
+        createAt: Date.now(),
+      };
+
+      handleAddItem(noteData);
     },
   });
   return (
@@ -55,10 +63,6 @@ const NoteForm = ({ handleAddNote }) => {
       </Button>
     </StyledForm>
   );
-};
-
-NoteForm.propTypes = {
-  handleAddNote: PropTypes.func.isRequired,
 };
 
 export default NoteForm;

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Input from 'components/atoms/Input/Input';
 
 import { db } from 'firebase/base';
-import { useSelector } from 'react-redux';
+import routes from 'routes';
 
-import { useNotes } from 'hooks/useNotes';
+import { fetchNotestStart, fetchNotesSuccess, fetchNotesFail } from 'store/notes/actions';
+import { useCollection } from 'hooks/useCollection';
 import { InnerWrapper, StyledForm, StyledButton } from './NotePage.style';
 
 const validate = ({ title, content }) => {
@@ -27,16 +29,34 @@ const NotePage = () => {
   const [note, setNote] = useState(null);
   const uId = useSelector(({ auth }) => auth.uid);
   const { id } = useParams();
-  const { handleUpdateNote, handleDeleteNote } = useNotes();
+  const { push } = useHistory();
+
+  const collectionConfig = {
+    collection: db.collection('users').doc(uId).collection('notes'),
+    reduxActions: {
+      fetchDataSuccess: fetchNotesSuccess,
+      fetchStart: fetchNotestStart,
+      fetchDataFail: fetchNotesFail,
+    },
+  };
+
+  const { handleUpdateItem, handleDeleteItem, handleGetCurrentItem } = useCollection(
+    collectionConfig,
+  );
 
   useEffect(() => {
     const fetchNote = async () => {
-      const res = await db.collection('users').doc(uId).collection('notes').doc(id).get();
-      setNote(res.data());
+      const currentNote = await handleGetCurrentItem(id);
+      setNote(currentNote);
     };
 
     fetchNote();
-  }, [id, uId]);
+  }, [id, handleGetCurrentItem]);
+
+  const handleDelete = async () => {
+    await handleDeleteItem(id);
+    await push(routes.notes);
+  };
 
   const { values, errors, touched, handleChange, handleSubmit } = useFormik({
     enableReinitialize: true,
@@ -45,14 +65,15 @@ const NotePage = () => {
       content: note ? note.content : '',
     },
     validate,
-    onSubmit: ({ title, content }) => {
+    onSubmit: async ({ title, content }) => {
       const updateData = {
         ...note,
         title,
         content,
       };
 
-      handleUpdateNote(id, updateData);
+      await handleUpdateItem(id, updateData);
+      await push(routes.notes);
     },
   });
 
@@ -86,7 +107,7 @@ const NotePage = () => {
               <StyledButton type="submit" secondary>
                 Zaktualizuj notatkę
               </StyledButton>
-              <StyledButton type="button" onClick={() => handleDeleteNote(id)} secondary>
+              <StyledButton type="button" onClick={handleDelete} secondary>
                 Usuń
               </StyledButton>
             </StyledForm>

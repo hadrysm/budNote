@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import RemoveBox from 'components/atoms/RemoveBox/RemoveBox';
+import Box from 'components/atoms/Box/Box';
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Headline from 'components/atoms/Headline/Headline.style';
@@ -15,6 +15,9 @@ import CollectionProvider from 'context/CollectionContext';
 
 import plusIcon from 'assets/icons/plus.svg';
 
+import { fetchBudgetStart, fetchBudgetFail, fetchBudgetSuccess } from 'store/budget/actions';
+import { db } from 'firebase/base';
+
 import { Header, StyledButtonIcon } from './BudgetPage.style';
 
 const BudgesPages = () => {
@@ -24,6 +27,16 @@ const BudgesPages = () => {
   const [isRemoveModalOpen, setIsRemoveModalOpen] = useState(false);
 
   const budgetItems = useSelector(({ budget }) => budget.budget);
+  const uId = useSelector((state) => state.auth.uid);
+
+  const collectionConfig = {
+    collection: db.collection('users').doc(uId).collection('budget'),
+    reduxActions: {
+      fetchDataSuccess: fetchBudgetSuccess,
+      fetchStart: fetchBudgetStart,
+      fetchDataFail: fetchBudgetFail,
+    },
+  };
 
   const handleOpenUpdateBudgetModal = (id) => {
     setItemId(id);
@@ -42,7 +55,7 @@ const BudgesPages = () => {
   }, [budgetItems]);
 
   return (
-    <CollectionProvider>
+    <CollectionProvider collectionConfig={collectionConfig}>
       <Wrapper withVariants>
         <PageTitle screenRenderOnly>notatki</PageTitle>
         <Header>
@@ -87,7 +100,7 @@ const BudgesPages = () => {
             small
             closeModalFn={() => setIsRemoveModalOpen(false)}
           >
-            <RemoveBox itemId={itemId} />
+            <Box itemId={itemId} />
           </Modal>
         )}
       </AnimatePresence>
