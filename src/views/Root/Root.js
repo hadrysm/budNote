@@ -16,6 +16,7 @@ import NotesPage from 'views/NotesPage/NotesPage';
 import BudgetPage from 'views/BudgetPage/BudgetPage';
 import ChartPage from 'views/ChartPage/ChartPage';
 import NotePage from 'views/NotePage/NotePage';
+import SettingsPage from 'views/SettingsPage/SettingsPage';
 
 // routes
 import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
@@ -33,6 +34,7 @@ const Root = () => {
               <Switch location={location} key={location.key}>
                 <PrivateRoute path={routes.budget} exact component={BudgetPage} />
                 <PrivateRoute path={routes.chart} exact component={ChartPage} />
+                <PrivateRoute path={routes.settings} exact component={SettingsPage} />
                 <PrivateRoute path={routes.notes} exact component={NotesPage} />
                 <PrivateRoute path={routes.note} exact component={NotePage} />
               </Switch>

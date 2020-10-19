@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 const spring = {
@@ -24,6 +24,12 @@ export const Wrapper = styled.div`
     margin-right: 0;
     margin-left: 0;
   }
+
+  ${({ toLeft }) =>
+    toLeft &&
+    css`
+      margin: 0;
+    `}
 `;
 
 export const Ball = styled(motion.div).attrs(() => ({
