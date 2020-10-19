@@ -4,3 +4,7 @@ export const themeColorType = {
 };
 
 export const SET_THEME_COLOR = 'SET_THEME_COLOR';
+export const FETCH_CATEGORY_START = 'FETCH_CATEGORY_START';
+export const FETCH_CATEGORY_FAIL = 'FETCH_CATEGORY_FAIL';
+export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS';
+export const CLEAR_CATEGORY = 'CLEAR_CATEGORY';

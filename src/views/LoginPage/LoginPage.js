@@ -10,7 +10,7 @@ import image from 'assets/image/image2.svg';
 import Section from 'components/atoms/Section/Section.style';
 import routes from 'routes';
 import MotionRedirect from 'components/hoc/MotionRedirect/MotionRedirect';
-import { clearAuthError } from 'store/auth/action';
+import { clearAuthError } from 'store/auth/actions';
 import { StyledSection } from './LoginPage.style';
 
 const LoginPage = () => {

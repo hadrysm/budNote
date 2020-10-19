@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { themeColorType } from 'store/settings/types';
-import { setThemeColor } from 'store/settings/action';
+import { setThemeColor } from 'store/settings/actions';
 
 export const useDarkMode = () => {
   const [theme, setTheme] = useState(themeColorType.DARK);

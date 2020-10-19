@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { auth, db } from 'firebase/base';
-import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/action';
+import { authStart, authSuccess, authFail, setUser, authLogout } from 'store/auth/actions';
 import { clearNotes } from 'store/notes/actions';
 import { clearBudget } from 'store/budget/actions';
+import { clearCategory } from 'store/settings/actions';
 import { getFirebaseErrorMessage } from 'helpers';
 
 export const useAuthUser = () => {
@@ -48,6 +49,7 @@ export const useAuthUser = () => {
           dispatch(authLogout());
           dispatch(clearNotes());
           dispatch(clearBudget());
+          dispatch(clearCategory());
         });
     } catch (err) {
       dispatch(authFail(getFirebaseErrorMessage(err.code)));
