@@ -11,27 +11,10 @@ import { StyledForm, StyledButton } from './ExpenditureForm.style';
 const ExpenditureForm = ({ isUpdate, itemId }) => {
   const { handleAddItem, handleUpdateItem } = useContext(CollectionContext);
 
+  const categoryOptions = useSelector(({ settings }) => settings.category);
   const budgetItems = useSelector(({ budget }) => budget.budget);
-  const currentItem = budgetItems.find(({ id }) => id === itemId);
 
-  const categoryOptions = [
-    {
-      displayValue: 'wybierz kategorię',
-      value: '',
-    },
-    {
-      displayValue: 'mieszkanie',
-      value: 'mieszkanie',
-    },
-    {
-      displayValue: 'jedzenie',
-      value: 'jedzenie',
-    },
-    {
-      displayValue: 'nauka',
-      value: 'nauka',
-    },
-  ];
+  const currentItem = budgetItems.find(({ id }) => id === itemId);
 
   const { values, errors: err, touched, handleChange, handleSubmit } = useFormik({
     initialValues: {
