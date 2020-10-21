@@ -10,6 +10,7 @@ import { Table, CardRow, TableList, Item } from './PaymentTable.style';
 const PaymentTable = ({ handleOpenRemoveBudgetModal, handleOpenUpdateBudgetModal }) => {
   const budgetItemsData = useSelector(({ budget }) => budget.budget);
 
+  // add dynamic generation data to table list
   return (
     <Table>
       <CardRow isHeading>

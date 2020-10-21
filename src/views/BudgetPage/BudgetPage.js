@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
+import Balance from 'components/molecules/Balance/Balance';
 import Box from 'components/atoms/Box/Box';
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
@@ -25,12 +26,13 @@ import {
 
 import { db } from 'firebase/base';
 
+import { getCurrentMonth, getYear } from 'helpers';
 import { useCollection } from 'hooks/useCollection';
-import { Header, StyledButtonIcon, NoDataWrapper } from './BudgetPage.style';
+import { Header, StyledButtonIcon, NoDataWrapper, InnerWapper } from './BudgetPage.style';
 
 const BudgesPages = () => {
   const [itemId, setItemId] = useState(null);
-  const [isExpenditureFormOpen, setIsExpenditureFormOpen] = useState(false);
+  const [isExpenditureModalOpen, setIsExpenditureModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isRemoveModalOpen, setIsRemoveModalOpen] = useState(false);
 
@@ -68,27 +70,32 @@ const BudgesPages = () => {
   };
 
   useEffect(() => {
-    setIsExpenditureFormOpen(false);
+    setIsExpenditureModalOpen(false);
     setIsUpdateModalOpen(false);
     setIsRemoveModalOpen(false);
   }, [budgetItems]);
 
   return (
     <CollectionProvider collectionConfig={collectionBudgetConfig}>
-      <Wrapper withVariants>
+      <Wrapper withVariants maxWidth>
         <PageTitle screenRenderOnly>notatki</PageTitle>
         <Header>
-          <div>
+          <InnerWapper>
             <Headline as="h3">Lista wydatków</Headline>
-            <Paragraph>Październik 2020</Paragraph>
-          </div>
+            <Paragraph>
+              {getCurrentMonth()} {getYear()}
+            </Paragraph>
+          </InnerWapper>
+          <InnerWapper>
+            <Balance budgetItems={budgetItems} />
+          </InnerWapper>
         </Header>
 
         <Section>
           {!budgetItems.length ? (
             <NoDataWrapper>
               <Paragraph>Dodaj pierwszy koszt</Paragraph>
-              <Button onClick={() => setIsExpenditureFormOpen(true)}>Dodaj</Button>
+              <Button onClick={() => setIsExpenditureModalOpen(true)}>Dodaj</Button>
             </NoDataWrapper>
           ) : (
             <PaymentTable
@@ -102,8 +109,8 @@ const BudgesPages = () => {
       {/* modals  */}
 
       <AnimatePresence>
-        {isExpenditureFormOpen && (
-          <Modal title="nowy wydatek" closeModalFn={() => setIsExpenditureFormOpen(false)}>
+        {isExpenditureModalOpen && (
+          <Modal title="nowy wydatek" closeModalFn={() => setIsExpenditureModalOpen(false)}>
             <ExpenditureForm />
           </Modal>
         )}
@@ -131,7 +138,7 @@ const BudgesPages = () => {
 
       <StyledButtonIcon
         icon={plusIcon}
-        onClick={() => setIsExpenditureFormOpen((prevState) => !prevState)}
+        onClick={() => setIsExpenditureModalOpen((prevState) => !prevState)}
       />
     </CollectionProvider>
   );

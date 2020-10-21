@@ -8,6 +8,10 @@ export const Header = styled.header`
   align-items: center;
 `;
 
+export const InnerWapper = styled.div`
+  padding: 0 0.5rem;
+`;
+
 export const StyledButtonIcon = styled(ButtonIcon)`
   position: fixed;
   width: 5rem;

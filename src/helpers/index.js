@@ -14,6 +14,29 @@ export const getFormatDate = (dataInMiliSecond) => {
   return `${day < 10 ? `0${day}` : day}-${month < 10 ? `0${month}` : month}-${year}`;
 };
 
+export const getCurrentMonth = () => {
+  const arrMonth = [
+    'Styczeń',
+    'Luty',
+    'Marzec',
+    'Kwiecień',
+    'Maj',
+    'Czerwiec',
+    'Lipiec',
+    'Sierpień',
+    'Wrzesień',
+    'Październik',
+    'Listopad',
+    'Grudzień',
+  ];
+
+  const monthIndex = new Date().getMonth();
+
+  return arrMonth[monthIndex];
+};
+
+export const getYear = () => new Date().getFullYear();
+
 export const getFirebaseErrorMessage = (code) => {
   let message = null;
 
