@@ -16,8 +16,15 @@ import CollectionProvider from 'context/CollectionContext';
 import plusIcon from 'assets/icons/plus.svg';
 
 import { fetchBudgetStart, fetchBudgetFail, fetchBudgetSuccess } from 'store/budget/actions';
+
+import {
+  fetchCategoryStart,
+  fetchCategorySuccess,
+  fetchCategoryFail,
+} from 'store/settings/actions';
 import { db } from 'firebase/base';
 
+import { useCollection } from 'hooks/useCollection';
 import { Header, StyledButtonIcon } from './BudgetPage.style';
 
 const BudgesPages = () => {
@@ -29,7 +36,7 @@ const BudgesPages = () => {
   const budgetItems = useSelector(({ budget }) => budget.budget);
   const uId = useSelector((state) => state.auth.uid);
 
-  const collectionConfig = {
+  const collectionBudgetConfig = {
     collection: db.collection('users').doc(uId).collection('budget'),
     reduxActions: {
       fetchDataSuccess: fetchBudgetSuccess,
@@ -37,6 +44,17 @@ const BudgesPages = () => {
       fetchDataFail: fetchBudgetFail,
     },
   };
+
+  const collectionCategoryConfig = {
+    collection: db.collection('users').doc(uId).collection('category'),
+    reduxActions: {
+      fetchDataSuccess: fetchCategorySuccess,
+      fetchStart: fetchCategoryStart,
+      fetchDataFail: fetchCategoryFail,
+    },
+  };
+
+  useCollection(collectionCategoryConfig);
 
   const handleOpenUpdateBudgetModal = (id) => {
     setItemId(id);
@@ -55,7 +73,7 @@ const BudgesPages = () => {
   }, [budgetItems]);
 
   return (
-    <CollectionProvider collectionConfig={collectionConfig}>
+    <CollectionProvider collectionConfig={collectionBudgetConfig}>
       <Wrapper withVariants>
         <PageTitle screenRenderOnly>notatki</PageTitle>
         <Header>

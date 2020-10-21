@@ -9,24 +9,7 @@ import {
 
 const INITIAL_STATE = {
   colorTheme: themeColorType.DARK,
-  category: [
-    {
-      displayValue: 'wybierz kategorię',
-      value: '',
-    },
-    {
-      displayValue: 'mieszkanie',
-      value: 'mieszkanie',
-    },
-    {
-      displayValue: 'jedzenie',
-      value: 'jedzenie',
-    },
-    {
-      displayValue: 'nauka',
-      value: 'nauka',
-    },
-  ],
+  category: [],
   loading: false,
   error: null,
 };

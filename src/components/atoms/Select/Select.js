@@ -9,6 +9,7 @@ const Select = ({ name, label, options, isError, errorMessage, ...props }) => {
     <Wrapper>
       <Label htmlFor={name}>{label}</Label>
       <StyledSelect id={name} name={name} {...props}>
+        <Option value="">wybierz...</Option>
         {options.map(({ value, displayValue }) => (
           <Option key={value} value={value}>
             {displayValue}

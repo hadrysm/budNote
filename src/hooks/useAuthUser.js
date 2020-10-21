@@ -22,6 +22,16 @@ export const useAuthUser = () => {
         uid: user.uid,
       });
 
+      await db.collection('users').doc(user.uid).collection('category').add({
+        displayValue: 'mieszkanie',
+        value: 'mieszkanie',
+      });
+
+      await db.collection('users').doc(user.uid).collection('category').add({
+        displayValue: 'jedzenie',
+        value: 'jedzenie',
+      });
+
       dispatch(authSuccess(user.uid));
     } catch (err) {
       dispatch(authFail(getFirebaseErrorMessage(err.code)));

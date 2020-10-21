@@ -33,7 +33,6 @@ export const useCollection = ({ collection, reduxActions }) => {
 
     try {
       await collectionRef.doc(id).delete();
-      // history.push(routes.notes);
       memoizedFetchCollection();
     } catch (error) {
       dispatch(fetchDataFail(error));
