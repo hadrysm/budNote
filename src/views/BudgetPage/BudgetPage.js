@@ -16,12 +16,12 @@ import CollectionProvider from 'context/CollectionContext';
 import plusIcon from 'assets/icons/plus.svg';
 
 import { fetchBudgetStart, fetchBudgetFail, fetchBudgetSuccess } from 'store/budget/actions';
-
 import {
   fetchCategoryStart,
   fetchCategorySuccess,
   fetchCategoryFail,
 } from 'store/settings/actions';
+
 import { db } from 'firebase/base';
 
 import { useCollection } from 'hooks/useCollection';

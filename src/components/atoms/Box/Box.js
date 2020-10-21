@@ -7,7 +7,6 @@ import { CollectionContext } from 'context/CollectionContext';
 import { Wrapper } from './Box.style';
 
 const Box = ({ itemId }) => {
-  // const { handleDeleteBudget } = useContext(CollectionContext);
   const { handleDeleteItem } = useContext(CollectionContext);
 
   return (

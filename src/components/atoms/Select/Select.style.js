@@ -34,10 +34,12 @@ export const StyledSelect = styled.select`
   background-repeat: no-repeat;
   background-size: 1.5rem;
   background-position: right 1rem top 50%;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Option = styled.option`
   padding: 0.5rem 0;
+  color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.tertiary};
 `;
 

@@ -1,13 +1,26 @@
 import styled from 'styled-components';
 
 import ListItem from 'components/atoms/ListItem/ListItem.style';
+import Paragraph from '../Paragraph/Paragraph.style';
+import ButtonIcon from '../ButtonIcon/ButtonIcon.style';
 
-const CategoryItem = styled(ListItem)`
+export const Wrapper = styled(ListItem)`
   background-color: ${({ theme }) => theme.colors.tertiary};
-  color: ${({ theme }) => theme.colors.text};
   padding: 0.5rem;
   min-width: 9rem;
-  font-size: ${({ theme }) => theme.font.size.xxxs};
+  position: relative;
 `;
 
-export default CategoryItem;
+export const Label = styled(Paragraph)`
+  font-size: ${({ theme }) => theme.font.size.xxxs};
+  color: ${({ theme }) => theme.colors.text};
+`;
+
+export const RemoveButton = styled(ButtonIcon)`
+  position: absolute;
+  top: -1rem;
+  right: -0.5rem;
+  width: 2rem;
+  height: 2rem;
+  transform: rotate(45deg);
+`;
