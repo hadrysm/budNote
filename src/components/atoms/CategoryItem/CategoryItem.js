@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import plusIcon from 'assets/icons/plus.svg';
 import { Wrapper, Label, RemoveButton } from './CategoryItem.style';
 
-const CategoryItem = ({ handleOpenRemoveBudgetModal, label, id }) => {
+const CategoryItem = ({ handleOpenRemoveBudgetModal, handleOpenUpdateBudgetModal, label, id }) => {
   return (
     <Wrapper>
-      <Label>{label}</Label>
+      <Label onClick={() => handleOpenUpdateBudgetModal(id)}>{label}</Label>
       <RemoveButton icon={plusIcon} onClick={() => handleOpenRemoveBudgetModal(id)} />
     </Wrapper>
   );
@@ -15,6 +15,7 @@ const CategoryItem = ({ handleOpenRemoveBudgetModal, label, id }) => {
 
 CategoryItem.propTypes = {
   handleOpenRemoveBudgetModal: PropTypes.func.isRequired,
+  handleOpenUpdateBudgetModal: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };

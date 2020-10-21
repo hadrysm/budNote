@@ -19,6 +19,9 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   width: 100vw;
   background-color: rgba(255, 255, 255, 0.7);
   z-index: ${({ theme }) => theme.zIndex.level8};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const BoxWrapper = styled(motion.div).attrs(() => ({
@@ -36,8 +39,7 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   padding: 3rem 1.5rem;
   background-color: ${({ theme }) => theme.colors.tertiary};
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
-  border-left: 0.5rem solid ${({ theme }) => theme.colors.secondary};
-  border-right: 0.5rem solid ${({ theme }) => theme.colors.secondary};
+  border: 2px solid ${({ theme }) => theme.colors.secondary};
   overflow: hidden;
 
   @media ${({ theme }) => theme.mq.tablet} {
@@ -47,13 +49,8 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   ${({ secondary }) =>
     secondary &&
     css`
-      max-height: ${({ small }) => (small ? '40vh' : '90vh')};
-      min-height: 30vh;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
+      position: static;
+      min-height: 40vh;
       border-radius: 1rem;
     `}
 `;

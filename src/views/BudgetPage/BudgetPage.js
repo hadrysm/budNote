@@ -6,6 +6,7 @@ import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Box from 'components/atoms/Box/Box';
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import Button from 'components/atoms/Button/Button.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import Section from 'components/atoms/Section/Section.style';
 import PaymentTable from 'components/Organisms/PaymentTable/PaymentTable';
@@ -25,7 +26,7 @@ import {
 import { db } from 'firebase/base';
 
 import { useCollection } from 'hooks/useCollection';
-import { Header, StyledButtonIcon } from './BudgetPage.style';
+import { Header, StyledButtonIcon, NoDataWrapper } from './BudgetPage.style';
 
 const BudgesPages = () => {
   const [itemId, setItemId] = useState(null);
@@ -84,11 +85,17 @@ const BudgesPages = () => {
         </Header>
 
         <Section>
-          <PaymentTable
-            setIsExpenditureFormOpen={setIsExpenditureFormOpen}
-            handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
-            handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
-          />
+          {!budgetItems.length ? (
+            <NoDataWrapper>
+              <Paragraph>Dodaj pierwszy koszt</Paragraph>
+              <Button onClick={() => setIsExpenditureFormOpen(true)}>Dodaj</Button>
+            </NoDataWrapper>
+          ) : (
+            <PaymentTable
+              handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
+              handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
+            />
+          )}
         </Section>
       </Wrapper>
 
@@ -115,7 +122,6 @@ const BudgesPages = () => {
           <Modal
             title="Czy napewno chcesz usunąć?"
             secondary
-            small
             closeModalFn={() => setIsRemoveModalOpen(false)}
           >
             <Box itemId={itemId} />

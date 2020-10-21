@@ -16,3 +16,12 @@ export const StyledButtonIcon = styled(ButtonIcon)`
   right: 2rem;
   z-index: ${({ theme }) => theme.zIndex.level9};
 `;
+
+export const NoDataWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 0.5fr;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem 0;
+`;

@@ -9,6 +9,7 @@ export const Wrapper = styled(ListItem)`
   padding: 0.5rem;
   min-width: 9rem;
   position: relative;
+  cursor: pointer;
 `;
 
 export const Label = styled(Paragraph)`

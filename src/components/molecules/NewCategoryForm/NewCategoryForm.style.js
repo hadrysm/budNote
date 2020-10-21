@@ -2,13 +2,11 @@ import styled from 'styled-components';
 
 import Button from 'components/atoms/Button/Button.style';
 
-export const Wrapper = styled.div`
+export const StyledForm = styled.form`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  flex-direction: column;
 `;
 
 export const StyledButton = styled(Button)`
-  margin-top: 1rem;
+  margin-top: 2rem;
 `;
