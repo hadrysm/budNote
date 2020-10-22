@@ -12,7 +12,7 @@ export const Table = styled.div`
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   overflow: hidden;
   display: grid;
-  grid-template-columns: 0.4fr 0.6fr;
+  grid-template-columns: 0.45fr 0.55fr;
 
   @media ${({ theme }) => theme.mq.tablet} {
     display: block;

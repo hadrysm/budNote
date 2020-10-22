@@ -14,5 +14,5 @@ export const Wrapper = styled.div`
 export const CategoryList = styled(List)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(5rem, 10rem));
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
 `;
