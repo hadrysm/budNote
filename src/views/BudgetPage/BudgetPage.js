@@ -81,7 +81,7 @@ const BudgesPages = () => {
         <PageTitle screenRenderOnly>notatki</PageTitle>
         <Header>
           <InnerWapper>
-            <Headline as="h3">Lista wydatków</Headline>
+            <Headline>Lista wydatków</Headline>
             <Paragraph>
               {getCurrentMonth()} {getYear()}
             </Paragraph>

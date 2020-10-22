@@ -11,7 +11,6 @@ import AuthProvider from 'context/AuthContext';
 
 const MainTemplate = ({ children }) => {
   const theme = useSelector(({ settings }) => settings.colorTheme);
-  const isAuth = useSelector(({ auth }) => auth.uid) !== null;
 
   return (
     <AuthProvider>
@@ -22,7 +21,7 @@ const MainTemplate = ({ children }) => {
         />
       </Helmet>
       <ThemeProvider theme={theme === themeColorType.DARK ? themeDark : themeLight}>
-        <GlobalStyled isAuth={isAuth} />
+        <GlobalStyled />
         {children}
       </ThemeProvider>
     </AuthProvider>
