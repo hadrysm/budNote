@@ -159,7 +159,7 @@ export const inputVariants = {
 
     isFocused: {
       y: -20,
-      scale: 0.8,
+      scale: 0.9,
       transition: { type: 'spring', stiffness: 320, bounce: 0.25 },
     },
   },

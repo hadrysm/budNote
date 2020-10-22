@@ -8,7 +8,7 @@ const CategoryItem = ({ handleOpenRemoveBudgetModal, handleOpenUpdateBudgetModal
   return (
     <Wrapper>
       <Label onClick={() => handleOpenUpdateBudgetModal(id)}>{label}</Label>
-      <RemoveButton icon={plusIcon} onClick={() => handleOpenRemoveBudgetModal(id)} />
+      <RemoveButton isSmall icon={plusIcon} onClick={() => handleOpenRemoveBudgetModal(id)} />
     </Wrapper>
   );
 };

@@ -24,8 +24,8 @@ const ButtonIcon = styled.button`
   ${({ isSmall }) =>
     isSmall &&
     css`
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 10%;
       background-size: 60%;
       border: none;

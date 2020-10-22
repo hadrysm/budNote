@@ -21,7 +21,7 @@ export const RemoveButton = styled(ButtonIcon)`
   position: absolute;
   top: -1rem;
   right: -0.5rem;
-  width: 2rem;
-  height: 2rem;
+  border-radius: 50%;
+  background-size: 40%;
   transform: rotate(45deg);
 `;

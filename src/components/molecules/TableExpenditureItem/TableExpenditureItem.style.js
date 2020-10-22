@@ -28,6 +28,7 @@ export const DataItem = styled.li`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  position: relative;
 
   @media ${({ theme }) => theme.mq.tablet} {
     margin-bottom: 0;
@@ -51,27 +52,21 @@ export const DataItem = styled.li`
 
   :nth-of-type(1):before {
     content: 'Nazwa';
-    top: 1rem;
   }
   :nth-of-type(2):before {
     content: 'Kategoria';
-    top: 3rem;
   }
   :nth-of-type(3):before {
     content: 'Kwota';
-    top: 5rem;
   }
   :nth-of-type(4):before {
     content: 'Data';
-    top: 7rem;
   }
   :nth-of-type(5):before {
     content: 'Akcja';
-    top: 10rem;
   }
   :nth-of-type(6):before {
     content: 'Status';
-    top: 14rem;
   }
 `;
 

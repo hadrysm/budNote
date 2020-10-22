@@ -49,8 +49,12 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   ${({ secondary }) =>
     secondary &&
     css`
-      position: static;
-      min-height: 40vh;
+      position: absolute;
+      top: 10%;
+      right: 0;
+      left: 0;
+      margin: auto;
+      min-height: auto;
       border-radius: 1rem;
     `}
 `;
@@ -61,5 +65,6 @@ export const CloseButton = styled(ButtonIcon)`
   right: 0;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   transform: rotate(45deg);
 `;
