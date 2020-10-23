@@ -73,3 +73,25 @@ export const getFirebaseErrorMessage = (code) => {
   }
   return message;
 };
+
+export const getColor = (index) => {
+  const colors = [
+    '#2C73D2',
+    '#7ac77f',
+    '#FF6F91',
+    '#f3d790',
+    '#c5ee5a',
+    '#57b9e1',
+    '#f09950',
+    '#d74946',
+    '#c3a9b7',
+  ];
+
+  let colorIndex = index;
+
+  if (index > colors.length - 1) {
+    colorIndex = Math.floor(Math.random() * colors.length);
+  }
+
+  return colors[colorIndex];
+};

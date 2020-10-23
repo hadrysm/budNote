@@ -6,13 +6,14 @@ import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Section from 'components/atoms/Section/Section.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import MyResponsivePie from 'components/Organisms/MyResponsivePie/MyResponsivePie';
+import { getColor } from 'helpers';
 import { Header, InnerWrapper, Content } from './ChartPage.style';
 
 const ChartPages = () => {
   const budgetItems = useSelector(({ budget }) => budget.budget);
 
   const parseData = () => {
-    const pieData = budgetItems.reduce((acc, { category, amount }) => {
+    const pieData = budgetItems.reduce((acc, { category, amount }, index) => {
       const existItem = acc.find(({ id }) => id === category);
       if (existItem) {
         existItem.value += amount;
@@ -20,7 +21,7 @@ const ChartPages = () => {
         acc.push({
           id: category,
           value: amount,
-          color: 'hsl(301, 70%, 50%)',
+          color: getColor(index),
         });
       }
       return acc;
