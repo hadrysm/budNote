@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
@@ -8,33 +9,25 @@ import MyResponsivePie from 'components/Organisms/MyResponsivePie/MyResponsivePi
 import { Header, InnerWrapper, Content } from './ChartPage.style';
 
 const ChartPages = () => {
-  const data = [
-    {
-      id: 'mieszkanie',
-      value: 310,
-      color: 'hsl(163, 70%, 50%)',
-    },
-    {
-      id: 'jedzenie',
-      value: 479,
-      color: 'hsl(52, 70%, 50%)',
-    },
-    {
-      id: 'samochód',
-      value: 463,
-      color: 'hsl(146, 70%, 50%)',
-    },
-    {
-      id: 'python',
-      value: 304,
-      color: 'hsl(161, 30%, 50%)',
-    },
-    {
-      id: 'scala',
-      value: 205,
-      color: 'hsl(301, 70%, 50%)',
-    },
-  ];
+  const budgetItems = useSelector(({ budget }) => budget.budget);
+
+  const parseData = () => {
+    const pieData = budgetItems.reduce((acc, { category, amount }) => {
+      const existItem = acc.find(({ id }) => id === category);
+      if (existItem) {
+        existItem.value += amount;
+      } else {
+        acc.push({
+          id: category,
+          value: amount,
+          color: 'hsl(301, 70%, 50%)',
+        });
+      }
+      return acc;
+    }, []);
+
+    return pieData;
+  };
 
   return (
     <Wrapper withVariants maxWidth>
@@ -45,7 +38,7 @@ const ChartPages = () => {
         </Header>
         <Section>
           <Content>
-            <MyResponsivePie data={data} colorBy={(item) => item.color} />
+            <MyResponsivePie data={parseData()} colorBy={(item) => item.color} />
           </Content>
         </Section>
       </InnerWrapper>

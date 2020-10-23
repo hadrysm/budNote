@@ -11,7 +11,7 @@ const Balance = ({ budgetItems }) => {
 
   return (
     <>
-      <Headline>Wydatki</Headline>
+      <Headline>Suma</Headline>
       <Paragraph>{total} zł</Paragraph>
     </>
   );

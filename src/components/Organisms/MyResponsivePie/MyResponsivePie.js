@@ -2,12 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ResponsivePie } from '@nivo/pie';
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-const MyResponsivePie = ({ data, colorBy /* see data tab */ }) => (
+
+// const data = [
+//   {
+//     id: 'mieszkanie',
+//     value: 310, - sum of all id's
+//     color: 'hsl(163, 70%, 50%)', - random
+//   },
+//   {
+//     id: 'jedzenie',
+//     value: 479,
+//     color: 'hsl(52, 70%, 50%)',
+//   },
+// ];
+
+const MyResponsivePie = ({ data, colorBy }) => (
   <ResponsivePie
     data={data}
     margin={{ top: 0, right: 20, bottom: 20, left: 20 }}
