@@ -4,7 +4,13 @@ import ListItem from 'components/atoms/ListItem/ListItem.style';
 import List from 'components/atoms/List/List.style';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
 
-export const StyledListItem = styled(ListItem)`
+import { paymentTableVariantes } from 'variants';
+
+const { tableItem } = paymentTableVariantes;
+
+export const StyledListItem = styled(ListItem).attrs(() => ({
+  variants: tableItem,
+}))`
   margin-top: 2rem;
 
   @media ${({ theme }) => theme.mq.tablet} {

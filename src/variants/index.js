@@ -1,7 +1,7 @@
 export const pageVariants = {
   mainContent: {
     hidden: {
-      x: '100vw',
+      x: 200,
       opacity: 0,
     },
 
@@ -9,17 +9,19 @@ export const pageVariants = {
       opacity: 1,
       x: 0,
       transition: {
+        // type: 'spring',
         type: 'spring',
-        stiffness: 120,
-        damping: 8,
-        delay: 0.2,
+        // stiffness: 120,
+        // damping: 8,
+        // delay: 0.15,
         when: 'beforeChildren',
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
       },
     },
 
     exit: {
-      x: '-100vw',
+      x: -200,
+      opacity: 0,
     },
   },
 
@@ -335,6 +337,34 @@ export const spinnerVariants = {
         duration: 0.5,
         ease: 'easeOut',
       },
+    },
+  },
+};
+
+export const paymentTableVariantes = {
+  table: {
+    hidden: {
+      y: -20,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  },
+
+  tableItem: {
+    hidden: {
+      x: -20,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
     },
   },
 };

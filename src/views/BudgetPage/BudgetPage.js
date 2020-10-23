@@ -9,7 +9,6 @@ import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
 import Button from 'components/atoms/Button/Button.style';
 import Headline from 'components/atoms/Headline/Headline.style';
-import Section from 'components/atoms/Section/Section.style';
 import PaymentTable from 'components/Organisms/PaymentTable/PaymentTable';
 import ExpenditureForm from 'components/Organisms/ExpenditureForm/ExpenditureForm';
 import Modal from 'components/molecules/Modal/Modal';
@@ -28,7 +27,13 @@ import { db } from 'firebase/base';
 
 import { getCurrentMonth, getYear } from 'helpers';
 import { useCollection } from 'hooks/useCollection';
-import { Header, StyledButtonIcon, NoDataWrapper, InnerWapper } from './BudgetPage.style';
+import {
+  Header,
+  StyledButtonIcon,
+  NoDataWrapper,
+  InnerWapper,
+  StyledSection,
+} from './BudgetPage.style';
 
 const BudgesPages = () => {
   const [itemId, setItemId] = useState(null);
@@ -91,7 +96,7 @@ const BudgesPages = () => {
           </InnerWapper>
         </Header>
 
-        <Section>
+        <StyledSection>
           {!budgetItems.length ? (
             <NoDataWrapper>
               <Paragraph>Dodaj pierwszy koszt</Paragraph>
@@ -103,7 +108,7 @@ const BudgesPages = () => {
               handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
             />
           )}
-        </Section>
+        </StyledSection>
       </Wrapper>
 
       {/* modals  */}

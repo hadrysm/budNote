@@ -6,6 +6,7 @@ import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
 import Section from 'components/atoms/Section/Section.style';
 import Headline from 'components/atoms/Headline/Headline.style';
 import MyResponsivePie from 'components/Organisms/MyResponsivePie/MyResponsivePie';
+import Balance from 'components/molecules/Balance/Balance';
 import { getColor } from 'helpers';
 import { Header, InnerWrapper, Content } from './ChartPage.style';
 
@@ -36,10 +37,15 @@ const ChartPages = () => {
         <PageTitle screenRenderOnly>wykres</PageTitle>
         <Header>
           <Headline>wykres wydatków</Headline>
+          <Balance budgetItems={budgetItems} />
         </Header>
         <Section>
           <Content>
-            <MyResponsivePie data={parseData()} colorBy={(item) => item.color} />
+            <MyResponsivePie
+              data={parseData()}
+              colorBy={(d) => d.color}
+              sliceLabel={(d) => `${d.value} zł`}
+            />
           </Content>
         </Section>
       </InnerWrapper>

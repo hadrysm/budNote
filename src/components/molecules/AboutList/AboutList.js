@@ -8,7 +8,7 @@ import { StyledListItem, InnerWrapper, StyledParagraph, StyledHeadline } from '.
 const AboutList = ({ listItemsData }) => {
   const listItems = listItemsData.map(({ key, title, label }) => (
     <StyledListItem key={key}>
-      <InnerWrapper>
+      <InnerWrapper withVariants>
         <StyledHeadline primaryColor as="h4">
           {title}
         </StyledHeadline>

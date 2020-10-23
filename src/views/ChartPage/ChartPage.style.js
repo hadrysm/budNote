@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
+  align-items: flex-start;
 `;
 
 export const InnerWrapper = styled.div`

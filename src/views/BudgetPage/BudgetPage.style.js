@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import Section from 'components/atoms/Section/Section.style';
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: flex;
+  align-items: flex-start;
 `;
 
 export const InnerWapper = styled.div`
   padding: 0 0.5rem;
+`;
+export const StyledSection = styled(Section)`
+  margin-top: 3.5rem;
 `;
 
 export const StyledButtonIcon = styled(ButtonIcon)`

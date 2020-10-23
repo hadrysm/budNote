@@ -1,9 +1,16 @@
 import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion';
 
 import List from 'components/atoms/List/List.style';
 import ListItem from 'components/atoms/ListItem/ListItem.style';
 
-export const Table = styled.div`
+import { paymentTableVariantes } from 'variants';
+
+const { table } = paymentTableVariantes;
+
+export const Table = styled(motion.div).attrs(() => ({
+  variants: table,
+}))`
   width: 100%;
   max-width: 120rem;
   margin: 0 auto;
