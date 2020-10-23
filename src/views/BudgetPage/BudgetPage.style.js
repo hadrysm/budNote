@@ -29,7 +29,7 @@ export const StyledButtonIcon = styled(ButtonIcon)`
 
 export const NoDataWrapper = styled.div`
   display: grid;
-  grid-template-rows: 1fr 0.5fr;
+  grid-template-rows: repeat(2, 1fr);
   align-items: center;
   gap: 1rem;
   text-align: center;

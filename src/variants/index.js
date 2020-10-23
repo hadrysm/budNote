@@ -368,3 +368,19 @@ export const paymentTableVariantes = {
     },
   },
 };
+
+export const pieVAriants = {
+  hidden: {
+    scale: 0.4,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 90,
+      damping: 6,
+    },
+  },
+};
