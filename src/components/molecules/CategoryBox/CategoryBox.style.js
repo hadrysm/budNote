@@ -1,8 +1,15 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import List from 'components/atoms/List/List.style';
 
-export const Wrapper = styled.div`
+import { categoryVariatns } from 'variants';
+
+const { categoryBox } = categoryVariatns;
+
+export const Wrapper = styled(motion.div).attrs(() => ({
+  variants: categoryBox,
+}))`
   width: 100%;
   padding: 3rem 2rem;
   border-radius: 1rem;

@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
 import ListItem from 'components/atoms/ListItem/ListItem.style';
+import { categoryVariatns } from 'variants';
 import Paragraph from '../Paragraph/Paragraph.style';
 import ButtonIcon from '../ButtonIcon/ButtonIcon.style';
 
-export const Wrapper = styled(ListItem)`
+const { categoryItem } = categoryVariatns;
+
+export const Wrapper = styled(ListItem).attrs(() => ({
+  variants: categoryItem,
+}))`
   background-color: ${({ theme }) => theme.colors.tertiary};
   padding: 0.5rem;
   min-width: 9rem;

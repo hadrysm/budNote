@@ -384,3 +384,37 @@ export const pieVAriants = {
     },
   },
 };
+
+export const categoryVariatns = {
+  categoryBox: {
+    hidden: {
+      scale: 0.4,
+      opacity: 0,
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  },
+
+  categoryItem: {
+    hidden: {
+      y: -20,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 120,
+        damping: 6,
+        // delay: 0.3,
+      },
+    },
+  },
+};
