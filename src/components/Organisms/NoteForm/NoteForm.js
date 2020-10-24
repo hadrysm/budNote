@@ -14,10 +14,16 @@ const validate = ({ title, content }) => {
   const errors = {};
   if (!title) {
     errors.title = 'Pole jest wymagane';
+  } else if (title.length < 3) {
+    errors.title = 'Minimum 3 znaki';
   }
 
   if (!content) {
     errors.content = 'Pole jest wymagane';
+  } else if (content.length < 10) {
+    errors.content = 'Treść musi być dłuższa';
+  } else if (content.length > 120) {
+    errors.content = 'Treść musi być krótsza';
   }
   return errors;
 };

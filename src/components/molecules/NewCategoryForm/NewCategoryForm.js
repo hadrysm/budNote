@@ -23,6 +23,10 @@ const NewCategoryForm = ({ isUpdate, itemId }) => {
       const errors = {};
       if (!title) {
         errors.title = 'Pole jest wymagane';
+      } else if (title.length < 3) {
+        errors.title = 'Minimum 3 znaki';
+      } else if (title.length > 15) {
+        errors.title = 'Kategoria za długa';
       }
       return errors;
     },

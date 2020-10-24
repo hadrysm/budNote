@@ -11,18 +11,22 @@ import { FormWrapper, StyledButton, StyledForm, AbsWrapper } from './LoginForm.s
 
 const initialValues = { email: '', password: '' };
 
-const validate = (values) => {
+const validate = ({ email, password }) => {
+  const numbers = /[0-9]/g;
+
   const errors = {};
-  if (!values.email) {
+  if (!email) {
     errors.email = 'Pole jest wymagane';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
     errors.email = 'Niepoprawny format email';
   }
 
-  if (!values.password) {
+  if (!password) {
     errors.password = 'Pole jest wymagane';
-  } else if (values.password.length < 6) {
+  } else if (password.length < 6) {
     errors.password = 'Hasło musi być dłuższe';
+  } else if (!password.match(numbers)) {
+    errors.password = 'Hasło musi zawierać liczbę';
   }
   return errors;
 };

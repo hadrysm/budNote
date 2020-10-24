@@ -26,15 +26,20 @@ const ExpenditureForm = ({ isUpdate, itemId }) => {
       const errors = {};
       if (!title) {
         errors.title = 'Pole jest wymagane';
+      } else if (title.length < 3) {
+        errors.title = 'Minimum 3 znaki';
       }
 
       if (!amount) {
         errors.amount = 'Pole jest wymagane';
+      } else if (amount < 0) {
+        errors.amount = 'Wartość większa od 0';
       }
 
       if (!category) {
         errors.category = 'Pole jest wymagane';
       }
+
       return errors;
     },
     onSubmit: (value) => {
