@@ -366,6 +366,13 @@ export const paymentTableVariantes = {
       x: 0,
       opacity: 1,
     },
+    hover: {
+      backgroundColor: '#DCDCDC',
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    },
   },
 };
 
@@ -415,6 +422,9 @@ export const categoryVariatns = {
         damping: 6,
         // delay: 0.3,
       },
+    },
+    hover: {
+      scale: 1.05,
     },
   },
 };

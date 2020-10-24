@@ -9,6 +9,7 @@ const { categoryItem } = categoryVariatns;
 
 export const Wrapper = styled(ListItem).attrs(() => ({
   variants: categoryItem,
+  whileHover: 'hover',
 }))`
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 0.5rem;

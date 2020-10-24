@@ -10,6 +10,7 @@ const { tableItem } = paymentTableVariantes;
 
 export const StyledListItem = styled(ListItem).attrs(() => ({
   variants: tableItem,
+  whileHover: 'hover',
 }))`
   margin-top: 2rem;
 
