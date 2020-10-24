@@ -8,7 +8,7 @@ import {
 } from './types';
 
 const INITIAL_STATE = {
-  colorTheme: themeColorType.DARK,
+  colorTheme: themeColorType.LIGHT,
   category: [],
   loading: false,
   error: null,

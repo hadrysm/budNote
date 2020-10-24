@@ -10,7 +10,7 @@ const { categoryItem } = categoryVariatns;
 export const Wrapper = styled(ListItem).attrs(() => ({
   variants: categoryItem,
 }))`
-  background-color: ${({ theme }) => theme.colors.tertiary};
+  background-color: ${({ theme }) => theme.colors.primary};
   padding: 0.5rem;
   min-width: 9rem;
   position: relative;
@@ -29,4 +29,5 @@ export const RemoveButton = styled(ButtonIcon)`
   border-radius: 50%;
   background-size: 40%;
   transform: rotate(45deg);
+  background-color: ${({ theme }) => theme.colors.primary};
 `;

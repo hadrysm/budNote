@@ -17,7 +17,7 @@ export const Wrapper = styled(motion.div).attrs(() => ({
   right: 0;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: ${({ theme }) => theme.colors.modalBgc};
   z-index: ${({ theme }) => theme.zIndex.level8};
   display: flex;
   align-items: center;
@@ -61,8 +61,8 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
 
 export const CloseButton = styled(ButtonIcon)`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0.5rem;
+  right: 0.5rem;
   width: 40px;
   height: 40px;
   border-radius: 50%;

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
 import Input from 'components/atoms/Input/Input';
+import Spinner from 'components/atoms/Spinner/Spinner';
 
 import { db } from 'firebase/base';
 import routes from 'routes';
@@ -113,7 +114,7 @@ const NotePage = () => {
             </StyledForm>
           </>
         ) : (
-          <p>loading...</p>
+          <Spinner />
         )}
       </InnerWrapper>
     </Wrapper>

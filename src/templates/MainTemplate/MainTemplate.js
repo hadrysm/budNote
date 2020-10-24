@@ -20,7 +20,7 @@ const MainTemplate = ({ children }) => {
           rel="stylesheet"
         />
       </Helmet>
-      <ThemeProvider theme={theme === themeColorType.DARK ? themeDark : themeLight}>
+      <ThemeProvider theme={theme === themeColorType.LIGHT ? themeDark : themeLight}>
         <GlobalStyled />
         {children}
       </ThemeProvider>

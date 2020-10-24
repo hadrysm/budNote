@@ -5,7 +5,7 @@ const ButtonIcon = styled.button`
   width: 7rem;
   height: 7rem;
   border-radius: 2rem;
-  border: 3px solid ${({ theme }) => theme.colors.tertiary};
+  border: 3px solid ${({ theme }) => theme.colors.grey200};
   background-image: url(${({ icon }) => icon});
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -29,14 +29,14 @@ const ButtonIcon = styled.button`
       border-radius: 10%;
       background-size: 60%;
       border: none;
-      background-color: ${({ theme }) => theme.colors.tertiary};
+      background-color: ${({ theme }) => theme.colors.grey200};
     `}
 
   ${({ status }) =>
     status &&
     css`
       background-color: ${({ isCompleted, theme }) =>
-        isCompleted ? theme.colors.success : theme.colors.tertiary};
+        isCompleted ? theme.colors.success : theme.colors.grey200};
     `}
 `;
 

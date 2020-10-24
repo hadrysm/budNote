@@ -14,7 +14,7 @@ export const Table = styled(motion.div).attrs(() => ({
   width: 100%;
   max-width: 120rem;
   margin: 0 auto;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.grey300};
   border-radius: 0.5rem;
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   overflow: hidden;
@@ -27,7 +27,7 @@ export const Table = styled(motion.div).attrs(() => ({
 `;
 
 export const CardRow = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.grey300};
 
   ${({ isHeading }) =>
     isHeading &&
