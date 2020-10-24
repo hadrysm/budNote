@@ -54,7 +54,7 @@ const theme = {
 
 export const themeDark = {
   colors: {
-    primary: '#6C63FF',
+    primary: '#4C63FF',
     secondary: '#02E4C0',
     tertiary: '#112D57',
     text: '#FFFFFF',
@@ -74,7 +74,7 @@ export const themeDark = {
 
 export const themeLight = {
   colors: {
-    primary: '#6C63FF',
+    primary: '#4C63FF',
     secondary: '#EE4C7C',
     tertiary: '#E3E2DF',
     text: '#000000',

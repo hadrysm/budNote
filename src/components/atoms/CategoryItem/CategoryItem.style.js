@@ -20,7 +20,7 @@ export const Wrapper = styled(ListItem).attrs(() => ({
 
 export const Label = styled(Paragraph)`
   font-size: ${({ theme }) => theme.font.size.xxxs};
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const RemoveButton = styled(ButtonIcon)`
