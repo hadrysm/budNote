@@ -68,3 +68,11 @@ export const CloseButton = styled(ButtonIcon)`
   border-radius: 50%;
   transform: rotate(45deg);
 `;
+
+export const SpinnerWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
