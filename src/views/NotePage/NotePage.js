@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ import Spinner from 'components/atoms/Spinner/Spinner';
 import { db } from 'firebase/base';
 import routes from 'routes';
 
-import { fetchNotestStart, fetchNotesSuccess, fetchNotesFail } from 'store/notes/actions';
+import { fetchNotestStart, fetchNotesSuccess, fetchNotesFail, addNote } from 'store/notes/actions';
 import { useCollection } from 'hooks/useCollection';
 import { InnerWrapper, StyledForm, StyledButton } from './NotePage.style';
 
@@ -33,8 +33,8 @@ const validate = ({ title, content }) => {
 };
 
 const NotePage = () => {
-  const [note, setNote] = useState(null);
   const uId = useSelector(({ auth }) => auth.uid);
+  const note = useSelector(({ notes }) => notes.curentNote);
   const { id } = useParams();
   const { push } = useHistory();
 
@@ -44,6 +44,7 @@ const NotePage = () => {
       fetchDataSuccess: fetchNotesSuccess,
       fetchStart: fetchNotestStart,
       fetchDataFail: fetchNotesFail,
+      fetchCurrentItemSuccess: addNote,
     },
   };
 
@@ -52,13 +53,10 @@ const NotePage = () => {
   );
 
   useEffect(() => {
-    const fetchNote = async () => {
-      const currentNote = await handleGetCurrentItem(id);
-      setNote(currentNote);
-    };
-
-    fetchNote();
-  }, [id, handleGetCurrentItem]);
+    handleGetCurrentItem(id);
+    // react-hooks/exhaustive-deps
+    // eslint-disable-next-line
+  }, []);
 
   const handleDelete = async () => {
     await handleDeleteItem(id);

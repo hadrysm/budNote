@@ -8,6 +8,7 @@ import {
 
 const INITIAL_STATE = {
   notes: [],
+  curentNote: null,
   loading: false,
   error: null,
 };
@@ -37,7 +38,8 @@ const notesReducer = (state = INITIAL_STATE, { type, payload }) => {
     case ADD_NOTE:
       return {
         ...state,
-        notes: [...state.notes, payload.note],
+        curentNote: payload.note,
+        loading: false,
       };
 
     case CLEAR_NOTES:

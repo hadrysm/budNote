@@ -5,7 +5,7 @@ export const useCollection = ({ collection, reduxActions }) => {
   const dispatch = useDispatch();
 
   const collectionRef = collection;
-  const { fetchDataSuccess, fetchStart, fetchDataFail } = reduxActions;
+  const { fetchDataSuccess, fetchStart, fetchDataFail, fetchCurrentItemSuccess } = reduxActions;
 
   const fetchCollection = async () => {
     const res = await collectionRef.get();
@@ -51,8 +51,14 @@ export const useCollection = ({ collection, reduxActions }) => {
   };
 
   const handleGetCurrentItem = async (id) => {
-    const res = await collectionRef.doc(id).get();
-    return res.data();
+    dispatch(fetchStart());
+
+    try {
+      const res = await collectionRef.doc(id).get();
+      dispatch(fetchCurrentItemSuccess(res.data()));
+    } catch (error) {
+      dispatch(fetchDataFail(error));
+    }
   };
 
   useEffect(() => {
