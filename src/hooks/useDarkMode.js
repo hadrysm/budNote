@@ -4,7 +4,7 @@ import { themeColorType } from 'store/settings/types';
 import { setThemeColor } from 'store/settings/actions';
 
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState(themeColorType.DARK);
+  const [theme, setTheme] = useState(themeColorType.LIGHT);
 
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ export const useDarkMode = () => {
     const localTheme = window.localStorage.getItem('theme');
     if (localTheme) memoizedSetMode(localTheme);
     else {
-      memoizedSetMode(themeColorType.DARK);
+      memoizedSetMode(themeColorType.LIGHT);
     }
   }, [memoizedSetMode]);
 

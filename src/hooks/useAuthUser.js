@@ -17,6 +17,7 @@ export const useAuthUser = () => {
     try {
       const { user } = await auth().createUserWithEmailAndPassword(email, password);
 
+      // change this
       await db.collection('users').doc(user.uid).set({
         email,
         uid: user.uid,
@@ -53,14 +54,11 @@ export const useAuthUser = () => {
     dispatch(authStart());
 
     try {
-      await auth()
-        .signOut()
-        .then(() => {
-          dispatch(authLogout());
-          dispatch(clearNotes());
-          dispatch(clearBudget());
-          dispatch(clearCategory());
-        });
+      await auth().signOut();
+      dispatch(authLogout());
+      dispatch(clearNotes());
+      dispatch(clearBudget());
+      dispatch(clearCategory());
     } catch (err) {
       dispatch(authFail(getFirebaseErrorMessage(err.code)));
     }

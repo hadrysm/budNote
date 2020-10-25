@@ -22,7 +22,7 @@ const MainTemplate = ({ children }) => {
             rel="stylesheet"
           />
         </Helmet>
-        <ThemeProvider theme={theme === themeColorType.LIGHT ? themeDark : themeLight}>
+        <ThemeProvider theme={theme === themeColorType.DARK ? themeDark : themeLight}>
           <GlobalStyled />
           {children}
         </ThemeProvider>
@@ -32,7 +32,7 @@ const MainTemplate = ({ children }) => {
 };
 
 MainTemplate.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 
 export default MainTemplate;

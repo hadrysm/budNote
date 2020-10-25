@@ -42,9 +42,7 @@ const Sidebar = () => {
           </StyledListItem>
 
           <StyledListItem>
-            <LinkItem to={routes.notes}>
-              <StyledButtonIcon icon={logoutIcon} onClick={handleSignout} />
-            </LinkItem>
+            <StyledButtonIcon icon={logoutIcon} onClick={handleSignout} />
           </StyledListItem>
         </StyledList>
       </Wrapper>

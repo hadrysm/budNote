@@ -428,3 +428,39 @@ export const categoryVariatns = {
     },
   },
 };
+
+export const templateVariants = {
+  parent: {
+    visible: {
+      transition: {
+        ease: 'circInOut',
+        staggerChildren: 0.2,
+        staggerDirection: -1,
+      },
+    },
+    hidden: {
+      transition: {
+        ease: 'circInOut',
+        staggerChildren: 0.2,
+        staggerDirection: -1,
+      },
+    },
+  },
+
+  child: {
+    visible: {
+      scaleX: 1,
+      transition: {
+        ease: 'circInOut',
+        duration: 1,
+      },
+    },
+    hidden: {
+      scaleX: 0,
+      transition: {
+        ease: 'circInOut',
+        duration: 1,
+      },
+    },
+  },
+};
