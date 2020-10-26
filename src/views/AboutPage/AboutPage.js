@@ -12,7 +12,7 @@ const aboutData = [
   {
     key: generateUnicId(),
     title: 'szybkie dodawanie transakcji',
-    label: 'dodawnanie nowych transakcji w prosty spowów. Wystarczy wpisać kwotę',
+    label: 'dodawnanie nowych transakcji w prosty spowów.',
   },
   {
     key: generateUnicId(),
@@ -22,27 +22,22 @@ const aboutData = [
   {
     key: generateUnicId(),
     title: 'poglądowe wykresy',
-    label: 'przeglądaj dochody i wydatki w sposób graficzny',
-  },
-  {
-    key: generateUnicId(),
-    title: 'śledzenie długów i oszczędności',
-    label: 'wgląd w saldo portfela',
+    label: 'przeglądaj dochody i wydatki w sposób graficzny.',
   },
   {
     key: generateUnicId(),
     title: 'kategorie',
-    label: 'dodawaj własne kategorie wydatków i wpływów',
+    label: 'dodawaj własne kategorie wydatków.',
   },
   {
     key: generateUnicId(),
     title: 'dark mode',
-    label: 'możliwość dostosowania wyglądu aplikacji do swoich preferencji',
+    label: 'możliwość dostosowania wyglądu aplikacji do swoich preferencji.',
   },
   {
     key: generateUnicId(),
     title: 'Notatki',
-    label: 'możliwość dostosowania własnych notatek',
+    label: 'możliwość dostosowania własnych notatek.',
   },
 ];
 
@@ -57,8 +52,7 @@ const AboutPage = () => {
           Dlatego stworzyłem ją, aby pomóc Ci, w każdej chwili, śledzić swoje wydatki.
         </Paragraph>
         <Paragraph withMargin="2">
-          Aplikacja w wygodny sposób pozwoli kontrolować wydawane pieniądze a wbudowane raporty
-          prezentujące wydatki zmotywują do oszczędzania.
+          Aplikacja w wygodny sposób pozwoli kontrolować wydawane pieniądze.
         </Paragraph>
       </Section>
 

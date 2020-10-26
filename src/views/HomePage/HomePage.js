@@ -33,16 +33,14 @@ const HomePage = () => {
     <Wrapper withVariants isFlex isColumn>
       <PageTitle screenRenderOnly>strona głowna</PageTitle>
       <Section>
-        <StyledHeadline>wszystko razem</StyledHeadline>
+        <StyledHeadline>aplikacja budżetowa</StyledHeadline>
         <Paragraph>
-          Kiedy jesteś na szczycie swoich zarobków, życie jest dobre. Pomagamy Ci bez wysiłku
-          zarządzać Twoimi finansami w jednym miejscu.
+          Darmowa aplikacja do planowania budżetu domowego, zapisywania wydatków, kontroli i
+          zarządzania domowymi finansami.
         </Paragraph>
       </Section>
       <Section withVariants isFlex>
-        {/* <LinkItem to={isAuth ? routes.budget : routes.login}> */}
         <StyledButton onClick={handleChangeTemplate}>spróbuj za darmo</StyledButton>
-        {/* </LinkItem> */}
         <LinkItem to={routes.about}>
           <StyledButton secondary>dowiec się więcej</StyledButton>
         </LinkItem>
