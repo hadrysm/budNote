@@ -7,7 +7,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.20.0",
     "eslint": "^6.6.0",
     "firebase": "^7.21.1",
     "formik": "^2.1.6",
@@ -22,7 +21,8 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "styled-normalize": "^8.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
