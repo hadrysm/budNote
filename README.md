@@ -12,6 +12,7 @@ The budNote application helps you planning, expense saving, control and home fin
 - Redux
 - husky | lint-staged
 - firebase
+- framer-motion
 - eslint | prettier
 
 ## Features
@@ -44,7 +45,13 @@ To start a live server, enter in the terminal:
 
 ```
 npm start
+```
 
+Sample account filled with data:
+
+```
+login: test@test.com
+password: test1234
 ```
 
 Runs the app in the development mode.<br />
