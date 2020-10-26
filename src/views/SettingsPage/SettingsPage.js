@@ -68,9 +68,7 @@ const SettingsPage = () => {
       <Wrapper withVariants>
         <PageTitle screenRenderOnly>ustawienia</PageTitle>
         <Section>
-          <Headline>
-            {theme === themeColorType.LIGHT ? themeColorType.LIGHT : themeColorType.DARK} mode
-          </Headline>
+          <Headline>{theme} mode</Headline>
           <InnerWrapper>
             <SwitchButton toLeft handleClick={toggleTheme} isOn={theme === themeColorType.LIGHT} />
           </InnerWrapper>
