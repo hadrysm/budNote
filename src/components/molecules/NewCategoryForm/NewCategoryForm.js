@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { useSelector } from 'react-redux';
 
-import Input from 'components/atoms/Input/Input';
+import Input from 'components/atoms/Input';
 
 import { CollectionContext } from 'context/CollectionContext';
 import { StyledForm, StyledButton } from './NewCategoryForm.style';

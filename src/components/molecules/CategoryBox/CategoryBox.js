@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import CategoryItem from 'components/atoms/CategoryItem/CategoryItem';
+import CategoryItem from 'components/atoms/CategoryItem';
 
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import Paragraph from 'components/atoms/Paragraph';
 import { Wrapper, CategoryList } from './CategoryBox.style';
 
 const CategoryBox = ({ handleOpenRemoveBudgetModal, handleOpenUpdateBudgetModal }) => {

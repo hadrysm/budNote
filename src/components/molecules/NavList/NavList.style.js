@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { navigationVariants } from 'variants';
-import List from 'components/atoms/List/List.style';
-import ListItem from 'components/atoms/ListItem/ListItem.style';
+import List from 'components/atoms/List';
+import ListItem from 'components/atoms/ListItem';
 
 const { navList } = navigationVariants;
 

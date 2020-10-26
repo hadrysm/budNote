@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 import routes from 'routes';
 
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import Section from 'components/atoms/Section/Section.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
+import PageTitle from 'components/atoms/PageTitle';
+import Section from 'components/atoms/Section';
+import Paragraph from 'components/atoms/Paragraph';
+import LinkItem from 'components/atoms/LinkItem';
 import undrawImage from 'assets/image/undraw.svg';
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
+import Wrapper from 'components/atoms/Wrapper';
 import { TransitionContext } from 'context/TransitionContextProvider';
 import { StyledHeadline, StyledButton } from './HomePage.style';
 

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import List from 'components/atoms/List/List.style';
-import ListItem from 'components/atoms/ListItem/ListItem.style';
+import List from 'components/atoms/List';
+import ListItem from 'components/atoms/ListItem';
 
 import { paymentTableVariantes } from 'variants';
 

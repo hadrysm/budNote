@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Layout from 'templates/Layout/Layout ';
-import Sidebar from 'components/Organisms/Sidebar/Sidebar';
+import Layout from 'templates/Layout';
+import Sidebar from 'components/organisms/Sidebar';
 
 import { Wrapper, InnerWrapper, Main, Container } from './PanelTemplate.style';
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import ListItem from 'components/atoms/ListItem/ListItem.style';
-import List from 'components/atoms/List/List.style';
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import ListItem from 'components/atoms/ListItem';
+import List from 'components/atoms/List';
+import ButtonIcon from 'components/atoms/ButtonIcon';
 
 import { paymentTableVariantes } from 'variants';
 

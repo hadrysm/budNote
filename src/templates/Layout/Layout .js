@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TransitionContextProvider from 'context/TransitionContextProvider';
-import TemplateTransition from 'components/Organisms/TemplateTransition/TemplateTransition';
+import TemplateTransition from 'components/organisms/TemplateTransition';
 import { Wrapper } from './Layout.style';
 
 const Layout = ({ children }) => {

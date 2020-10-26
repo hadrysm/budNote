@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Modal from 'components/molecules/Modal/Modal';
-import Section from 'components/atoms/Section/Section.style';
-import Spinner from 'components/atoms/Spinner/Spinner';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import Headline from 'components/atoms/Headline/Headline.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import Task from 'components/molecules/Task/Task';
-import NoteForm from 'components/Organisms/NoteForm/NoteForm';
+import Wrapper from 'components/atoms/Wrapper';
+import Modal from 'components/molecules/Modal';
+import Section from 'components/atoms/Section';
+import Spinner from 'components/atoms/Spinner';
+import PageTitle from 'components/atoms/PageTitle';
+import Headline from 'components/atoms/Headline';
+import Paragraph from 'components/atoms/Paragraph';
+import Task from 'components/molecules/Task';
+import NoteForm from 'components/organisms/NoteForm';
 import plusIcon from 'assets/icons/plus.svg';
-import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
+import LinkItem from 'components/atoms/LinkItem';
 import CollectionProvider from 'context/CollectionContext';
 
 import { fetchNotestStart, fetchNotesSuccess, fetchNotesFail } from 'store/notes/actions';

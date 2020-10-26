@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
-import Section from 'components/atoms/Section/Section.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
+import Section from 'components/atoms/Section';
 
 export const Header = styled.header`
   display: flex;

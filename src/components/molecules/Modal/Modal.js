@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
-import Headline from 'components/atoms/Headline/Headline.style';
+import Headline from 'components/atoms/Headline';
 import plusIcon from 'assets/icons/plus.svg';
 import { useClickOutside } from 'hooks/useClickOutside';
-import Spinner from 'components/atoms/Spinner/Spinner';
+import Spinner from 'components/atoms/Spinner';
 import { Wrapper, BoxWrapper, CloseButton, SpinnerWrapper } from './Modal.style';
 
 const Modal = ({ title, children, secondary, closeModalFn, small }) => {

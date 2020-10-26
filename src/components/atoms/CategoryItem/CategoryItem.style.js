@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import ListItem from 'components/atoms/ListItem/ListItem.style';
+import ListItem from 'components/atoms/ListItem';
 import { categoryVariatns } from 'variants';
-import Paragraph from '../Paragraph/Paragraph.style';
-import ButtonIcon from '../ButtonIcon/ButtonIcon.style';
+import Paragraph from '../Paragraph';
+import ButtonIcon from '../ButtonIcon';
 
 const { categoryItem } = categoryVariatns;
 

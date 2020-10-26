@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import LoginForm from 'components/molecules/LoginForm/LoginForm';
-import Popup from 'components/molecules/Popup/Popup';
+import Wrapper from 'components/atoms/Wrapper';
+import PageTitle from 'components/atoms/PageTitle';
+import LoginForm from 'components/molecules/LoginForm';
+import Popup from 'components/molecules/Popup';
 import image from 'assets/image/image2.svg';
-import Section from 'components/atoms/Section/Section.style';
+import Section from 'components/atoms/Section';
 import routes from 'routes';
 import { clearAuthError } from 'store/auth/actions';
 

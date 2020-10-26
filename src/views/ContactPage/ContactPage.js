@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Section from 'components/atoms/Section/Section.style';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
+import Wrapper from 'components/atoms/Wrapper';
+import Section from 'components/atoms/Section';
+import PageTitle from 'components/atoms/PageTitle';
 import emailIcon from 'assets/icons/email.svg';
 import githubIcon from 'assets/icons/github.svg';
-import ContactList from 'components/molecules/ContactList/ContactList';
+import ContactList from 'components/molecules/ContactList';
 import { generateUnicId } from 'helpers';
 import { StyledParagraph, StyledHeadline, StyledSection } from './ContactPage.style';
 

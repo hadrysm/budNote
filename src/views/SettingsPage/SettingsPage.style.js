@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
 
 export const InnerWrapper = styled.div`
   margin-top: 2rem;

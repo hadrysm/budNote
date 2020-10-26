@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import List from 'components/atoms/List/List.style';
+import List from 'components/atoms/List';
 
-import TableExpenditureItem from 'components/molecules/TableExpenditureItem/TableExpenditureItem';
+import TableExpenditureItem from 'components/molecules/TableExpenditureItem';
 import { Table, CardRow, TableList, Item } from './PaymentTable.style';
 
 const PaymentTable = ({ handleOpenRemoveBudgetModal, handleOpenUpdateBudgetModal }) => {

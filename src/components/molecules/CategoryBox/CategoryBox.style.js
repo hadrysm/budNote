@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import List from 'components/atoms/List/List.style';
+import List from 'components/atoms/List';
 
 import { categoryVariatns } from 'variants';
 

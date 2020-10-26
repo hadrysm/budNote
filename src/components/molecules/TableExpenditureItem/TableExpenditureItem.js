@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
 import penIcon from 'assets/icons/pen.svg';
 import removeIcon from 'assets/icons/remove.svg';
 import waitIcon from 'assets/icons/wait.svg';

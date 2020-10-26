@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Headline from 'components/atoms/Headline/Headline.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import Headline from 'components/atoms/Headline';
+import Paragraph from 'components/atoms/Paragraph';
 import { getFormatDate } from 'helpers';
 import { Wrapper, InnerWrapper, DateInfo } from './Task.style';
 

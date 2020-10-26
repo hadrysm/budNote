@@ -3,9 +3,9 @@ import { AnimatePresence } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
-import Headline from 'components/atoms/Headline/Headline.style';
-import Spinner from 'components/atoms/Spinner/Spinner';
-import Input from 'components/atoms/Input/Input';
+import Headline from 'components/atoms/Headline';
+import Spinner from 'components/atoms/Spinner';
+import Input from 'components/atoms/Input';
 import { AuthContext } from 'context/AuthContext';
 import { FormWrapper, StyledButton, StyledForm, AbsWrapper } from './LoginForm.style';
 

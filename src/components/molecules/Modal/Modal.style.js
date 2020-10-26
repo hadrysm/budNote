@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { barVariants } from 'variants';
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
 
 const { background, box } = barVariants;
 

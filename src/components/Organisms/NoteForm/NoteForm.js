@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button.style';
+import Input from 'components/atoms/Input';
+import Button from 'components/atoms/Button';
 
 import { CollectionContext } from 'context/CollectionContext';
 

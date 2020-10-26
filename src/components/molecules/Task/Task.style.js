@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import Paragraph from 'components/atoms/Paragraph';
 import { taskVariants } from 'variants';
 
 const { task } = taskVariants;

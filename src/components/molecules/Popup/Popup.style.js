@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
+import Paragraph from 'components/atoms/Paragraph';
 import { popupVariants } from 'variants';
 
 export const Wrapper = styled(motion.div).attrs(() => ({

@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Balance from 'components/molecules/Balance/Balance';
-import Box from 'components/atoms/Box/Box';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import Button from 'components/atoms/Button/Button.style';
-import Headline from 'components/atoms/Headline/Headline.style';
-import PaymentTable from 'components/Organisms/PaymentTable/PaymentTable';
-import ExpenditureForm from 'components/Organisms/ExpenditureForm/ExpenditureForm';
-import Modal from 'components/molecules/Modal/Modal';
+import Wrapper from 'components/atoms/Wrapper';
+import Balance from 'components/molecules/Balance';
+import Box from 'components/atoms/Box';
+import PageTitle from 'components/atoms/PageTitle';
+import Paragraph from 'components/atoms/Paragraph';
+import Button from 'components/atoms/Button';
+import Headline from 'components/atoms/Headline';
+import PaymentTable from 'components/organisms/PaymentTable';
+import ExpenditureForm from 'components/organisms/ExpenditureForm';
+import Modal from 'components/molecules/Modal';
 import CollectionProvider from 'context/CollectionContext';
 
 import plusIcon from 'assets/icons/plus.svg';

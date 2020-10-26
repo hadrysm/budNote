@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Section from 'components/atoms/Section/Section.style';
+import Section from 'components/atoms/Section';
 
 export const StyledSection = styled(Section)`
   display: none;

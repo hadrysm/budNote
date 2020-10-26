@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Navigation from 'components/Organisms/Navigation/Navigation';
+import Wrapper from 'components/atoms/Wrapper';
+import Navigation from 'components/organisms/Navigation';
 
-import Layout from 'templates/Layout/Layout ';
+import Layout from 'templates/Layout';
 import { Main, InnerWrapper } from './PageTemplate.style';
 
 const PageTemplate = ({ children }) => {

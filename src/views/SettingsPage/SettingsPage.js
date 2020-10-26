@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Box from 'components/atoms/Box/Box';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import Section from 'components/atoms/Section/Section.style';
-import Headline from 'components/atoms/Headline/Headline.style';
-import SwitchButton from 'components/atoms/SwitchButton/SwitchButton';
-import CategoryBox from 'components/molecules/CategoryBox/CategoryBox';
+import Wrapper from 'components/atoms/Wrapper';
+import Box from 'components/atoms/Box';
+import PageTitle from 'components/atoms/PageTitle';
+import Section from 'components/atoms/Section';
+import Headline from 'components/atoms/Headline';
+import SwitchButton from 'components/atoms/SwitchButton';
+import CategoryBox from 'components/molecules/CategoryBox';
 import CollectionProvider from 'context/CollectionContext';
-import Modal from 'components/molecules/Modal/Modal';
-import NewCategoryForm from 'components/molecules/NewCategoryForm/NewCategoryForm';
+import Modal from 'components/molecules/Modal';
+import NewCategoryForm from 'components/molecules/NewCategoryForm';
 
 import { useDarkMode } from 'hooks/useDarkMode';
 import { themeColorType } from 'store/settings/types';

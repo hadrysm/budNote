@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import Section from 'components/atoms/Section/Section.style';
-import Headline from 'components/atoms/Headline/Headline.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import AboutList from 'components/molecules/AboutList/AboutList';
+import Wrapper from 'components/atoms/Wrapper';
+import PageTitle from 'components/atoms/PageTitle';
+import Section from 'components/atoms/Section';
+import Headline from 'components/atoms/Headline';
+import Paragraph from 'components/atoms/Paragraph';
+import AboutList from 'components/molecules/AboutList';
 import { generateUnicId } from 'helpers';
 
 const aboutData = [

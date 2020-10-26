@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
+import LinkItem from 'components/atoms/LinkItem';
 import logoutIcon from 'assets/icons/logout.svg';
 import penIcon from 'assets/icons/pen.svg';
 import settingsIcon from 'assets/icons/settings.svg';

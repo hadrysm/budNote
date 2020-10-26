@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Headline from 'components/atoms/Headline/Headline.style';
-import Button from 'components/atoms/Button/Button.style';
+import Headline from 'components/atoms/Headline';
+import Button from 'components/atoms/Button';
 
 export const StyledHeadline = styled(Headline)`
   margin-bottom: 2rem;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
-import List from 'components/atoms/List/List.style';
-import ListItem from 'components/atoms/ListItem/ListItem.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
+import List from 'components/atoms/List';
+import ListItem from 'components/atoms/ListItem';
 
 import { sidebarVariants } from 'variants';
 

@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 
 import routes from 'routes';
 import { generateUnicId } from 'helpers';
-import NavLinkItem from 'components/atoms/NavLinkItem/NavLinkItem';
-import Button from 'components/atoms/Button/Button.style';
+import NavLinkItem from 'components/atoms/NavLinkItem';
+import Button from 'components/atoms/Button';
 import { TransitionContext } from 'context/TransitionContextProvider';
 import { useHistory } from 'react-router-dom';
 import { Wrapper, StyledList, StyledListItem } from './NavList.style';

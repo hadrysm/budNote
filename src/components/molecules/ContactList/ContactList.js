@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
 
 import { StyledListItem, InnerWrapper, StyledList, StyledParagraph } from './ContactList.style';
 

@@ -3,23 +3,23 @@ import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // templates
-import MainTemplate from 'templates/MainTemplate/MainTemplate';
-import PageTemplate from 'templates/PageTemplate/PageTemplate';
-import PanelTemplate from 'templates/PanelTemplate/PanelTemplate';
+import MainTemplate from 'templates/MainTemplate';
+import PageTemplate from 'templates/PageTemplate';
+import PanelTemplate from 'templates/PanelTemplate';
 
 // pages
-import HomePage from 'views/HomePage/HomePage';
-import AboutPage from 'views/AboutPage/AboutPage';
-import ContactPage from 'views/ContactPage/ContactPage';
-import LoginPage from 'views/LoginPage/LoginPage';
-import NotesPage from 'views/NotesPage/NotesPage';
-import BudgetPage from 'views/BudgetPage/BudgetPage';
-import ChartPage from 'views/ChartPage/ChartPage';
-import NotePage from 'views/NotePage/NotePage';
-import SettingsPage from 'views/SettingsPage/SettingsPage';
+import HomePage from 'views/HomePage';
+import AboutPage from 'views/AboutPage';
+import ContactPage from 'views/ContactPage';
+import LoginPage from 'views/LoginPage';
+import NotesPage from 'views/NotesPage';
+import BudgetPage from 'views/BudgetPage';
+import ChartPage from 'views/ChartPage';
+import NotePage from 'views/NotePage';
+import SettingsPage from 'views/SettingsPage';
 
 // routes
-import PrivateRoute from 'components/hoc/PrivateRoute/PrivateRoutes';
+import PrivateRoute from 'components/utility/PrivateRoute';
 import routes from 'routes';
 
 const Root = () => {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon.style';
+import ButtonIcon from 'components/atoms/ButtonIcon';
 import { taskVariants } from 'variants';
 
 const { parent } = taskVariants;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-import ListItem from 'components/atoms/ListItem/ListItem.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import Headline from 'components/atoms/Headline/Headline.style';
+import ListItem from 'components/atoms/ListItem';
+import Paragraph from 'components/atoms/Paragraph';
+import Headline from 'components/atoms/Headline';
 
 import { pageVariants, buttonVariants } from 'variants';
 

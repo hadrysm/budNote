@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import Headline from 'components/atoms/Headline/Headline.style';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import Section from 'components/atoms/Section/Section.style';
+import Headline from 'components/atoms/Headline';
+import Paragraph from 'components/atoms/Paragraph';
+import Section from 'components/atoms/Section';
 
 export const StyledHeadline = styled(Headline)`
   text-align: center;

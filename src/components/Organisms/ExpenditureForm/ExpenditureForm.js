@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
-import Input from 'components/atoms/Input/Input';
-import Select from 'components/atoms/Select/Select';
+import Input from 'components/atoms/Input';
+import Select from 'components/atoms/Select';
 import { CollectionContext } from 'context/CollectionContext';
 import { StyledForm, StyledButton } from './ExpenditureForm.style';
 

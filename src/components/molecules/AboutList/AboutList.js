@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import List from 'components/atoms/List/List.style';
+import List from 'components/atoms/List';
 
 import { StyledListItem, InnerWrapper, StyledParagraph, StyledHeadline } from './AboutList.style';
 

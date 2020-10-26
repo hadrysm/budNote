@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Wrapper from 'components/atoms/Wrapper/Wrapper.style';
-import Button from 'components/atoms/Button/Button.style';
-import PageTitle from 'components/atoms/PageTitle/PageTitle.style';
-import Section from 'components/atoms/Section/Section.style';
-import Headline from 'components/atoms/Headline/Headline.style';
-import MyResponsivePie from 'components/Organisms/MyResponsivePie/MyResponsivePie';
-import Balance from 'components/molecules/Balance/Balance';
+import Wrapper from 'components/atoms/Wrapper';
+import Button from 'components/atoms/Button';
+import PageTitle from 'components/atoms/PageTitle';
+import Section from 'components/atoms/Section';
+import Headline from 'components/atoms/Headline';
+import MyResponsivePie from 'components/organisms/MyResponsivePie';
+import Balance from 'components/molecules/Balance';
 import { getColor } from 'helpers';
-import Paragraph from 'components/atoms/Paragraph/Paragraph.style';
-import LinkItem from 'components/atoms/LinkItem/LinkItem.style';
+import Paragraph from 'components/atoms/Paragraph';
+import LinkItem from 'components/atoms/LinkItem';
 import routes from 'routes';
 import { Header, InnerWrapper, Content, NoDataWrapper } from './ChartPage.style';
 

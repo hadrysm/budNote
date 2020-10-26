@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Button from 'components/atoms/Button/Button.style';
+import Button from 'components/atoms/Button';
 
 export const InnerWrapper = styled.div`
   min-width: 25rem;
