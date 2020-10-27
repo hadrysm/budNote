@@ -19,7 +19,7 @@ export const Table = styled(motion.div).attrs(() => ({
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   overflow: hidden;
   display: grid;
-  grid-template-columns: 0.45fr 0.55fr;
+  grid-template-columns: 10rem 1fr;
 
   @media ${({ theme }) => theme.mq.tablet} {
     display: block;

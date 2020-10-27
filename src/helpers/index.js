@@ -3,11 +3,11 @@ import * as ERROR_MESSAGES from 'firebase/customErrorMessages';
 export const generateUnicId = () => String(Math.floor(Math.random() * 10 ** 20));
 
 export const getFormatDate = (dataInMiliSecond) => {
-  const result = new Date(dataInMiliSecond);
+  const date = new Date(dataInMiliSecond);
 
-  const year = result.getFullYear();
-  const month = result.getMonth() + 1;
-  const day = result.getDate();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   // return 14-10-2020
 
@@ -70,7 +70,7 @@ export const getColor = (index) => {
     '#c3a9b7',
   ];
 
-  let colorIndex = index;
+  let colorIndex;
 
   if (index > colors.length - 1) {
     colorIndex = Math.floor(Math.random() * colors.length);

@@ -43,8 +43,7 @@ export const DataItem = styled.li`
 
   ::before {
     position: absolute;
-    left: -90%;
-    width: 100%;
+    left: -10rem;
     height: 100%;
     white-space: nowrap;
     font-weight: ${({ theme }) => theme.font.weight.bold};

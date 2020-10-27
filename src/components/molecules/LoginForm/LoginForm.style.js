@@ -8,7 +8,7 @@ export const FormWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   border-radius: 2rem;
-  padding: 4rem 4rem 2rem;
+  padding: 4rem 6rem 2rem;
   background-color: ${({ theme }) => theme.colors.tertiary};
   overflow: hidden;
   position: relative;
