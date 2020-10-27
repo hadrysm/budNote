@@ -70,11 +70,29 @@ export const getColor = (index) => {
     '#c3a9b7',
   ];
 
-  let colorIndex;
+  let colorIndex = index;
 
   if (index > colors.length - 1) {
     colorIndex = Math.floor(Math.random() * colors.length);
   }
 
   return colors[colorIndex];
+};
+
+export const getPieData = (data) => {
+  const pieData = data.reduce((acc, { category, amount }, index) => {
+    const existItem = acc.find(({ id }) => id === category);
+    if (existItem) {
+      existItem.value += amount;
+    } else {
+      acc.push({
+        id: category,
+        value: amount,
+        color: getColor(index),
+      });
+    }
+    return acc;
+  }, []);
+
+  return pieData;
 };

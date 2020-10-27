@@ -4,19 +4,6 @@ import { ThemeContext } from 'styled-components';
 
 import { ResponsivePie } from '@nivo/pie';
 
-// const data = [
-//   {
-//     id: 'mieszkanie',
-//     value: 310, - sum of all id's
-//     color: 'hsl(163, 70%, 50%)', - random
-//   },
-//   {
-//     id: 'jedzenie',
-//     value: 479,
-//     color: 'hsl(52, 70%, 50%)',
-//   },
-// ];
-
 const MyResponsivePie = ({ data, colorBy, sliceLabel }) => {
   const { colors } = useContext(ThemeContext);
 

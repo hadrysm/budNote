@@ -8,32 +8,17 @@ import Section from 'components/atoms/Section';
 import Headline from 'components/atoms/Headline';
 import MyResponsivePie from 'components/organisms/MyResponsivePie';
 import Balance from 'components/molecules/Balance';
-import { getColor } from 'helpers';
 import Paragraph from 'components/atoms/Paragraph';
 import LinkItem from 'components/atoms/LinkItem';
+
 import routes from 'routes';
+import { getPieData } from 'helpers';
+
 import { Header, InnerWrapper, Content, NoDataWrapper } from './ChartPage.style';
 
 const ChartPages = () => {
   const budgetItems = useSelector(({ budget }) => budget.budget);
-
-  const parseData = () => {
-    const pieData = budgetItems.reduce((acc, { category, amount }, index) => {
-      const existItem = acc.find(({ id }) => id === category);
-      if (existItem) {
-        existItem.value += amount;
-      } else {
-        acc.push({
-          id: category,
-          value: amount,
-          color: getColor(index),
-        });
-      }
-      return acc;
-    }, []);
-
-    return pieData;
-  };
+  const data = getPieData(budgetItems);
 
   return (
     <Wrapper withVariants maxWidth>
@@ -55,7 +40,7 @@ const ChartPages = () => {
           ) : (
             <Content>
               <MyResponsivePie
-                data={parseData()}
+                data={data}
                 colorBy={(d) => d.color}
                 sliceLabel={(d) => `${d.value} zł`}
               />
