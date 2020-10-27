@@ -8,12 +8,16 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const InnerWapper = styled.div`
   padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
 `;
+
 export const StyledSection = styled(Section)`
   margin-top: 3.5rem;
 `;

@@ -86,7 +86,7 @@ const BudgesPages = () => {
         <PageTitle screenRenderOnly>notatki</PageTitle>
         <Header>
           <InnerWapper>
-            <Headline>Lista wydatków</Headline>
+            <Headline>Wydatki</Headline>
             <Paragraph>
               {getCurrentMonth()} {getYear()}
             </Paragraph>
@@ -103,11 +103,11 @@ const BudgesPages = () => {
               <Button onClick={() => setIsExpenditureModalOpen(true)}>Dodaj</Button>
             </NoDataWrapper>
           ) : (
-            <PaymentTable
-              handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
-              handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
-            />
-          )}
+              <PaymentTable
+                handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
+                handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
+              />
+            )}
         </StyledSection>
       </Wrapper>
 

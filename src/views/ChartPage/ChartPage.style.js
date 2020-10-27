@@ -6,7 +6,6 @@ import { pieVAriants } from 'variants';
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
-
   align-items: flex-start;
 `;
 
