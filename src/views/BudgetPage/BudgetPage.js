@@ -25,7 +25,7 @@ import {
 
 import { db } from 'firebase/base';
 
-import { getCurrentMonth, getYear } from 'helpers';
+import { getCurrentMonth } from 'helpers';
 import { useCollection } from 'hooks/useCollection';
 import {
   Header,
@@ -87,9 +87,7 @@ const BudgesPages = () => {
         <Header>
           <InnerWapper>
             <Headline>Wydatki</Headline>
-            <Paragraph>
-              {getCurrentMonth()} {getYear()}
-            </Paragraph>
+            <Paragraph>{getCurrentMonth()}</Paragraph>
           </InnerWapper>
           <InnerWapper>
             <Balance budgetItems={budgetItems} />
@@ -103,11 +101,11 @@ const BudgesPages = () => {
               <Button onClick={() => setIsExpenditureModalOpen(true)}>Dodaj</Button>
             </NoDataWrapper>
           ) : (
-              <PaymentTable
-                handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
-                handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
-              />
-            )}
+            <PaymentTable
+              handleOpenUpdateBudgetModal={handleOpenUpdateBudgetModal}
+              handleOpenRemoveBudgetModal={handleOpenRemoveBudgetModal}
+            />
+          )}
         </StyledSection>
       </Wrapper>
 

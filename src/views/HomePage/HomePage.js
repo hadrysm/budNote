@@ -42,7 +42,7 @@ const HomePage = () => {
       <Section withVariants isFlex>
         <StyledButton onClick={handleChangeTemplate}>spróbuj za darmo</StyledButton>
         <LinkItem to={routes.about}>
-          <StyledButton secondary>dowiec się więcej</StyledButton>
+          <StyledButton secondary>dowiedz się więcej</StyledButton>
         </LinkItem>
       </Section>
       <Section withVariants maxWidth="35" withMargin="3">
