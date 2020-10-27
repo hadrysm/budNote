@@ -39,7 +39,7 @@ export const StyledInput = styled(motion.input)`
   font-size: ${({ theme }) => theme.font.size.xxs};
   padding: 2rem 0.5rem 1rem;
   border: none;
-  line-height: 2rem;
+  line-height: 2.5rem;
   width: 100%;
   background: transparent;
 
@@ -76,7 +76,7 @@ export const FeedbackInput = styled(motion.div).attrs(() => ({
   exit: 'exit',
 }))`
   position: absolute;
-  bottom: -3rem;
+  bottom: -3.5rem;
   left: 0;
   color: ${({ theme }) => theme.colors.error};
   text-align: left;
