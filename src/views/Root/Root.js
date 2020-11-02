@@ -17,6 +17,7 @@ import BudgetPage from 'views/BudgetPage';
 import ChartPage from 'views/ChartPage';
 import NotePage from 'views/NotePage';
 import SettingsPage from 'views/SettingsPage';
+import NotFoundPage from 'views/NotFoundPage';
 
 // routes
 import PrivateRoute from 'components/utility/PrivateRoute';
@@ -50,6 +51,7 @@ const Root = () => {
                 <Route path={routes.about} exact component={AboutPage} />
                 <Route path={routes.contact} exact component={ContactPage} />
                 <Route path={routes.login} exact component={LoginPage} />
+                <Route path={routes.notFound} component={NotFoundPage} />
               </Switch>
             </AnimatePresence>
           </PageTemplate>
