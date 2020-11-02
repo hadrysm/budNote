@@ -10,6 +10,8 @@ const routes = {
   settings: '/user/settings',
   notes: '/user/notes',
   note: '/user/:id',
+
+  notFound: '*',
 };
 
 export default routes;

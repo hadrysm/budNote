@@ -81,9 +81,9 @@ const LoginForm = () => {
         </div>
         <StyledButton type="submit">{isLogin ? 'zaloguj się' : 'swtórz konto'}</StyledButton>
       </StyledForm>
-      <StyledButton createAccount secondary onClick={() => setIsLogin((prevState) => !prevState)}>
+      <createAccount secondary onClick={() => setIsLogin((prevState) => !prevState)}>
         {isLogin ? 'stwórz konto' : 'zaloguj sie'}
-      </StyledButton>
+      </createAccount>
     </FormWrapper>
   );
 };
