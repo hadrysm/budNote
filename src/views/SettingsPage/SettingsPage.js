@@ -58,6 +58,12 @@ const SettingsPage = () => {
   };
 
   useEffect(() => {
+    if (isNewCategoryModalOpen || isUpdateModalOpen || isRemoveModalOpen)
+      document.body.classList.add('no-scroll');
+    else document.body.classList.remove('no-scroll');
+  }, [isNewCategoryModalOpen, isUpdateModalOpen, isRemoveModalOpen]);
+
+  useEffect(() => {
     setIsNewCategoryModalOpen(false);
     setIsUpdateModalOpen(false);
     setisRemoveModalOpen(false);
