@@ -39,6 +39,11 @@ const NotesPage = () => {
     setNoteFormVisible(false);
   }, [notesData]);
 
+  useEffect(() => {
+    if (isNoteFormVisible) document.body.classList.add('no-scroll');
+    else document.body.classList.remove('no-scroll');
+  }, [isNoteFormVisible]);
+
   return (
     <CollectionProvider collectionConfig={collectionConfig}>
       <Wrapper withVariants maxWidth>
