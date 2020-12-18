@@ -33,14 +33,14 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%;
+  min-height: 100%;
   width: 70%;
   max-width: 60rem;
   padding: 3rem 1.5rem;
   background-color: ${({ theme }) => theme.colors.tertiary};
   box-shadow: ${({ theme }) => theme.colors.boxShadow};
   border: 2px solid ${({ theme }) => theme.colors.secondary};
-  overflow: auto;
+  overflow-y: auto;
 
   @media ${({ theme }) => theme.mq.tablet} {
     padding: 6rem 3rem;
@@ -49,13 +49,12 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   ${({ secondary }) =>
     secondary &&
     css`
-      position: absolute;
       top: 10%;
-      right: 0;
       left: 0;
       margin: auto;
       min-height: auto;
       border-radius: 1rem;
+      overflow: hidden;
     `}
 `;
 
