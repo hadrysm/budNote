@@ -49,13 +49,12 @@ export const BoxWrapper = styled(motion.div).attrs(() => ({
   ${({ secondary }) =>
     secondary &&
     css`
-      position: absolute;
       top: 10%;
-      right: 0;
       left: 0;
       margin: auto;
-      min-height: auto;
+      height: auto;
       border-radius: 1rem;
+      overflow: hidden;
     `}
 `;
 

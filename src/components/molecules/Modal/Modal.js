@@ -9,7 +9,7 @@ import { useClickOutside } from 'hooks/useClickOutside';
 import Spinner from 'components/atoms/Spinner';
 import { Wrapper, BoxWrapper, CloseButton, SpinnerWrapper } from './Modal.style';
 
-const Modal = ({ title, children, secondary, closeModalFn, small }) => {
+const Modal = ({ title, children, secondary, closeModalFn }) => {
   const modalRef = useClickOutside(closeModalFn);
 
   const isBudgetLoading = useSelector(({ budget }) => budget.loading);
@@ -18,7 +18,7 @@ const Modal = ({ title, children, secondary, closeModalFn, small }) => {
 
   return (
     <Wrapper>
-      <BoxWrapper secondary={secondary} small={small} ref={modalRef}>
+      <BoxWrapper secondary={secondary} ref={modalRef}>
         <AnimatePresence>
           {(isBudgetLoading || isCategoryLoading || isNotesLoading) && (
             <SpinnerWrapper>
@@ -39,13 +39,11 @@ Modal.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   closeModalFn: PropTypes.func.isRequired,
   secondary: PropTypes.bool,
-  small: PropTypes.bool,
 };
 
 Modal.defaultProps = {
   title: 'title',
   secondary: false,
-  small: false,
 };
 
 export default Modal;
