@@ -1,10 +1,16 @@
-# budNote | simple budget app
+# BudNote | simple budget app
 
-- Live: [website](https://budnote.netlify.app/)
+<img width="100%" src="https://i.ibb.co/2PH9nVv/Group-2.png" />
 
-The budNote application helps you planning, expense saving, control and home finance management.
+## Live 📍
 
-## Built With
+- [website](https://budnote.netlify.app/)
+
+## Project Overview 🎉
+
+The budNote application helps you planning, expense saving, control and home finance management. E-Commerce project made with React for self learning. I used <a href="https://bradfrost.com/blog/post/atomic-web-design"> Atomic Design</a> for components architecture. I used <a href="https://firebase.google.com/">Firebase</a> for handling data.
+
+## Tech/framework used 🔧
 
 - Create React App
 - react hooks
@@ -17,22 +23,47 @@ The budNote application helps you planning, expense saving, control and home fin
 
 ## Features
 
-- quick transaction adding
-- illustrative charts
-- adding your own categories
-- change theme color
-- adding your own notes
+- Quick transaction adding
+- Ollustrative charts
+- Adding your own categories
+- Change theme color
+- Adding your own notes
+- Responsive Web Design
 
-## Getting Started
+## Screenshots 📺
 
-To download the project, download it to your computer. Then follow the instructions.
+<p align="center">
+    <img src="https://i.ibb.co/Th3Wftg/screenshot-budnote-netlify-app-user-chart-1612801243502.png" alt="Screen Shot">
+</p>
 
-### Installing
+<p align="center">
+    <img src="https://i.ibb.co/88ScDSf/screenshot-budnote-netlify-app-1612801119704.png" alt="Screen Shot">
+</p>
 
-To initiate the project, enter in the terminal:
+<p align="center">
+    <img src="https://i.ibb.co/D7M6nHH/screenshot-budnote-netlify-app-user-budget-1612801197069.png" alt="Screen Shot">
+</p>
 
-```
+<p align="center">
+    <img src="https://i.ibb.co/2hvz9XD/screenshot-budnote-netlify-app-about-1612801138907.png" alt="Screen Shot">
+</p>
+
+<p align="center">
+    <img src="https://i.ibb.co/VtWftXM/screenshot-budnote-netlify-app-about-1612801164482.png" alt="Screen Shot">
+</p>
+
+<p align="center">
+    <img src="https://i.ibb.co/XFLTyrj/screenshot-budnote-netlify-app-user-budget-1612801223639.png" alt="Screen Shot">
+</p>
+
+
+## Installation 💾
+
+```bash
+git clone https://github.com/hadrysm/budNote.git
+
 npm install
+
 ```
 
 You need create [firebase](https://firebase.google.com/) app and add .env firebaseConfig. In repository you can find .env-example file.
@@ -40,40 +71,27 @@ You need create [firebase](https://firebase.google.com/) app and add .env fireba
 ```
 add .env file
 ```
-
 To start a live server, enter in the terminal:
-
 ```
 npm start
 ```
 
-Sample account filled with data:
+## Sign in ❗️
 
-```
-login: test@test.com
-password: test1234
-```
+- Email: test@test.com
+- Password: test1234
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Code Example/Issues 🔍
 
-To create a distribution version, type in terminal:
+If you have any issues, please let me know in the issues section or directly to m.hadrys.95@gmail.com
 
-```
+## Credits and sources
 
-npm run build
-
-```
-
-Builds the app for production to the `build` folder.<br />
+Illustrations: undraw <br/>
+Icons: react-icons
 
 ## Author
 
-- **[Mateusz Hadryś](https://github.com/hadrysm)** - _coding_
+- **[Mateusz Hadryś](https://github.com/hadrysm)**
 
-```
-
-```
